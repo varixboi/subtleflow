@@ -1,0 +1,17 @@
+# Node
+node_modules/
+
+# Angular
+frontend/dist/
+frontend/.angular/
+
+# Environment files
+.env
+backend/.env
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
