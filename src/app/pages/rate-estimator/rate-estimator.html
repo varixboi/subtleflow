@@ -31,7 +31,7 @@
             }
         </div>
         <div class="selection-div">
-            <p>PRINT COST: {{ppCost}}</p>
+            <p>PRINT COST: {{printCost}}</p>
             <p>Select Front Print:</p>
             @for(front of frontOptions; track front.id){
                 <input type="radio" id="front-radio"
@@ -68,7 +68,7 @@
                             <td class="size-input-table"><input
                                 class="size-input"
                                 type="number"
-                                (change)="updateQty(size, $event)"
+                                (input)="updateQty(size, $event)"
                                 min="0"                
                                 />
                             </td>
@@ -77,5 +77,13 @@
                 </tbody>
             </table>
         </div>
+        <div #quoteSummary>
+            <p>Quantity: {{totalQty}} PCS of {{selectedProduct.product_name}}</p>
+            <p>Tshirt total: &#8377;{{unitPrice}} x {{totalQty}} PCS = &#8377;{{tshirtTotal}}/-</p>
+            <p>Print total: &#8377;{{printCost}} x {{totalQty}} PCS = &#8377;{{printTotal}}/-</p>
+            <p>Taxable: &#8377;{{subTotal[0]}}/- | GST(5%): &#8377;{{subTotal[1]}}/-</p>
+            <p>SUBTOTAL: &#8377;{{subTotal[2]}}/- + SHIPPING AS PER ACTUAL</p>
+        </div>
+        <button type="button" (click)="copyQuote(quoteSummary)">{{copyQuoteButtonText}}</button>
     </form>
 </section>

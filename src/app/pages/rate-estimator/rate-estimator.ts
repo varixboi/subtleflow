@@ -27,8 +27,10 @@ export class RateEstimator {
   backOptions: BackPrint[] = backPrint;
   selectedBack!: BackPrint;
 
-  ppCost!: number;
+  printCost!: number;
   sizeQty: Record<string,number> = {};
+  
+  copyQuoteButtonText: string = "Copy Quote!";
 
   constructor(){
     console.log(this.products[1].display_name);
@@ -49,17 +51,18 @@ export class RateEstimator {
   changeSelectedProduct(product: Product){
     this.selectedProduct = product;
     this.selectedColor = this.selectedProduct.colors[0];
-    console.log("Product changed to: ", this.selectedProduct,"-",this.selectedColor)
+    console.log("Product changed to: ", this.selectedProduct,"-",this.selectedColor);
   }
 
   changeSelectedColor(color: string){
     this.selectedColor = color;
-    console.log("Color changed to: ", this.selectedColor)
+    console.log("Color changed to: ", this.selectedColor);
   }
 
   changeSelectedFront(front: FrontPrint){
     this.selectedFront = front;
     this.calculatePrintCost();
+
   }
   
   changeSelectedBack(back: BackPrint){
@@ -69,10 +72,11 @@ export class RateEstimator {
 
   calculatePrintCost(){
     if(this.selectedBack.id==="NONE"){
-      this.ppCost= this.selectedFront.price;
+      this.printCost= this.selectedFront.price;
+
     }
     else{
-      this.ppCost= this.selectedBack.price + this.selectedFront.addonPrice;
+      this.printCost= this.selectedBack.price + this.selectedFront.addonPrice;
     }
   }
 
@@ -81,4 +85,59 @@ export class RateEstimator {
     this.sizeQty[size] = Number(value)
     console.log(size,":",value)
   }
+
+
+
+  get totalQty():number {
+    return Object.values(this.sizeQty).reduce((sum,val) => sum + (val || 0), 0)
+  }
+
+  get unitPrice():number{
+    if(this.totalQty<10){
+      return this.selectedProduct.sample_price;
+    }
+    else{
+      return this.selectedProduct.price;
+    }
+  }
+
+  get tshirtTotal():number{
+    if(this.totalQty<10){
+      return this.totalQty*this.selectedProduct.sample_price;
+    }
+    else{
+      return this.totalQty*this.selectedProduct.price;
+    }
+  }
+
+  get printTotal():number{
+    return this.printCost*this.totalQty;
+  }
+
+  get ppCost(): number{
+    return this.selectedProduct.price+this.printCost
+  }
+
+  get subTotal():number[]{
+    return [this.tshirtTotal+this.printTotal,
+            (this.tshirtTotal+this.printTotal)*0.05,
+            (this.tshirtTotal+this.printTotal) *1.05
+    ];
+  }
+
+  copyQuote(element: HTMLElement){
+    navigator.clipboard.writeText(element.innerText);
+    this.copyQuoteButtonText="Copied!!"
+  }
+    
+ 
+
+  // calculateSubtotal(){
+  //   if(this.totalQty<10){
+  //     this.tshirtTotal = this.tshirtTotal + (this.totalQty*this.selectedProduct.sample_price)
+  //   }
+  //   else{
+  //     this.tshirtTotal = this.tshirtTotal + (this.totalQty*this.selectedProduct.price)
+  //   }
+  // }
 }
