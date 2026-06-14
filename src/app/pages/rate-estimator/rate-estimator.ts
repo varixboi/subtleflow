@@ -73,7 +73,6 @@ export class RateEstimator {
   calculatePrintCost(){
     if(this.selectedBack.id==="NONE"){
       this.printCost= this.selectedFront.price;
-
     }
     else{
       this.printCost= this.selectedBack.price + this.selectedFront.addonPrice;
@@ -102,12 +101,7 @@ export class RateEstimator {
   }
 
   get tshirtTotal():number{
-    if(this.totalQty<10){
-      return this.totalQty*this.selectedProduct.sample_price;
-    }
-    else{
-      return this.totalQty*this.selectedProduct.price;
-    }
+    return this.totalQty*this.unitPrice
   }
 
   get printTotal():number{
@@ -115,7 +109,7 @@ export class RateEstimator {
   }
 
   get ppCost(): number{
-    return this.selectedProduct.price+this.printCost
+    return this.unitPrice+this.printCost
   }
 
   get subTotal():number[]{
@@ -129,15 +123,4 @@ export class RateEstimator {
     navigator.clipboard.writeText(element.innerText);
     this.copyQuoteButtonText="Copied!!"
   }
-    
- 
-
-  // calculateSubtotal(){
-  //   if(this.totalQty<10){
-  //     this.tshirtTotal = this.tshirtTotal + (this.totalQty*this.selectedProduct.sample_price)
-  //   }
-  //   else{
-  //     this.tshirtTotal = this.tshirtTotal + (this.totalQty*this.selectedProduct.price)
-  //   }
-  // }
 }
