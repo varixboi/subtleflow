@@ -53,8 +53,8 @@
         <div>
             <table class="size-input-table">
                 <thead>
-                    <tr class="size-input-table">
-                        <th>SIZE</th>
+                    <tr>
+                        <th class="size-input-table">SIZE</th>
                         @for(size of selectedProduct.sizes; track size){
                             <th class="size-input-table">{{size}}</th>
                         }
@@ -63,7 +63,7 @@
                 
                 <tbody class="size-input-table">
                     <tr>
-                        <td>QTY</td>
+                        <th class="size-input-table">QTY</th>
                         @for(size of selectedProduct.sizes; track size){
                             <td class="size-input-table"><input
                                 class="size-input"

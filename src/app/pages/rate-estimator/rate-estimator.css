@@ -16,7 +16,8 @@ input[type=number] {
 /* Section - Form */
 
 .section-form{
-    width: 640px;
+    max-width: 640px;
+    width: 100%;
 }
 
 
@@ -25,9 +26,17 @@ input[type=number] {
 .size-input-table{
     border: 1px solid black;
     border-collapse: collapse;
+    width: 100%;
+
+    table-layout: fixed;
+}
+
+.size-input{
+    max-width: 2rem;
 }
 
 input{
+    
     border: none;
     outline: none;
 }
