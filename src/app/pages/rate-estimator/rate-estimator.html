@@ -1,0 +1,81 @@
+<!-- <div>
+    <form>
+        <label>Select product:</label>
+        <br/>
+        <select id="product-dd" name="product-dd">
+            <option value="180bw">180GSM Biowash Regular fit</option>
+            <option value="180bw">240GSM French Terry Oversized</option>
+        </select>
+    </form>
+</div> -->
+
+
+<section class="section-form">
+    <form>
+        <div class="selection-div">
+            <p>Select Product:</p>
+            @for(product of products; track product.id){
+                <input type="radio" id="name-radio" 
+                [checked]="product.id === selectedProduct.id"
+                (change)="changeSelectedProduct(product)"/>
+                <label>{{product.display_name}}</label>
+            }
+        </div>
+        <div class="selection-div">
+            <p>Select Color:</p>
+            @for(color of selectedProduct.colors; track color){
+                <input type="radio" id="color-radio"
+                [checked]="color === selectedColor"
+                (change)="changeSelectedColor(color)"/>
+                <label>{{color}}</label>
+            }
+        </div>
+        <div class="selection-div">
+            <p>PRINT COST: {{ppCost}}</p>
+            <p>Select Front Print:</p>
+            @for(front of frontOptions; track front.id){
+                <input type="radio" id="front-radio"
+                [checked]="front.id === selectedFront.id"
+                (change)="changeSelectedFront(front)"/>
+                <label>{{front.name}}</label>
+            }
+            
+            <p>Select Back Print:</p>
+            @for(back of backOptions; track back.id){
+                <input type="radio" id="back-radio"
+                [checked]="back.id === selectedBack.id"
+                (change)="changeSelectedBack(back)"
+                />
+                <label>{{back.name}}</label>
+            }
+        </div>
+        
+        <div>
+            <table class="size-input-table">
+                <thead>
+                    <tr class="size-input-table">
+                        <th>SIZE</th>
+                        @for(size of selectedProduct.sizes; track size){
+                            <th class="size-input-table">{{size}}</th>
+                        }
+                    </tr>
+                </thead>
+                
+                <tbody class="size-input-table">
+                    <tr>
+                        <td>QTY</td>
+                        @for(size of selectedProduct.sizes; track size){
+                            <td class="size-input-table"><input
+                                class="size-input"
+                                type="number"
+                                (change)="updateQty(size, $event)"
+                                min="0"                
+                                />
+                            </td>
+                        }
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+</section>

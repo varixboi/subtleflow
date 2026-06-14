@@ -1,0 +1,38 @@
+/* HIDE INCREMENT/DECREMENT BUTTON OF NUMBER INPUT */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* Section - Form */
+
+.section-form{
+    width: 640px;
+}
+
+
+/* SIZE INPUT TABLE */
+
+.size-input-table{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+input{
+    border: none;
+    outline: none;
+}
+
+input:focus{
+    border: none;
+    outline: none;
+}

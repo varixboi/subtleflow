@@ -1,0 +1,22 @@
+[
+        {
+        "id":"NONE",
+        "name":"No Back Print",
+        "type":"DTF",
+        "price":0
+    },
+
+    {
+        "id":"A4",
+        "type":"DTF",
+        "name":"A4 Back Print",
+        "price":50
+    },
+
+    {
+        "id":"A3",
+        "type":"DTF",
+        "name":"A3 Back Print",
+        "price":80
+    }
+]
