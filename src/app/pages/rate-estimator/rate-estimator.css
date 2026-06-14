@@ -32,11 +32,11 @@ input[type=number] {
 }
 
 .size-input{
-    max-width: 2rem;
+    width: 100%;
+    max-width: 3rem;
 }
 
 input{
-    
     border: none;
     outline: none;
 }
