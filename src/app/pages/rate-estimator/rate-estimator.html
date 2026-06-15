@@ -15,41 +15,52 @@
         <div class="selection-div">
             <p>Select Product:</p>
             @for(product of products; track product.id){
-                <input type="radio" id="name-radio" 
-                [checked]="product.id === selectedProduct.id"
-                (change)="changeSelectedProduct(product)"/>
-                <label>{{product.display_name}}</label>
+                <label class="options-radio">
+                    <input type="radio" id="name-radio"
+                    [checked]="product.id === selectedProduct.id"
+                    (change)="changeSelectedProduct(product)"/>
+                    <span>{{product.display_name}}</span>
+                </label>
             }
         </div>
         <div class="selection-div">
             <p>Select Color:</p>
             @for(color of selectedProduct.colors; track color){
-                <input type="radio" id="color-radio"
-                [checked]="color === selectedColor"
-                (change)="changeSelectedColor(color)"/>
-                <label>{{color}}</label>
+                <label class="options-radio">
+                    <input type="radio" id="color-radio"
+                    class="options-radio"
+                    [checked]="color === selectedColor"
+                    (change)="changeSelectedColor(color)"/>
+                    <span>{{color}}</span>
+                </label>
             }
         </div>
         <div class="selection-div">
-            <p>PRINT COST: {{printCost}}</p>
-            <p>Select Front Print:</p>
+            <p>Front Print:</p>
             @for(front of frontOptions; track front.id){
-                <input type="radio" id="front-radio"
-                [checked]="front.id === selectedFront.id"
-                (change)="changeSelectedFront(front)"/>
-                <label>{{front.name}}</label>
+                <label class="options-radio">
+                    <input type="radio" id="front-radio"
+                    class="options-radio"
+                    [checked]="front.id === selectedFront.id"
+                    (change)="changeSelectedFront(front)"/>
+                    <span>{{front.name}}</span>
+                </label>
             }
             
-            <p>Select Back Print:</p>
+            <p>Back Print:</p>
             @for(back of backOptions; track back.id){
-                <input type="radio" id="back-radio"
-                [checked]="back.id === selectedBack.id"
-                (change)="changeSelectedBack(back)"
-                />
-                <label>{{back.name}}</label>
+                <label class="options-radio">    
+                    <input type="radio" id="back-radio"
+                    class="options-radio"
+                    [checked]="back.id === selectedBack.id"
+                    (change)="changeSelectedBack(back)"
+                    />
+                    <span>{{back.name}}</span>
+                </label>
             }
+            <p>PRINT COST: &#8377;{{printCost}}/- Per Piece</p>
         </div>
-        
+
         <div>
             <table class="size-input-table">
                 <thead>
@@ -77,6 +88,7 @@
                 </tbody>
             </table>
         </div>
+
         <div #quoteSummary>
             <p>Quantity: {{totalQty}} PCS of {{selectedProduct.product_name}}</p>
             <p>Tshirt total: &#8377;{{unitPrice}} x {{totalQty}} PCS = &#8377;{{tshirtTotal}}/-</p>

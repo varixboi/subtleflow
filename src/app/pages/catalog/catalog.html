@@ -1,0 +1,34 @@
+        <div class="selection-div">
+            <p>Select Product:</p>
+            @for(product of products; track product.id){
+                <label class="options-radio">
+                    <input type="radio" id="name-radio"
+                    [checked]="product.id === selectedProduct.id"
+                    (change)="changeSelectedProduct(product)"/>
+                    <span>{{product.display_name}}</span>
+                </label>
+            }
+        </div>
+        <div class="selection-div">
+            <p>Select Color:</p>
+            @for(color of selectedProduct.colors; track color){
+                <label class="options-radio">
+                    <input type="radio" id="color-radio"
+                    class="options-radio"
+                    [checked]="color === selectedColor"
+                    (change)="changeSelectedColor(color)"/>
+                    <span>{{color}}</span>
+                </label>
+            }
+        </div>
+
+        <table>
+            <tr>
+                <th>10+ PCS</th>
+                <td>1-9PCS PCS</td>
+            </tr>
+            <tr>
+                <th>&#8377;{{selectedProduct.price}}</th>
+                <td>&#8377;{{selectedProduct.sample_price}}</td>
+            </tr>
+        </table>

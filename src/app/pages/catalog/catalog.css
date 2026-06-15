@@ -1,0 +1,37 @@
+/* OPTIONS-RADIO CLASS: This is for styling of the radio buttons in product,color and prints */
+.options-radio{
+    border: 1px black solid;
+    border-radius: 8px;
+    padding: 3px;
+}
+
+.options-radio input[type="radio"]{
+    display: none;
+}
+
+.options-radio span {
+    display: inline-block;
+    padding: 5px;
+}
+
+.options-radio:has(input[type="radio"]:checked){
+    background-color: #e5e5e5;
+    border-radius: 8px;
+}
+
+/* Price table css */
+table{
+    border: 1px black solid;
+    border-collapse: collapse;
+    table-layout: fixed;
+
+        width: 100%;
+}
+
+th, td{
+    border: 2px black solid;
+    border-collapse: collapse;
+    table-layout: fixed;
+
+    text-align: center;
+}
