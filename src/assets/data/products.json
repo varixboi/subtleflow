@@ -8,7 +8,11 @@
         "display_name":"180 BIOWASH",
         "colors":["Black", "White"],
         "sample_price":160,
-        "sizes":["S","M","L","XL","2XL"]
+        "sizes":["S","M","L","XL","2XL"],
+        "images":[
+            "product-images/180/Black 180.png",
+            "product-images/180/White 180.png"
+        ]
 
     },
 
@@ -19,9 +23,26 @@
         "price":200,
         "product_description":"Oversized Dropshoulder | 240GSM | French Terry/Loopknit Fabric | 100% Cotton Biowash | All over Double Stitching | Pre-shrunk fabric",
         "display_name":"240GSM OVERSIZE",
-        "colors":["Black", "White", "Charcoal", "Navy", "Maroon", "Off-white", "Brown", "Army green"],
+        "colors":["Black", "White", "Charcoal", "Navy", "Maroon", "Off-white", "Brown", "Army green", "Lavender", "Beige", "Sky blue", "Red", "Rose pink", "Royal blue"],
         "sample_price":230,
-        "sizes":["XS","S","M","L","XL","2XL"]
+        "sizes":["XS","S","M","L","XL","2XL"],
+        "images":[
+            "product-images/240/Black.png",
+            "product-images/240/White.png",
+            "product-images/240/Charcoal.png",
+            "product-images/240/Navy.png",
+            "product-images/240/Maroon.png",
+            "product-images/240/Off white.png",
+            "product-images/240/Brown.png",
+            "product-images/240/Army Green.png",
+            "product-images/240/Lavender.png",
+            "product-images/240/Beige.png",
+            "product-images/240/Sky blue.png",
+            "product-images/240/Red.png",
+            "product-images/240/Rose pink.png",
+            "product-images/240/Royal blue.png"
+
+        ]
 
     },
 
@@ -34,7 +55,11 @@
         "display_name":"240 ACIDWASH OS",
         "colors":["Black", "Maroon", "Brown", "Navy", "Army Green"],
         "sample_price":300,
-        "sizes":["S","M","L","XL","2XL"]
+        "sizes":["S","M","L","XL","2XL"],
+        "images":[
+            "product-images/180/Black 180.png",
+            "product-images/180/White 180.png"
+        ]
 
     },
 
@@ -47,7 +72,11 @@
         "display_name":"COTTON POLO",
         "colors":["Black", "White", "Navy"],
         "sample_price":240,
-        "sizes":["S","M","L","XL","2XL"]
+        "sizes":["S","M","L","XL","2XL"],
+        "images":[
+            "product-images/180/Black 180.png",
+            "product-images/180/White 180.png"
+        ]
 
     }
 ]

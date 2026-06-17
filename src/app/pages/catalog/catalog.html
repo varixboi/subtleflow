@@ -23,16 +23,15 @@
             </label>
         }
     </div>
-    
+
     <div class="product-details"> 
         <h2>{{selectedProduct.product_name}}</h2>
-        <h3>{{selectedProduct.product_description}}</h3>
     </div>
     
     <div class="imageSlider">
-        <img [src]="productImages[currentImage]"
-        (click)="changeImage()">
-        <p>{{currentImage+1}}/{{productImages.length}}</p>
+        <img [src]="selectedProduct.images[currentImage]"
+        (click)="changeImage($event)">
+        <p>{{currentImage+1}}/{{selectedProduct.images.length}} &sdot; {{currentColor}}</p>
     </div>
     
     <table>
@@ -45,6 +44,10 @@
             <td>&#8377;{{selectedProduct.sample_price}}</td>
         </tr>
     </table>
+
+    <div class="product-details"> 
+        <h3>{{selectedProduct.product_description}}</h3>
+    </div>
 </section>
     
     

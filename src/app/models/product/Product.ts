@@ -7,4 +7,5 @@ export interface Product {
   colors: string[];
   sample_price:number,
   sizes:string[];
+  images:string[];
 }

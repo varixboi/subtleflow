@@ -4,5 +4,5 @@ import { Catalog } from './pages/catalog/catalog';
 
 export const routes: Routes = [
 {path: 'rate-estimator-xyz', component: RateEstimator},
-{path:'', component: Catalog}
+{path: '', component: Catalog}
 ];

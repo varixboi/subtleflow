@@ -3,8 +3,6 @@ import { Component } from '@angular/core';
 import { Product } from '../../models/product/Product';
 import product_info from "../../../assets/data/products.json"
 
-import productImages from "../../../assets/data/productImages.json"
-
 @Component({
   selector: 'app-catalog',
   imports: [],
@@ -17,8 +15,9 @@ export class Catalog {
   selectedProduct!: Product;
   selectedColor!: string;
 
-  productImages = productImages;
+  // productImages = productImages;
   currentImage = 0;
+  productImages: any;
 
   constructor(){
     //initialize selected product
@@ -26,8 +25,6 @@ export class Catalog {
       this.selectedProduct = this.products[0];
       this.selectedColor = this.selectedProduct.colors[0];
     }
-
-    console.log(this.productImages);
   }
 
   changeSelectedProduct(product: Product){
@@ -41,12 +38,32 @@ export class Catalog {
     console.log("Color changed to: ", this.selectedColor);
   }
 
-  changeImage(){
-    if(this.currentImage === productImages.length-1){
-      this.currentImage = 0;
+  changeImage(event: MouseEvent){
+    const imageWidth = (event.currentTarget as HTMLElement).clientWidth;
+
+    if(event.offsetX < imageWidth/2){
+      if(this.currentImage === 0){
+        this.currentImage = this.selectedProduct.images.length-1;
+      }
+      else{
+        this.currentImage-=1;
+      }
     }
     else{
-      this.currentImage+=1;
+      if(this.currentImage === this.selectedProduct.images.length-1){
+        this.currentImage = 0;
+      }
+      else{
+        this.currentImage+=1;
+      }
     }
   }
+
+  get currentColor(): string{
+    return this.selectedProduct.images[this.currentImage]
+    .split('/')
+    .pop()!
+    .replace('.png','')
+  }
+
 }
