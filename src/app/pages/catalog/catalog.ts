@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { Product } from '../../models/product/Product';
 import product_info from "../../../assets/data/products.json"
 
+import productImages from "../../../assets/data/productImages.json"
+
 @Component({
   selector: 'app-catalog',
   imports: [],
@@ -15,12 +17,17 @@ export class Catalog {
   selectedProduct!: Product;
   selectedColor!: string;
 
+  productImages = productImages;
+  currentImage = 0;
+
   constructor(){
     //initialize selected product
     if(this.products.length > 0){
       this.selectedProduct = this.products[0];
       this.selectedColor = this.selectedProduct.colors[0];
     }
+
+    console.log(this.productImages);
   }
 
   changeSelectedProduct(product: Product){
@@ -34,4 +41,12 @@ export class Catalog {
     console.log("Color changed to: ", this.selectedColor);
   }
 
+  changeImage(){
+    if(this.currentImage === productImages.length-1){
+      this.currentImage = 0;
+    }
+    else{
+      this.currentImage+=1;
+    }
+  }
 }

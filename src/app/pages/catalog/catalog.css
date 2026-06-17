@@ -1,3 +1,12 @@
+/* SECTION MAIN */
+
+.section-main{
+    width: 100%;
+    max-width: 40rem;
+
+    margin: 0 auto;
+}
+
 /* OPTIONS-RADIO CLASS: This is for styling of the radio buttons in product,color and prints */
 .options-radio{
     border: 1px black solid;
@@ -34,4 +43,24 @@ th, td{
     table-layout: fixed;
 
     text-align: center;
+}
+
+.product-details{
+    text-align: center;
+}
+
+.product-details h2{
+    margin-bottom: -1rem;
+}
+
+.imageSlider {
+    width: 100%;
+    max-width: 400px;
+    margin: 1rem auto;
+
+}
+
+.imageSlider img{
+    width: 100%;
+    display: block;
 }

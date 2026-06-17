@@ -30,7 +30,7 @@ export class RateEstimator {
   printCost!: number;
   sizeQty: Record<string,number> = {};
   
-  copyQuoteButtonText: string = "Copy Quote!";
+  copyQuoteButtonText: string = "Copy Quote";
 
   constructor(){
     console.log(this.products[1].display_name);
@@ -122,5 +122,9 @@ export class RateEstimator {
   copyQuote(element: HTMLElement){
     navigator.clipboard.writeText(element.innerText);
     this.copyQuoteButtonText="Copied!!"
+    
+    setTimeout(() => {
+      this.copyQuoteButtonText="Copy Quote"
+    }, 1000);
   }
 }
