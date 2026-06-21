@@ -5,13 +5,41 @@
     max-width: 40rem;
 
     margin: 0 auto;
+
+   /* background-color: #f6f1e7; */
 }
 
-/* OPTIONS-RADIO CLASS: This is for styling of the radio buttons in product,color and prints */
+.selection-div{
+    background-color: #ffedca;
+    margin: 0;
+    padding: 0.5rem;
+}
+
+.selection-div h2{
+    margin: 0;
+}
+
+.selection-div p{
+    margin: 0;
+    margin-right: 2px;
+}
+
+
+/* OPTIONS-RADIO/OPTIONS-COLOR CLASS: This is for styling of the radio buttons in product,color and prints */
 .options-radio{
     border: 1px black solid;
-    border-radius: 8px;
-    padding: 3px;
+    border-radius: 4px;
+    padding: 2px;
+    
+    font-size: 12px;
+    
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    
+    margin-right: 4px;
+    margin-top: 2px;
+    /* background-color: #fff; */
 }
 
 .options-radio input[type="radio"]{
@@ -19,13 +47,31 @@
 }
 
 .options-radio span {
-    display: inline-block;
-    padding: 5px;
+    padding: 2px;
 }
 
 .options-radio:has(input[type="radio"]:checked){
-    background-color: #e5e5e5;
-    border-radius: 8px;
+    background-color: #7d7d7d;
+    color: #fff;
+    font-weight: 700;
+}
+
+.options-color{
+    font-size: 12px;
+
+    display: inline-flex;
+    align-items: center;
+
+    margin-right: 8px;
+}
+
+
+.color-swatch{
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+    border: 1px solid #ccc
 }
 
 /* Price table css */
@@ -34,7 +80,7 @@ table{
     border-collapse: collapse;
     table-layout: fixed;
 
-        width: 100%;
+    width: 100%;
 }
 
 th, td{
@@ -50,17 +96,151 @@ th, td{
 }
 
 .product-details h2{
-    margin-bottom: -1rem;
+    margin-bottom: -0.5rem;
+    font-size: 14px;
+}
+
+.product-details h3{
+    margin-bottom: -0.5rem;
+    font-size: 12px;
 }
 
 .imageSlider {
     width: 100%;
-    max-width: 400px;
+    max-width: 250px;
     margin: 1rem auto;
 
+    text-align: center;
+}
+
+.imageSlider h2{
+    margin: 1rem auto;
+    text-decoration: underline;
 }
 
 .imageSlider img{
     width: 100%;
     display: block;
+}
+
+/* .imageSlider p{
+    background-color: #fff;
+} */
+
+/* LEFT RIGHT ARROWS CSS */
+
+.slider-container{
+    position: relative;
+}
+
+.slider-container img{
+    width: 100%;
+    display: block;
+}
+
+.slider-zone{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 10%;
+
+    display: flex;
+    align-items: center;
+
+    background: rgba(0,0,0,0.05);
+
+    pointer-events: none;
+}
+
+.left-zone{
+    left: 0;
+    justify-content: flex-start;
+    padding-left: 10px;
+}
+
+.right-zone{
+    right: 0;
+    justify-content: flex-end;
+    padding-right: 10px;
+}
+
+.slider-arrow{
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.slider-caption{
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    width: 70%;
+    transform: translateX(-50%);
+
+    margin: 0;
+    padding: 0;
+
+    background: rgba(0,0,0,0.05);
+    color: white;
+
+    box-sizing: border-box;
+
+    font-size: 12px;
+}
+
+/* PRICE TABLE */
+
+.price-table{
+    table-layout: fixed;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+
+.bulk-header{
+    background-color: lightcoral;
+    color: #000;
+}
+
+.bulk-price{
+    background-color: #fff;
+    color: red;
+}
+
+.sample-header{
+    background-color: lightskyblue;
+    color: #000;
+}
+
+.sample-price{
+    background-color: #fff;
+    color: black;    
+}
+
+/* FLOATING WHATSAPP CHAT BUTTON */
+
+.floating-whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
+}
+
+.floating-whatsapp:hover {
+    transform: scale(1.1);
+    color: white;
 }

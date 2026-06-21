@@ -52,6 +52,8 @@ input:focus{
     border: 1px black solid;
     border-radius: 8px;
     padding: 3px;
+
+        margin-right: 4px;
 }
 
 .options-radio input[type="radio"]{

@@ -3,12 +3,16 @@ import { Component } from '@angular/core';
 import { Product } from '../../models/product/Product';
 import product_info from "../../../assets/data/products.json"
 
+import colorMap from "../../../assets/data/colors.json"
+import printedImages from "../../../assets/data/printedImages.json"
+
 @Component({
   selector: 'app-catalog',
   imports: [],
   templateUrl: './catalog.html',
   styleUrl: './catalog.css',
 })
+
 export class Catalog {
   products: Product[] = product_info;
 
@@ -18,6 +22,11 @@ export class Catalog {
   // productImages = productImages;
   currentImage = 0;
   productImages: any;
+
+  currentPrintedImage= 0;
+  printedImages = printedImages;
+
+  colors: Record<string,string> = colorMap;
 
   constructor(){
     //initialize selected product
@@ -30,6 +39,7 @@ export class Catalog {
   changeSelectedProduct(product: Product){
     this.selectedProduct = product;
     this.selectedColor = this.selectedProduct.colors[0];
+    this.currentImage = 0;
     console.log("Product changed to: ", this.selectedProduct,"-",this.selectedColor);
   }
 
@@ -64,6 +74,27 @@ export class Catalog {
     .split('/')
     .pop()!
     .replace('.png','')
+  }
+
+  changePrintedImage(event: MouseEvent){
+    const imageWidth = (event.currentTarget as HTMLElement).clientWidth;
+
+    if(event.offsetX < imageWidth/2){
+      if(this.currentPrintedImage === 0){
+        this.currentPrintedImage = this.printedImages.length-1;
+      }
+      else{
+        this.currentPrintedImage-=1;
+      }
+    }
+    else{
+      if(this.currentPrintedImage === this.printedImages.length-1){
+        this.currentPrintedImage = 0;
+      }
+      else{
+        this.currentPrintedImage+=1;
+      }
+    }
   }
 
 }

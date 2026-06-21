@@ -8,6 +8,8 @@ import type { FrontPrint } from '../../models/product/FrontPrint';
 import backPrint from "../../../assets/data/back.json"
 import type { BackPrint } from '../../models/product/BackPrint';
 
+import colorMap from "../../../assets/data/colors.json"
+
 @Component({
   selector: 'app-rate-estimator',
   imports: [],
@@ -20,6 +22,8 @@ export class RateEstimator {
 
   selectedProduct!: Product;
   selectedColor!: string;
+
+  colors: Record<string, string> = colorMap;
 
   frontOptions: FrontPrint[] = frontPrint;
   selectedFront!: FrontPrint;
