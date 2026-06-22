@@ -10,13 +10,13 @@
         "id":"A4",
         "type":"DTF",
         "name":"A4 Back Print",
-        "price":50
+        "price":60
     },
 
     {
         "id":"A3",
         "type":"DTF",
         "name":"A3 Back Print",
-        "price":80
+        "price":90
     }
 ]

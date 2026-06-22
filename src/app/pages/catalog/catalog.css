@@ -5,12 +5,17 @@
     max-width: 40rem;
 
     margin: 0 auto;
-
+    background-color: #fff;
+    /* border-left: 5px black solid;
+    border-right: 5px black solid;
+    border-bottom: 5px black solid; */
    /* background-color: #f6f1e7; */
 }
 
 .selection-div{
-    background-color: #ffedca;
+    /* background-color: #ffedca; */
+    background-color: #b0c4de;
+    
     margin: 0;
     padding: 0.5rem;
 }
@@ -27,7 +32,7 @@
 
 /* OPTIONS-RADIO/OPTIONS-COLOR CLASS: This is for styling of the radio buttons in product,color and prints */
 .options-radio{
-    border: 1px black solid;
+    border: 1px #000 solid;
     border-radius: 4px;
     padding: 2px;
     
@@ -39,6 +44,7 @@
     
     margin-right: 4px;
     margin-top: 2px;
+    color: #000;
     /* background-color: #fff; */
 }
 
@@ -51,8 +57,9 @@
 }
 
 .options-radio:has(input[type="radio"]:checked){
-    background-color: #7d7d7d;
-    color: #fff;
+    /* background-color: #7d7d7d; */
+    background-color: #4b708b;
+    color: #f5f5f5;
     font-weight: 700;
 }
 
