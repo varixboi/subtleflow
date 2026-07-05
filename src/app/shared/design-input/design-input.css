@@ -1,0 +1,22 @@
+.modal-banner-bottom{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+
+    padding: 0.5rem;
+}
+
+.save-button{
+    background: none;
+    border: none;
+    color: white;
+    
+    font-size: 1rem;
+    width: 5rem;
+    
+    background: #006e6e;
+    border: 1px solid black;
+    border-radius: 8px;
+
+    padding: 0.5rem;
+}

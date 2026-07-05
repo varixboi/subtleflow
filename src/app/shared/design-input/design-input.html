@@ -1,0 +1,32 @@
+<div div="selection-div">
+    <h2>PRINT COST: ₹{{printCost}}/- Per Piece</h2>
+    <h3>Front Print</h3>
+    @for(front of frontOptions; track front.id){
+        <label class="options-radio">
+            <input type="radio" id="front-radio"
+            class="options-radio"
+            [checked]="front.id === selectedFront.id"
+            (change)="changeSelectedFront(front)"/>
+            <span>{{front.name}}</span>
+        </label>
+    }
+    <br><br/>
+    <input type="file" accept="image/png" (change)="selectFrontImage($event)">
+    
+    <h3>Back Print</h3>
+    @for(back of backOptions; track back.id){
+        <label class="options-radio">    
+            <input type="radio" id="back-radio"
+            class="options-radio"
+            [checked]="back.id === selectedBack.id"
+            (change)="changeSelectedBack(back)"
+            />
+            <span>{{back.name}}</span>
+        </label>
+    }
+    <br><br/>
+    <input type="file" accept="image/png" (change)="selectBackImage($event)">
+</div>
+<div class="modal-banner-bottom">
+    <button class="save-button" (click)="savePrintImages()">Save</button>
+</div>

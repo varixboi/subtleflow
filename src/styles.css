@@ -13,3 +13,89 @@ body{
     padding: 0;
 }
 
+/* HIDE INCREMENT/DECREMENT BUTTON OF NUMBER INPUT */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* Section - Form */
+
+.section-form{
+    width: 100%;
+    max-width: 30rem;
+
+    margin: 0 auto;
+}
+
+
+/* SIZE INPUT TABLE */
+
+.size-input-table{
+    border: 1px solid black;
+    border-collapse: collapse;
+
+    
+    width: 90%;
+    
+    margin: 0rem 0.25rem;
+    
+    table-layout: fixed;
+}
+.size-input-table th{
+    background-color: #b0c4de;
+}
+
+.size-input{
+    width: 100%;
+    max-width: 5rem;
+}
+
+input{
+    border: none;
+    outline: none;
+    width: 100%;
+    background: none;
+}
+
+/* input:focus{
+    border: none;
+    outline: none;
+} */
+
+.design-name{
+    border: 1px black solid;
+}
+
+
+/* OPTIONS-RADIO CLASS: This is for styling of the radio buttons in product,color and prints */
+.options-radio{
+    border: 1px black solid;
+    border-radius: 8px;
+    padding: 3px;
+
+    margin-right: 4px;
+}
+
+.options-radio input[type="radio"]{
+    display: none;
+}
+
+.options-radio span {
+    display: inline-block;
+    padding: 5px;
+}
+
+.options-radio:has(input[type="radio"]:checked){
+    background-color: #e5e5e5;
+    border-radius: 8px;
+}

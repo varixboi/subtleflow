@@ -1,0 +1,12 @@
+<div class="modal-overlay" (click)="close.emit()">
+    <div class="modal-div" (click)="$event.stopPropagation()">
+        <div class="modal-banner">
+            <h2>{{modalTitle}}</h2>
+            <button class="close-button" (click)="close.emit()">x</button>
+        </div>
+        <div class="modal-body">
+            <!-- main content goes here - login page/signup/design selector etc. -->
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>

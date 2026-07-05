@@ -1,0 +1,35 @@
+.options-radio{
+    border: 1px #000 solid;
+    border-radius: 4px;
+    padding: 2px;
+    
+    font-size: 12px;
+    
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    
+    margin-right: 4px;
+    margin-top: 2px;
+    color: #000;
+    /* background-color: #fff; */
+}
+
+.options-radio input[type="radio"]{
+    display: none;
+}
+
+.options-radio span {
+    padding: 2px;
+}
+
+.options-radio:has(input[type="radio"]:checked){
+    /* background-color: #7d7d7d; */
+    background-color: #4b708b;
+    color: white;
+    font-weight: 700;
+}
+
+p{
+    margin-bottom: 0.25rem;
+}

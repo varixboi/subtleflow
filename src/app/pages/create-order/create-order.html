@@ -1,0 +1,90 @@
+<section class="section-form">
+    <div class="selector-div">
+        <app-product-selector
+        [products]="products"
+        [selectedProduct]="selectedProduct"
+        (productChanged)="changeSelectedProduct($event)">
+        </app-product-selector>
+    
+        <app-color-selector
+        [colors]="selectedProduct.colors"
+        [selectedColor]="selectedColor"
+        (colorChanged)="changeSelectedColor($event)">
+        </app-color-selector>
+    </div>
+        <br/>
+
+        <div class="selection-div">
+            <button class="design-button" (click)="showModal = true">Design Input</button>
+            @if(previewImage){
+                <button class="preview-button">View Design</button>
+            }
+        </div>
+
+        @if(showModal){
+            <app-modal
+            [modalTitle]="'Enter customer design'"
+            (close)="showModal = false"
+            >
+            <app-design-input></app-design-input>
+            </app-modal>
+        }
+
+        <br/>
+
+        <div>
+            <table class="size-input-table">
+                <thead>
+                    <tr>
+                        <th class="size-input-table">SIZE</th>
+                        @for(size of selectedProduct.sizes; track size){
+                            <th class="size-input-table">{{size}}</th>
+                        }
+                    </tr>
+                </thead>
+                
+                <tbody class="size-input-table">
+                    <tr>
+                        <th class="size-input-table">QTY</th>
+                        @for(size of selectedProduct.sizes; track size){
+                            <td class="size-input-table"><input
+                                class="size-input"
+                                type="number"
+                                (input)="updateQty(size, $event)"
+                                min="0"                
+                                />
+                            </td>
+                        }
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div #quoteSummary>
+            <p>Quantity: {{totalQty}} PCS of {{selectedProduct.display_name}} ({{selectedColor}})</p>
+            <p>Tshirt total: &#8377;{{unitPrice}} x {{totalQty}} PCS = &#8377;{{tshirtTotal}}/-</p>
+            <p>Print total: &#8377;{{printCost}} x {{totalQty}} PCS = &#8377;{{printTotal}}/-</p>
+            <table class="size-input-table">
+                <thead>
+                    <tr>
+                        @for(size of selectedProduct.sizes; track size){
+                            <th class="size-input-table">{{size}}</th>
+                        }
+                    </tr>
+                </thead>
+                
+                <tbody class="size-input-table">
+                    <tr>
+                        @for(size of selectedProduct.sizes; track size){
+                            <td class="size-input-table">
+                                {{sizeQty[size] ?? 0}}
+                            </td>
+                        }
+                    </tr>
+                </tbody>
+            </table>
+            <p>Taxable: &#8377;{{subTotal[0]}}/- | GST(5%): &#8377;{{subTotal[1]}}/-</p>
+            <p>SUBTOTAL: &#8377;{{subTotal[2]}}/- + SHIPPING AS PER ACTUAL</p>
+        </div>
+        <button type="button" (click)="copyQuote(quoteSummary)">{{copyQuoteButtonText}}</button>
+</section>

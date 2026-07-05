@@ -25,7 +25,7 @@
         "display_name":"240GSM OVERSIZE",
         "colors":["Black", "White", "Charcoal", "Navy", "Maroon", "Off-white", "Brown", "Army green", "Lavender", "Beige", "Sky blue", "Red", "Rose pink", "Royal blue"],
         "sample_price":230,
-        "sizes":["XS","S","M","L","XL","2XL"],
+        "sizes":["S","M","L","XL","2XL"],
         "images":[
             "product-images/240/Black.png",
             "product-images/240/White.png",
@@ -57,8 +57,12 @@
         "sample_price":300,
         "sizes":["S","M","L","XL","2XL"],
         "images":[
-            "product-images/180/Black 180.png",
-            "product-images/180/White 180.png"
+            "product-images/240acid/Black acidwash.png",
+            "product-images/240acid/Navy acidwash.png",
+            "product-images/240acid/Maroon acidwash.png",
+            "product-images/240acid/Brown acidwash.png",
+            "product-images/240acid/Army green acidwash.png",
+            "product-images/240acid/Red acidwash.png"
         ]
 
     },
@@ -74,8 +78,7 @@
         "sample_price":240,
         "sizes":["S","M","L","XL","2XL"],
         "images":[
-            "product-images/180/Black 180.png",
-            "product-images/180/White 180.png"
+            "product-images/Polo/Black.png"
         ]
 
     }

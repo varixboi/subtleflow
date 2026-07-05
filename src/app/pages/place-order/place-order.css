@@ -43,9 +43,13 @@ input{
     outline: none;
 }
 
-input:focus{
+/* input:focus{
     border: none;
     outline: none;
+} */
+
+.design-name{
+    border: 1px black solid;
 }
 
 

@@ -1,27 +1,4 @@
-<!-- <div>
-    <form>
-        <label>Select product:</label>
-        <br/>
-        <select id="product-dd" name="product-dd">
-            <option value="180bw">180GSM Biowash Regular fit</option>
-            <option value="180bw">240GSM French Terry Oversized</option>
-        </select>
-    </form>
-</div> -->
-
-
 <section class="section-form">
-        <!-- <div class="selection-div">
-            <p>Select Product:</p>
-            @for(product of products; track product.id){
-                <label class="options-radio">
-                    <input type="radio" id="name-radio"
-                    [checked]="product.id === selectedProduct.id"
-                    (change)="changeSelectedProduct(product)"/>
-                    <span>{{product.display_name}}</span>
-                </label>
-            }
-        </div> -->
         <app-product-selector
             [products]="products"
             [selectedProduct]="selectedProduct"
@@ -34,31 +11,30 @@
         (colorChanged)="changeSelectedColor($event)">
         </app-color-selector>
 
+        <br/>
+
         <div class="selection-div">
-            <p>Front Print:</p>
-            @for(front of frontOptions; track front.id){
-                <label class="options-radio">
-                    <input type="radio" id="front-radio"
-                    class="options-radio"
-                    [checked]="front.id === selectedFront.id"
-                    (change)="changeSelectedFront(front)"/>
-                    <span>{{front.name}}</span>
-                </label>
-            }
-            
-            <p>Back Print:</p>
-            @for(back of backOptions; track back.id){
-                <label class="options-radio">    
-                    <input type="radio" id="back-radio"
-                    class="options-radio"
-                    [checked]="back.id === selectedBack.id"
-                    (change)="changeSelectedBack(back)"
-                    />
-                    <span>{{back.name}}</span>
-                </label>
-            }
-            <p>PRINT COST: &#8377;{{printCost}}/- Per Piece</p>
+            <p>Enter your design name:</p>
+            <!-- <input class="design-name"
+            type="text"
+            (input)="changeSelectedDesign($event)"
+            /> -->
+            <input class="design-name"
+            type="text"
+            />
+            <button (click)="showModal = true">Open Design Selector</button>
         </div>
+
+        @if(showModal){
+            <app-modal
+            [modalTitle]="'Select your design'"
+            (close)="showModal = false"
+            >
+            <app-design-selector></app-design-selector>
+            </app-modal>
+        }
+
+        <br/>
 
         <div>
             <table class="size-input-table">
@@ -89,9 +65,28 @@
         </div>
 
         <div #quoteSummary>
-            <p>Quantity: {{totalQty}} PCS of {{selectedProduct.product_name}}</p>
+            <p>Quantity: {{totalQty}} PCS of {{selectedProduct.display_name}} ({{selectedColor}})</p>
             <p>Tshirt total: &#8377;{{unitPrice}} x {{totalQty}} PCS = &#8377;{{tshirtTotal}}/-</p>
             <p>Print total: &#8377;{{printCost}} x {{totalQty}} PCS = &#8377;{{printTotal}}/-</p>
+            <table class="size-input-table">
+                <thead>
+                    <tr>
+                        @for(size of selectedProduct.sizes; track size){
+                            <th class="size-input-table">{{size}}</th>
+                        }
+                    </tr>
+                </thead>
+                
+                <tbody class="size-input-table">
+                    <tr>
+                        @for(size of selectedProduct.sizes; track size){
+                            <td class="size-input-table">
+                                {{sizeQty[size] ?? 0}}
+                            </td>
+                        }
+                    </tr>
+                </tbody>
+            </table>
             <p>Taxable: &#8377;{{subTotal[0]}}/- | GST(5%): &#8377;{{subTotal[1]}}/-</p>
             <p>SUBTOTAL: &#8377;{{subTotal[2]}}/- + SHIPPING AS PER ACTUAL</p>
         </div>

@@ -12,13 +12,16 @@ import type { BackPrint } from '../../models/product/BackPrint';
 
 import colorMap from "../../../assets/data/colors.json"
 
+import { Modal } from '../../shared/modal/modal';
+import { DesignSelector } from '../../shared/design-selector/design-selector';
+
 @Component({
-  selector: 'app-rate-estimator',
-  imports: [ProductSelector, ColorSelector],
-  templateUrl: './rate-estimator.html',
-  styleUrl: './rate-estimator.css',
+  selector: 'app-place-order',
+  imports: [ProductSelector, ColorSelector, Modal, DesignSelector],
+  templateUrl: './place-order.html',
+  styleUrl: './place-order.css',
 })
-export class RateEstimator {
+export class PlaceOrder {
   //save imported json into variable
   products: Product[] = product_info;
 
@@ -38,6 +41,16 @@ export class RateEstimator {
   
   copyQuoteButtonText: string = "Copy Quote";
 
+  //above all are copied from rate-estimator
+  //below values are unique to place-order
+
+  customerName = "";
+  customerPhone = "";
+
+  designId = "";
+
+  showModal = false;
+
   constructor(){
     console.log(this.products[1].display_name);
     
@@ -53,7 +66,17 @@ export class RateEstimator {
       this.calculatePrintCost();
     }
   }
-  
+
+  //code unique to place-order from here on out
+
+  changeSelectedDesign(designName: string){
+    this.designId = designName;
+  }
+
+
+  //unique code ends here
+
+  // below code is copied from rate-estimator
   changeSelectedProduct(product: Product){
     this.selectedProduct = product;
     this.selectedColor = this.selectedProduct.colors[0];
@@ -132,5 +155,9 @@ export class RateEstimator {
     setTimeout(() => {
       this.copyQuoteButtonText="Copy Quote"
     }, 1000);
+  }
+
+  closeModal(){
+    this.showModal = false;
   }
 }

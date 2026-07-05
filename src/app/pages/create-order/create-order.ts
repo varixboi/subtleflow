@@ -12,14 +12,19 @@ import type { BackPrint } from '../../models/product/BackPrint';
 
 import colorMap from "../../../assets/data/colors.json"
 
+import { Modal } from '../../shared/modal/modal';
+import { DesignSelector } from '../../shared/design-selector/design-selector';
+import { DesignInput } from '../../shared/design-input/design-input';
+
 @Component({
-  selector: 'app-rate-estimator',
-  imports: [ProductSelector, ColorSelector],
-  templateUrl: './rate-estimator.html',
-  styleUrl: './rate-estimator.css',
+  selector: 'app-create-order',
+  imports: [ProductSelector, ColorSelector, Modal, DesignInput],
+  templateUrl: './create-order.html',
+  styleUrl: './create-order.css',
 })
-export class RateEstimator {
-  //save imported json into variable
+export class CreateOrder {
+
+   //save imported json into variable
   products: Product[] = product_info;
 
   selectedProduct!: Product;
@@ -38,6 +43,17 @@ export class RateEstimator {
   
   copyQuoteButtonText: string = "Copy Quote";
 
+  //above all are copied from rate-estimator
+  //below values are unique to place-order
+
+  customerName = "";
+  customerPhone = "";
+
+  designId = "";
+
+  showModal = false;
+  previewImage = false;
+
   constructor(){
     console.log(this.products[1].display_name);
     
@@ -53,7 +69,17 @@ export class RateEstimator {
       this.calculatePrintCost();
     }
   }
-  
+
+  //code unique to place-order from here on out
+
+  changeSelectedDesign(designName: string){
+    this.designId = designName;
+  }
+
+
+  //unique code ends here
+
+  // below code is copied from rate-estimator
   changeSelectedProduct(product: Product){
     this.selectedProduct = product;
     this.selectedColor = this.selectedProduct.colors[0];

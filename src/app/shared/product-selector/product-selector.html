@@ -1,0 +1,12 @@
+        <div class="selection-div">
+            <p>Select Product</p>
+            @for(product of products; track product.id){
+                <label class="options-radio">
+                    <input type="radio" id="name-radio"
+                    [checked]="product.id === selectedProduct.id"
+                    (change)="productChanged.emit(product)"
+                    />
+                    <span>{{product.display_name}}</span>
+                </label>
+            }
+        </div>
