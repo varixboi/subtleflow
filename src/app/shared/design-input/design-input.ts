@@ -32,7 +32,7 @@ export class DesignInput {
   frontPreview = "";
   backPreview = "";
 
-  @Output() previewImage = new EventEmitter<previewDesign>();
+  @Output() designSaved = new EventEmitter<previewDesign>();
 
     constructor(){  
         this.selectedFront = this.frontOptions[1];
@@ -80,33 +80,29 @@ export class DesignInput {
       }
     }
 
-    savePrintImages(){
-      if(this.selectedBack.id!=="NONE"){
-        if(this.backPreview!==""){
-          this.previewImage.emit();
-        }
-        else{
-          console.log("Please upload Print file in PNG");
-        }
+  savePrintImages() {
+
+      if (this.selectedFront.id !== "NONE" && this.frontPreview === "") {
+          alert("Please upload front print.");
+          return;
       }
-      else if(this.selectedFront.id!=="NONE"){
-        if(this.frontPreview!==""){
-          this.previewImage.emit();
-        }
-        else{
-          console.log("Please upload Print file in PNG");
-        }
+
+      if (this.selectedBack.id !== "NONE" && this.backPreview === "") {
+          alert("Please upload back print.");
+          return;
       }
-      else if(this.selectedBack.id!=="NONE" && this.selectedFront.id!=="NONE"){
-        if(this.backPreview!=="" && this.frontPreview!==""){
-          this.previewImage.emit();
-        }
-        else{
-          console.log("Please upload Print file in PNG");
-        }
-      }
-      else{
-          this.previewImage.emit();
-      }
-    }
+
+      alert("prints r uploaded")
+
+      const design: previewDesign = {
+          name: "",
+          frontSize: this.selectedFront.name,
+          frontPreview: this.frontPreview,
+          backSize: this.selectedBack.name,
+          backPreview: this.backPreview,
+          price: this.printCost
+      };
+
+      this.designSaved.emit(design);
+  }
 }

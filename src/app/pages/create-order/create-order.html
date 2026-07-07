@@ -16,7 +16,7 @@
 
         <div class="selection-div">
             <button class="design-button" (click)="showModal = true">Design Input</button>
-            @if(previewImage){
+            @if(previewDesign){
                 <button class="preview-button">ViewDesign</button>
             }
         </div>
@@ -26,7 +26,16 @@
             [modalTitle]="'Enter customer design'"
             (close)="showModal = false"
             >
-            <app-design-input></app-design-input>
+            <app-design-input (designSaved)="saveDesign($event)"></app-design-input>
+            </app-modal>
+        }
+
+        @if(showModal && previewDesign){
+            <app-modal
+            [modalTitle]="'View Design'"
+            (close)="showModal = false"
+            >
+            <app-design-preview [selectedDesign]="selectedDesign"></app-design-preview>
             </app-modal>
         }
 

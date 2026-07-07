@@ -15,10 +15,12 @@ import colorMap from "../../../assets/data/colors.json"
 import { Modal } from '../../shared/modal/modal';
 import { DesignSelector } from '../../shared/design-selector/design-selector';
 import { DesignInput } from '../../shared/design-input/design-input';
+import { previewDesign } from '../../models/design/previewDesign';
+import { DesignPreview } from '../../shared/design-preview/design-preview';
 
 @Component({
   selector: 'app-create-order',
-  imports: [ProductSelector, ColorSelector, Modal, DesignInput],
+  imports: [ProductSelector, ColorSelector, Modal, DesignInput, DesignPreview],
   templateUrl: './create-order.html',
   styleUrl: './create-order.css',
 })
@@ -55,7 +57,20 @@ export class CreateOrder {
   designId = "";
 
   showModal = false;
-  previewImage = false;
+  previewDesign = false;
+
+  selectedDesign!: previewDesign;
+
+  saveDesign(design: previewDesign){
+    this.selectedDesign = design;
+    this.showModal = false;
+    if(this.selectedDesign["backPreview"]==="" && this.selectedDesign["frontPreview"]===""){
+      this.previewDesign = false;
+    }
+    else{
+      this.previewDesign = true;
+    }
+  }
 
   constructor(){
     console.log(this.products[1].display_name);
@@ -105,6 +120,28 @@ export class CreateOrder {
     // this.calculatePrintCost();
   }
 
+  
+  updateQty(size: string ,event: Event){
+    const value = (event.target as HTMLInputElement).value;
+    this.sizeQty[size] = Number(value)
+    console.log(size,":",value)
+  }
+  
+  
+  
+  get totalQty():number {
+    return Object.values(this.sizeQty).reduce((sum,val) => sum + (val || 0), 0)
+  }
+  
+  get unitPrice():number{
+    if(this.totalQty<20){
+      return this.selectedProduct.sample_price;
+    }
+    else{
+      return this.selectedProduct.price;
+    }
+  }
+
   get printCost(): number{
     if(this.selectedBack.id==="NONE"){
       if(this.totalQty<this.MOQ){
@@ -129,28 +166,7 @@ export class CreateOrder {
       }
     }
   }
-
-  updateQty(size: string ,event: Event){
-    const value = (event.target as HTMLInputElement).value;
-    this.sizeQty[size] = Number(value)
-    console.log(size,":",value)
-  }
-
-
-
-  get totalQty():number {
-    return Object.values(this.sizeQty).reduce((sum,val) => sum + (val || 0), 0)
-  }
-
-  get unitPrice():number{
-    if(this.totalQty<20){
-      return this.selectedProduct.sample_price;
-    }
-    else{
-      return this.selectedProduct.price;
-    }
-  }
-
+  
   get tshirtTotal():number{
     return this.totalQty*this.unitPrice
   }
