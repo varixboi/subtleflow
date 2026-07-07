@@ -1,5 +1,5 @@
 <div div="selection-div">
-    <h2>PRINT COST: ₹{{printCost}}/- Per Piece</h2>
+    <!-- <h2>PRINT COST: ₹{{printCost}}/- Per Piece</h2> -->
     <h3>Front Print</h3>
     @for(front of frontOptions; track front.id){
         <label class="options-radio">
@@ -11,8 +11,10 @@
         </label>
     }
     <br><br/>
+    @if(selectedFront.id!="NONE"){
     <input type="file" accept="image/png" (change)="selectFrontImage($event)">
-    
+    }
+
     <h3>Back Print</h3>
     @for(back of backOptions; track back.id){
         <label class="options-radio">    
@@ -25,8 +27,35 @@
         </label>
     }
     <br><br/>
+    @if(selectedBack.id!="NONE"){
     <input type="file" accept="image/png" (change)="selectBackImage($event)">
+    }
 </div>
+<table class="print-price-table">
+    <thead>    
+        <tr>
+            <td>1-19PCS</td>
+            <th>20+ PCS</th>
+            <td>200+ PCS</td>
+        </tr>
+    </thead>
+    <tbody>
+        @if(selectedBack.id=="NONE"){
+            <tr>
+                <td>₹{{selectedFront.price_sample}}</td>
+                <th>₹{{selectedFront.price}}</th>
+                <td>₹{{selectedFront.price_bulk}}</td>
+            </tr>
+        }
+        @if(selectedBack.id!="NONE"){
+            <tr>
+                <td>₹{{selectedBack.price_sample+selectedFront.addonPrice}}</td>
+                <th>₹{{selectedBack.price+selectedFront.addonPrice}}</th>
+                <td>₹{{selectedBack.price_bulk+selectedFront.addonPrice}}</td>
+            </tr>
+        }
+    </tbody>
+</table>
 <div class="modal-banner-bottom">
     <button class="save-button" (click)="savePrintImages()">Save</button>
 </div>

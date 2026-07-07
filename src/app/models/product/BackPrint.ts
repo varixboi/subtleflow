@@ -3,4 +3,6 @@ export interface BackPrint {
         type:string;
         name:string;
         price: number;
+        price_sample: number;
+        price_bulk: number,
 }

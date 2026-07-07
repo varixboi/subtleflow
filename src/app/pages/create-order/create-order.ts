@@ -24,6 +24,9 @@ import { DesignInput } from '../../shared/design-input/design-input';
 })
 export class CreateOrder {
 
+  MOQ = 20;
+  BULK =200;
+
    //save imported json into variable
   products: Product[] = product_info;
 
@@ -38,7 +41,7 @@ export class CreateOrder {
   backOptions: BackPrint[] = backPrint;
   selectedBack!: BackPrint;
 
-  printCost!: number;
+  // printCost!: number;
   sizeQty: Record<string,number> = {};
   
   copyQuoteButtonText: string = "Copy Quote";
@@ -66,7 +69,7 @@ export class CreateOrder {
       this.selectedFront = this.frontOptions[1];
       this.selectedBack = this.backOptions[1];
 
-      this.calculatePrintCost();
+      // this.calculatePrintCost();
     }
   }
 
@@ -93,21 +96,37 @@ export class CreateOrder {
 
   changeSelectedFront(front: FrontPrint){
     this.selectedFront = front;
-    this.calculatePrintCost();
+    // this.calculatePrintCost();
 
   }
   
   changeSelectedBack(back: BackPrint){
     this.selectedBack = back;
-    this.calculatePrintCost();
+    // this.calculatePrintCost();
   }
 
-  calculatePrintCost(){
+  get printCost(): number{
     if(this.selectedBack.id==="NONE"){
-      this.printCost= this.selectedFront.price;
+      if(this.totalQty<this.MOQ){
+        return this.selectedFront.price_sample;
+      }
+      else if(this.totalQty>this.BULK){
+        return this.selectedFront.price_bulk;
+      }
+      else{
+        return this.selectedFront.price;
+      }
     }
     else{
-      this.printCost= this.selectedBack.price + this.selectedFront.addonPrice;
+      if(this.totalQty<this.MOQ){
+        return this.selectedBack.price_sample + this.selectedFront.addonPrice;
+      }
+      else if(this.totalQty>this.BULK){
+        return this.selectedBack.price_bulk + this.selectedFront.addonPrice;
+      }
+      else{
+        return this.selectedBack.price + this.selectedFront.addonPrice;
+      }
     }
   }
 
@@ -124,7 +143,7 @@ export class CreateOrder {
   }
 
   get unitPrice():number{
-    if(this.totalQty<10){
+    if(this.totalQty<20){
       return this.selectedProduct.sample_price;
     }
     else{

@@ -4,4 +4,6 @@ export interface FrontPrint {
         name:string;
         price: number;
         addonPrice: number;
+        price_sample: number;
+        price_bulk: number,
 }

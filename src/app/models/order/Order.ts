@@ -8,8 +8,8 @@ export interface Order{
 
     productId: string,
     color: string,
-    designName: string,
+    designId: string,
     sizeQty: Record<string, number>,
 
-    status: OrderStatus;
+    status: OrderStatus
 }

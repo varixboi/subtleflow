@@ -20,3 +20,25 @@
 
     padding: 0.5rem;
 }
+
+.print-price-table{
+    margin: 0.5rem auto;
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.print-price-table th,td{
+    text-align: center;
+    border: 1px solid black;
+    padding: 0.25rem 0.5rem;
+}
+
+.print-price-table thead{
+    background-color: #6e0000;
+    color: white;
+}
+
+.print-price-table tbody th{
+    color: #6e0000;
+}

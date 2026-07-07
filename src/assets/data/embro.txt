@@ -1,0 +1,18 @@
+ADD THIS TO front.json WHEN REQUIRED,
+KEPT HERE SINCE COMMENTS ARE NOT SUPPORTED IN JSON FILES
+
+    {
+        "id":"LOGO_EMBRO",
+        "type":"EMBRO",
+        "name":"Logo Embroidery (Upto 3x3 inches)",
+        "price": 55,
+        "addonPrice": 45,
+    },
+
+    {
+        "id":"REG_EMBRO",
+        "type":"EMBRO",
+        "name":"Regular Embroidery (Upto 5.5x5.5 inches)",
+        "price": 75,
+        "addonPrice": 65
+    },

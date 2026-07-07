@@ -2,9 +2,11 @@
     {
         "id":"NONE",
         "name":"No Front Print",
-        "type":"DTF",
+        "type":"NONE",
         "price":0,
-        "addonPrice":-10
+        "addonPrice":-10,
+        "price_sample": 0,
+        "price_bulk": 0
     },
 
     {
@@ -12,7 +14,9 @@
         "type":"DTF",
         "name":"Logo Print (upto 6x3 inches)",
         "price":20,
-        "addonPrice":0
+        "addonPrice":0,
+        "price_sample": 50,
+        "price_bulk": 15
     },
 
     {
@@ -20,23 +24,9 @@
         "type":"DTF",
         "name":"Large Print (11x6 inches)",
         "price":30,
-        "addonPrice":10
-    },
-
-
-    {
-        "id":"LOGO_EMBRO",
-        "type":"EMBRO",
-        "name":"Logo Embroidery (Upto 3x3 inches)",
-        "price": 55,
-        "addonPrice": 45
-    },
-
-    {
-        "id":"REG_EMBRO",
-        "type":"EMBRO",
-        "name":"Regular Embroidery (Upto 5.5x5.5 inches)",
-        "price": 75,
-        "addonPrice": 65
+        "addonPrice":10,
+        "price_sample": 60,
+        "price_bulk": 25
     }
 ]
+

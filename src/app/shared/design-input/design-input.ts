@@ -5,6 +5,7 @@ import type { FrontPrint } from '../../models/product/FrontPrint';
 
 import backPrint from "../../../assets/data/back.json"
 import type { BackPrint } from '../../models/product/BackPrint';
+import { previewDesign } from '../../models/design/previewDesign';
 
 @Component({
   selector: 'app-design-input',
@@ -13,6 +14,10 @@ import type { BackPrint } from '../../models/product/BackPrint';
   styleUrl: './design-input.css',
 })
 export class DesignInput {
+
+  MOQ = 20;
+  BULK =200;
+
   frontOptions: FrontPrint[] = frontPrint;
   selectedFront!: FrontPrint;
 
@@ -27,7 +32,7 @@ export class DesignInput {
   frontPreview = "";
   backPreview = "";
 
-  @Output() previewImage = new EventEmitter<void>();
+  @Output() previewImage = new EventEmitter<previewDesign>();
 
     constructor(){  
         this.selectedFront = this.frontOptions[1];
@@ -76,8 +81,32 @@ export class DesignInput {
     }
 
     savePrintImages(){
-      if(this.backPreview!=="" && this.frontPreview!==""){
-        this.previewImage.emit();
+      if(this.selectedBack.id!=="NONE"){
+        if(this.backPreview!==""){
+          this.previewImage.emit();
+        }
+        else{
+          console.log("Please upload Print file in PNG");
+        }
+      }
+      else if(this.selectedFront.id!=="NONE"){
+        if(this.frontPreview!==""){
+          this.previewImage.emit();
+        }
+        else{
+          console.log("Please upload Print file in PNG");
+        }
+      }
+      else if(this.selectedBack.id!=="NONE" && this.selectedFront.id!=="NONE"){
+        if(this.backPreview!=="" && this.frontPreview!==""){
+          this.previewImage.emit();
+        }
+        else{
+          console.log("Please upload Print file in PNG");
+        }
+      }
+      else{
+          this.previewImage.emit();
       }
     }
 }
