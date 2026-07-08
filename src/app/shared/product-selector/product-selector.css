@@ -1,3 +1,8 @@
+.selection-div p{
+    color: #0f2d48;
+    font-weight: 700;
+}
+
 .options-radio{
     border: 1px #000 solid;
     border-radius: 4px;
@@ -11,8 +16,8 @@
     
     margin-right: 4px;
     margin-top: 2px;
-    color: #000;
-    /* background-color: #fff; */
+    color: #0f2d48;
+    border: 1px solid #0f2d48;
 }
 
 .options-radio input[type="radio"]{
@@ -25,8 +30,11 @@
 
 .options-radio:has(input[type="radio"]:checked){
     /* background-color: #7d7d7d; */
-    background-color: #4b708b;
+    background-color: #0f2d5e;
+    border-radius: 4px;
+
     color: white;
+    border: 1px solid #0f2d48;
     font-weight: 700;
 }
 

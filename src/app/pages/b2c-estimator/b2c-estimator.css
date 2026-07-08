@@ -1,0 +1,188 @@
+/* HIDE INCREMENT/DECREMENT BUTTON OF NUMBER INPUT */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* Section - Form */
+
+.section-form{
+    width: 100%;
+    max-width: 30rem;
+    
+    margin: 0 auto;
+    padding: 0.5rem 0rem;
+    background-color: #0f2d48;
+}
+
+.section-form p{
+    color: white;
+}
+/* SIZE INPUT TABLE */
+
+.size-input-table{
+    border-collapse: collapse;
+    width: 50%;
+
+    margin: 0 auto;
+
+    table-layout: fixed;
+    border: 1px solid #f8fafc;
+}
+
+.size-input-table thead th{
+    text-align: center;
+    
+    background: none;
+    color: white;
+    border: 1px solid #f8fafc;
+}
+
+.size-input-table tbody th{
+    background: #f8fafc;
+    border: 1px solid #f8fafc;
+}
+
+.size-input-table tbody th input{
+    text-align: center;
+    color: #0f2d48;
+    font-weight: bold;
+}
+
+.size-input{
+    width: 100%;
+    max-width: 12rem;
+}
+
+input{
+    border: none;
+    outline: none;
+}
+
+input:focus{
+    border: none;
+    outline: none;
+}
+
+
+/* OPTIONS-RADIO CLASS: This is for styling of the radio buttons in product,color and prints */
+.options-radio{
+    border: 1px #000 solid;
+    border-radius: 4px;
+    padding: 2px;
+    
+    font-size: 12px;
+    
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    
+    margin-right: 4px;
+    margin-top: 2px;
+    color: #0f2d48;
+    border: 1px solid #0f2d48;
+    /* background-color: #fff; */
+}
+
+.options-radio input[type="radio"]{
+    display: none;
+}
+
+.options-radio span {
+    padding: 2px;
+}
+
+.options-radio:has(input[type="radio"]:checked){
+    /* background-color: #7d7d7d; */
+    background-color: #0f2d48;
+    color: white;
+    border: 1px solid #0f2d48;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+.selector-div{
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    
+    margin: 0rem 0.25rem;
+    padding: 0.5rem 0.5rem;
+    background: #F8FAFC;
+
+    margin-bottom: 0.5rem;
+}
+
+.selector-div p{
+    text-transform: uppercase;
+    color: #0f2d48;
+    font-weight: 700;
+
+    margin-bottom: 2px;
+    margin-top: 4px;
+}
+
+.copyQuoteContainer{
+    display: flex;
+    flex-direction: column;
+    gap:0.5rem;
+
+    margin: 0.5rem 0rem;
+}
+
+.copyQuoteContainer button{
+    padding: 0.5rem 0;
+
+    border-radius: 8px;
+}
+
+.copyQuote {
+    width: 90%;
+    border: 1px solid #f8fafc;
+    color: #f8fafc;
+    background: none;
+    
+    margin: 0 auto;
+
+}
+
+.copyQuote:hover {
+
+    border: 1px solid #f8fafc;
+    color: #0f2d48;
+    background: #f8fafc;
+    
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.whatsappQuote{
+    width: 90%;
+    font-weight: bold;
+
+    border: 1px solid #f8fafc;
+    color: #f8fafc;
+    background-color: #25D366;
+    margin: 0 auto;
+}
+
+.whatsappQuote:hover{
+    width: 90%;
+    border: 1px solid #f8fafc;
+    color: #f8fafc;
+    background-color: #1a9b49;
+
+    cursor: pointer;
+}
+
+.bi-whatsapp{
+    vertical-align: middle;
+}

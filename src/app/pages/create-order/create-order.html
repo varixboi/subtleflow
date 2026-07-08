@@ -17,7 +17,7 @@
         <div class="selection-div">
             <button class="design-button" (click)="showModal = true">Design Input</button>
             @if(previewDesign){
-                <button class="preview-button">ViewDesign</button>
+                <button class="preview-button" (click)="showModal = true">View Design</button>
             }
         </div>
 
@@ -94,6 +94,11 @@
             </table>
             <p>Taxable: &#8377;{{subTotal[0]}}/- | GST(5%): &#8377;{{subTotal[1]}}/-</p>
             <p>SUBTOTAL: &#8377;{{subTotal[2]}}/- + SHIPPING AS PER ACTUAL</p>
-        </div>
+    </div>
         <button type="button" (click)="copyQuote(quoteSummary)">{{copyQuoteButtonText}}</button>
+    <div class="whatsapp-chat-button">
+        <a href="https://wa.me/918904467234?text=Hello,%20I%20want%20{{selectedProduct.product_name}} ({{selectedColor}})- {{totalQty}} PCS" class="floating-whatsapp" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
 </section>

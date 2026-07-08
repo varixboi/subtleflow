@@ -20,3 +20,38 @@
 
     font-weight: 800;
 }
+
+.preview-button{
+    background-color: #006e6e;
+    color: white;
+    border-radius: 10px;
+
+    padding: 0.5rem 0.5rem;
+}
+
+/* WHATSAPP */
+
+.floating-whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
+}
+
+.floating-whatsapp:hover {
+    transform: scale(1.1);
+    color: white;
+}

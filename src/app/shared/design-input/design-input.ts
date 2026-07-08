@@ -100,7 +100,6 @@ export class DesignInput {
           frontPreview: this.frontPreview,
           backSize: this.selectedBack.name,
           backPreview: this.backPreview,
-          price: this.printCost
       };
 
       this.designSaved.emit(design);

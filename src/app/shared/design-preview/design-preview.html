@@ -1,4 +1,8 @@
 <div class="selection-div">
-    <img [src]="selectedDesign.backPreview">
-    <img [src]="selectedDesign.frontPreview">
+    <h3>Front Design</h3>
+    <h4>SIZE: {{selectedDesign.frontSize}}</h4>
+    <img [src]="selectedDesign.frontPreview" style="width: 50%;">
+    <h3>Back Design</h3>
+    <h4>SIZE: {{selectedDesign.backSize}}</h4>
+    <img [src]="selectedDesign.backPreview" style="width: 50%;">
 </div>

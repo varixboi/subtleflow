@@ -1,0 +1,28 @@
+[
+        {
+        "id":"NONE",
+        "name":"No Back Print",
+        "type":"NONE",
+        "price":0,
+        "price_sample": 0,
+        "price_bulk": 0
+    },
+
+    {
+        "id":"A4",
+        "type":"DTF",
+        "name":"A4 Back Print",
+        "price":70,
+        "price_sample": 90,
+        "price_bulk": 60
+    },
+
+    {
+        "id":"A3",
+        "type":"DTF",
+        "name":"A3 Back Print",
+        "price":100,
+        "price_sample": 120,
+        "price_bulk": 90
+    }
+]

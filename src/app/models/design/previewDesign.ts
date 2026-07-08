@@ -4,5 +4,4 @@ export interface previewDesign{
     frontPreview: string,
     backSize: string,
     backPreview: string,
-    price: number,
 }
