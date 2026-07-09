@@ -1,4 +1,4 @@
-import { Component, Provider } from '@angular/core';
+import { Component, Provider, signal } from '@angular/core';
 import product_info from "../../../assets/b2c-data/products.json"
 import { Product } from '../../models/product/Product';
 import { ProductSelector } from '../../shared/product-selector/product-selector';
@@ -11,6 +11,8 @@ import backPrint from "../../../assets/b2c-data/back.json"
 import type { BackPrint } from '../../models/product/BackPrint';
 
 import colorMap from "../../../assets/data/colors.json"
+
+import { Signal } from '@angular/core';
 
 
 @Component({
@@ -87,18 +89,24 @@ export class B2cEstimator {
     }
   }
 
-  updateQty(size: string ,event: Event){
-    const value = (event.target as HTMLInputElement).value;
-    this.sizeQty[size] = Number(value)
-    console.log(size,":",value)
-  }
+  // updateQty(size: string ,event: Event){
+  //   const value = (event.target as HTMLInputElement).value;
+  //   this.sizeQty[size] = Number(value)
+  //   console.log(size,":",value)
+  // }
 
-  get totalQty():number {
-    return Object.values(this.sizeQty).reduce((sum,val) => sum + (val || 0), 0)
+  // get totalQty():number {
+  //   return Object.values(this.sizeQty).reduce((sum,val) => sum + (val || 0), 0)
+  // }
+
+  totalQty = signal(0);
+
+  updateQuantity(value: number){
+    this.totalQty.set(value);
   }
 
   get unitPrice():number{
-    if(this.totalQty<10){
+    if(this.totalQty()<10){
       return this.selectedProduct.sample_price;
     }
     else{
@@ -107,11 +115,11 @@ export class B2cEstimator {
   }
 
   get tshirtTotal():number{
-    return this.totalQty*this.unitPrice
+    return this.totalQty()*this.unitPrice
   }
 
   get printTotal():number{
-    return this.printCost*this.totalQty;
+    return this.printCost*this.totalQty();
   }
 
   get ppCost(): number{
@@ -125,8 +133,16 @@ export class B2cEstimator {
     ];
   }
 
-  copyQuote(element: HTMLElement){
-    navigator.clipboard.writeText(element.innerText);
+  copyQuote(){
+    const quote = `
+    Hello, I need ${this.totalQty()} PCS of ${this.selectedProduct.product_name} (${this.selectedColor})
+    Front: ${this.selectedFront.name}
+    Back: ${this.selectedBack.name}
+    Cost per piece: ₹${this.ppCost}
+    SUBTOTAL: ₹${this.subTotal[2]}/- + SHIPPING AS PER ACTUAL
+    `;
+
+    navigator.clipboard.writeText(quote);
     this.copyQuoteButtonText="Copied!!"
     
     setTimeout(() => {
@@ -136,12 +152,30 @@ export class B2cEstimator {
     }, 1000);
   }
 
-  whatsappQuote(element:HTMLElement){
-    const quote = `encodeURIComponent(element.innerText)`;
+  whatsappQuote(){
+    const quote = `
+Hello, I need ${this.totalQty()} PCS of ${this.selectedProduct.product_name} (${this.selectedColor})
+Front Print: ${this.selectedFront.name}
+Back Print: ${this.selectedBack.name}
+Cost per piece: ₹${this.ppCost}
+SUBTOTAL: ₹${this.subTotal[2]}/- + SHIPPING AS PER ACTUAL
+`;
 
     window.open(
-      `https://wa.me/918904467234?text=Hello,%20These%20are%20my%20order%20details%20${quote}`,
-      "_blank"
+      `https://wa.me/918904467234?text=${encodeURIComponent(quote)}`
     )
   };
+
+  sliderBackground() {
+    const percent = (this.totalQty() / 1000) * 100;
+
+    return `linear-gradient(
+        to right,
+        #C9A227 0%,
+        #C9A227 ${percent}%,
+        #f8fafc ${percent}%,
+        #f8fafc 100%
+    )`;
+  }
 }
+

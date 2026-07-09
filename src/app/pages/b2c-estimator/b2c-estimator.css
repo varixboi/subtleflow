@@ -42,14 +42,16 @@ input[type=number] {
 .size-input-table thead th{
     text-align: center;
     
-    background: none;
-    color: white;
+    background: #C9A227;
+    color: #0f2d48;
     border: 1px solid #f8fafc;
+
+    border: 1px solid #0f2d48;
 }
 
 .size-input-table tbody th{
     background: #f8fafc;
-    border: 1px solid #f8fafc;
+    border: 1px solid #0f2d48;
 }
 
 .size-input-table tbody th input{
@@ -169,7 +171,7 @@ input:focus{
     font-weight: bold;
 
     border: 1px solid #f8fafc;
-    color: #f8fafc;
+    color: #0f2d48;
     background-color: #25D366;
     margin: 0 auto;
 }
@@ -185,4 +187,68 @@ input:focus{
 
 .bi-whatsapp{
     vertical-align: middle;
+}
+
+.size-input-slider{
+    -webkit-appearance: none;
+    border-radius: 1rem;
+    margin: 1rem auto;
+    width: 90%;
+    /* background: #f8fafc; */
+    border: 1px solid #C9A227;
+    /* accent-color: #C9A227; */
+
+    cursor: pointer;
+}
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+
+/* INPUT SLIDER CSS */
+
+.size-input-slider {
+    -webkit-appearance: none;
+    appearance: none;
+
+    width: 90%;
+    height: 8px;          /* thinner track */
+
+    border-radius: 999px;
+    outline: none;
+}
+
+.size-input-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: #C9A227;
+
+    cursor: pointer;
+
+    border: 2px solid #f8fafc;
+
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.size-input-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.08);
+}
+
+.size-input-slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #C9A227;
+
+    cursor: pointer;
 }
