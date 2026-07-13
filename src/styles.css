@@ -3,6 +3,11 @@
     font-family: 'Stack Sans Text', sans-serif;
 }
 
+.main-container{
+    margin: 0;
+    padding: 0;
+}
+
 html{
     margin: 0;
     padding: 0;    
@@ -95,7 +100,84 @@ input{
     padding: 5px;
 }
 
+.options-radio:hover{
+    background-color: #0f2d4833;
+    transition: all 0.1s;
+}
+
 .options-radio:has(input[type="radio"]:checked){
     background-color: #e5e5e5;
     border-radius: 8px;
+}
+
+.input-common{
+    background: #fff;
+    width: auto;
+    margin-bottom: 0.5rem;
+
+    border: 1px solid #0f2d48 !important;
+    padding: 0.25rem 0.5rem;
+    border-radius: 8px;
+
+    color: #0f2d48;
+}
+
+.input-label{
+    
+    color: #0f2d48;
+}
+
+.button-common{
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #0f2d48;
+    
+    max-width: 10rem;
+    cursor: pointer;
+}
+
+.navy{
+    background-color: #0f2d48;
+    color: #f8fafc;
+}
+
+/* CARD DIV */
+
+.card-div{
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    
+    margin: 0rem 0.25rem;
+    padding: 0.5rem 0.5rem;
+    background: #0f2d48;
+    color: #F8FAFC;
+
+    margin-bottom: 0.5rem;
+}
+
+.card-div h4{
+    text-transform: uppercase;
+    text-decoration: underline;
+    color: #F8FAFC;
+    font-weight: 700;
+    
+    margin-bottom: 2px;
+    margin-top: 4px;
+}
+
+.card-div h6{
+    margin: 0rem auto;
+    margin-bottom: 0.2rem;
+    
+    text-align: left;
+    color: #F8FAFC;
+}
+
+.card-div a{
+    /* text-decoration: none; */
+    border-radius: 8px;
+    margin: 0.5rem;
+
+    padding: 0.1rem 0.5rem;
+    color: #F8FAFC;
 }

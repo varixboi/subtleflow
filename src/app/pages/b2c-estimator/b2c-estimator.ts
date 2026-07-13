@@ -1,6 +1,7 @@
 import { Component, Provider, signal } from '@angular/core';
 import product_info from "../../../assets/b2c-data/products.json"
 import { Product } from '../../models/product/Product';
+
 import { ProductSelector } from '../../shared/product-selector/product-selector';
 import { ColorSelector } from '../../shared/color-selector/color-selector';
 
@@ -12,12 +13,15 @@ import type { BackPrint } from '../../models/product/BackPrint';
 
 import colorMap from "../../../assets/data/colors.json"
 
+import { Modal } from '../../shared/modal/modal';
+import { ShippingCalculator } from '../../shared/shipping-calculator/shipping-calculator';
+
 import { Signal } from '@angular/core';
 
 
 @Component({
   selector: 'app-b2c-estimator',
-  imports: [ProductSelector, ColorSelector],
+  imports: [ProductSelector, ColorSelector, Modal, ShippingCalculator],
   templateUrl: './b2c-estimator.html',
   styleUrl: './b2c-estimator.css',
 })
@@ -41,6 +45,13 @@ export class B2cEstimator {
   sizeQty: Record<string,number> = {};
   
   copyQuoteButtonText: string = "Copy Quote";
+
+  nextThreshold!: number;
+  nextPpCost!: number;
+
+  shippingCalculated:boolean = false;
+
+  showModal:boolean = false;
 
   constructor(){
     console.log(this.products[1].display_name);
@@ -81,12 +92,8 @@ export class B2cEstimator {
   }
 
   calculatePrintCost(){
-    if(this.selectedBack.id==="NONE"){
-      this.printCost= this.selectedFront.price;
-    }
-    else{
-      this.printCost= this.selectedBack.price + this.selectedFront.addonPrice;
-    }
+      this.printCost= this.selectedFront.addonPrice + this.selectedBack.price;
+
   }
 
   // updateQty(size: string ,event: Event){
@@ -99,19 +106,32 @@ export class B2cEstimator {
   //   return Object.values(this.sizeQty).reduce((sum,val) => sum + (val || 0), 0)
   // }
 
-  totalQty = signal(0);
+  totalQty = signal(20);
 
   updateQuantity(value: number){
     this.totalQty.set(value);
   }
 
-  get unitPrice():number{
-    if(this.totalQty()<10){
-      return this.selectedProduct.sample_price;
+  get unitPrice():number{ 
+    const priceTiers = this.selectedProduct.b2c_price;
+
+    const thresholds = Object.keys(priceTiers)
+    .map(Number)
+    .sort((a,b) => b - a);
+
+
+    for(let i=0; i<thresholds.length; i++){
+      const threshold = thresholds[i];
+
+      if(this.totalQty()>=threshold){
+        this.nextThreshold = thresholds[i-1];
+        this.nextPpCost = priceTiers[this.nextThreshold];
+
+        return priceTiers[threshold]
+      }
     }
-    else{
-      return this.selectedProduct.price;
-    }
+
+    return priceTiers[20];
   }
 
   get tshirtTotal():number{
@@ -133,14 +153,18 @@ export class B2cEstimator {
     ];
   }
 
+  get Quote(){
+    return `
+${this.totalQty()} PCS of ${this.selectedProduct.product_name} (${this.selectedColor})
+Front: ${this.selectedFront.name}
+Back: ${this.selectedBack.name}
+Cost per piece: ₹${this.ppCost}
+SUBTOTAL: ₹${this.subTotal[2]}/- + SHIPPING AS PER ACTUAL
+`;
+  }
+
   copyQuote(){
-    const quote = `
-    Hello, I need ${this.totalQty()} PCS of ${this.selectedProduct.product_name} (${this.selectedColor})
-    Front: ${this.selectedFront.name}
-    Back: ${this.selectedBack.name}
-    Cost per piece: ₹${this.ppCost}
-    SUBTOTAL: ₹${this.subTotal[2]}/- + SHIPPING AS PER ACTUAL
-    `;
+    const quote = this.Quote;
 
     navigator.clipboard.writeText(quote);
     this.copyQuoteButtonText="Copied!!"
@@ -153,16 +177,10 @@ export class B2cEstimator {
   }
 
   whatsappQuote(){
-    const quote = `
-Hello, I need ${this.totalQty()} PCS of ${this.selectedProduct.product_name} (${this.selectedColor})
-Front Print: ${this.selectedFront.name}
-Back Print: ${this.selectedBack.name}
-Cost per piece: ₹${this.ppCost}
-SUBTOTAL: ₹${this.subTotal[2]}/- + SHIPPING AS PER ACTUAL
-`;
+    const quote = this.Quote;
 
     window.open(
-      `https://wa.me/918904467234?text=${encodeURIComponent(quote)}`
+      `https://wa.me/918904467234?text=Hello,%20I%20Need%20${encodeURIComponent(quote)}`
     )
   };
 

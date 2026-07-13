@@ -37,6 +37,7 @@ input[type=number] {
 
     table-layout: fixed;
     border: 1px solid #f8fafc;
+
 }
 
 .size-input-table thead th{
@@ -45,13 +46,14 @@ input[type=number] {
     background: #C9A227;
     color: #0f2d48;
     border: 1px solid #f8fafc;
-
+    
     border: 1px solid #0f2d48;
 }
 
 .size-input-table tbody th{
     background: #f8fafc;
     border: 1px solid #0f2d48;
+
 }
 
 .size-input-table tbody th input{
@@ -132,6 +134,46 @@ input:focus{
     margin-top: 4px;
 }
 
+.selector-div h4{
+    margin: 0 auto;
+    text-align: center;
+    color: #0f2d48;
+}
+
+.selector-div h5{
+    margin-top: 0.25rem;
+    margin-bottom: 0;
+    text-align: center;
+    color: #6e0000;
+}
+
+.selector-div h6{
+    margin: 0rem auto;
+    margin-bottom: 0.25rem;
+    
+    text-align: center;
+    color: #0f2d48;
+}
+
+
+.price-div{
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 8px;
+    
+    background-color: #0f2d48;
+    color: #f8fafc;
+    padding: 0.25rem 0;
+}
+
+.price-div h3{
+    margin: 0.25rem auto;
+    text-align: center;
+    color: #f8fafc;
+}
+
+/* QUOTE CSS - COPY & WHATSAPP */
 .copyQuoteContainer{
     display: flex;
     flex-direction: column;

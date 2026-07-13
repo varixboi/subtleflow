@@ -15,6 +15,20 @@
     </div>
 
     <div class="selector-div">
+        <h4>{{selectedProduct.product_name}}</h4>
+        <h6>{{selectedProduct.product_description}}</h6>
+        <div class="price-div">
+            <h3>₹{{ppCost}} per piece</h3>
+        </div>
+        @if(totalQty()<500){
+            <h5>Add {{nextThreshold - totalQty()}} pcs more for ₹{{nextPpCost}} per piece</h5>
+        }
+        @else{
+            <h5>Whatsapp us for custom pricing at 1000+ Pcs</h5>
+        }
+    </div>
+
+    <div class="selector-div">
         <p>Front Print</p>
         @for(front of frontOptions; track front.id){
             <label class="options-radio">
@@ -53,7 +67,7 @@
                     <th class="size-input-table">
                     <input class="size-input"
                         type="number"
-                        min="0"     
+                        min="20"     
                         [value]="totalQty()"
                         (input)="updateQuantity(+($event.target).value || 0)"           
                     />
@@ -64,13 +78,31 @@
 
         <input class="size-input-slider"
             type="range"
-            min="0"
+            min="20"
             max="1000"
-            step="20"
+            step="5"
             [value]="totalQty()"
             (input)="updateQuantity(+($any($event.target).value))"
             [style.background]="sliderBackground()"
         />
+    </div>
+    
+    <div class="selector-div flex-column">
+        <!-- <input class="input-common input-pincode" placeholder="Enter Pincode" 
+        type="number" min="000000" max="999999"
+        oninput="if(this.value.length > 6) { this.value = this.value.slice(0, 6); }"
+        /> -->
+        @if(shippingCalculated===false){
+            <p>Shipping</p>
+            <button class="button-common navy" (click)="showModal = true">Calculate Shipping</button>
+            <h5>CALCULATE SHIPPING TO VIEW QUOTE</h5>
+        }
+        @else{
+            <p>QUOTE <span style="font-size: 10px; vertical-align:middle;;">
+                (Inclusive of 5% GST & Shipping)
+            </span></p>
+            <h6 style="text-align: left;">{{Quote}}</h6>
+        }
     </div>
 
     <div class="copyQuoteContainer">
@@ -83,3 +115,14 @@
         <button type="button" class="copyQuote" (click)="copyQuote()">{{copyQuoteButtonText}}</button>
     </div>
 </section>
+
+@if(showModal){
+    <app-modal
+    [modalTitle]="'Select your shipping option'"
+    [modalButton]="'Select'"
+    (close)="showModal = false"
+    (buttonAction)="showModal=false; shippingCalculated=true"
+    >
+    <app-shipping-calculator></app-shipping-calculator>
+    </app-modal>
+}

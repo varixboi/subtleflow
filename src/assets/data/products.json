@@ -12,7 +12,10 @@
         "images":[
             "product-images/180/Black 180.png",
             "product-images/180/White 180.png"
-        ]
+        ],
+
+        "b2c_status": false,
+        "b2c_price":{}
 
     },
 
@@ -42,7 +45,10 @@
             "product-images/240/Rose pink.png",
             "product-images/240/Royal blue.png"
 
-        ]
+        ],
+
+        "b2c_status": false,
+        "b2c_price":{}
 
     },
 
@@ -63,7 +69,10 @@
             "product-images/240acid/Brown acidwash.png",
             "product-images/240acid/Army green acidwash.png",
             "product-images/240acid/Red acidwash.png"
-        ]
+        ],
+
+        "b2c_status": false,
+        "b2c_price":{}
 
     },
 
@@ -79,7 +88,10 @@
         "sizes":["S","M","L","XL","2XL"],
         "images":[
             "product-images/Polo/Black.png"
-        ]
+        ],
+
+        "b2c_status": false,
+        "b2c_price":{}
 
     }
 ]

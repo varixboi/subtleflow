@@ -1,0 +1,75 @@
+    <div class="selector-div shipping-div">
+
+        <label class="options-radio">Courier
+            <input type="radio" 
+                [value]="ShippingMethods.COURIER"
+                [(ngModel)]="selectedShippingMethod"
+                (change)="onMethodChange()"
+                >
+        </label>
+        <label class="options-radio">Self Pickup
+            <input type="radio" 
+                class="options-radio"
+                [value]="ShippingMethods.PICKUP"
+                [(ngModel)]="selectedShippingMethod"
+                (change)="onMethodChange()"
+                >
+        </label>
+    </div>
+
+    @if(selectedShippingMethod === ShippingMethods.COURIER){
+        <label class="input-label">Pincode: </label>
+        <input class="input-common input-pincode" placeholder="Enter Pincode" 
+        type="number" min="000000" max="999999"
+        oninput="if(this.value.length > 6) { this.value = this.value.slice(0, 6); }"
+        [(ngModel)]="deliveryPincode"
+        />
+        <button type="button" class="submit-pincode" (click)="checkShippingRates()" [disabled]="isLoading">
+            {{isLoading ? 'Checking...' : 'Submit'}}
+        </button>
+
+        @if(errorMessage){
+            <p>{{errorMessage}}</p>
+        }
+
+        <div>
+            @if(availableCouriers.length > 0) {
+                <div>
+                    <h4>Available Options:</h4>
+                    
+                    @for(courier of availableCouriers; track courier.courier_name) {
+                        <label class="shipping-radio" style="display: block; margin-bottom: 10px; padding: 10px;">
+                            
+                            <input type="radio" 
+                                name="courierChoice" 
+                                [value]="courier" 
+                                [(ngModel)]="selectedCourier"
+                                (change)="emitSelection()">
+                                
+                            <span>
+                                <strong>{{ courier.courier_name }}</strong> — ₹{{ courier.updatedRate }}
+                                <br>
+                                <small>Estd. Delivery Time: {{ courier.delivery_in_days }}-{{ courier.delivery_in_days + 1 }} DAYS (After Dispatch)</small>
+                            </span>
+                            
+                        </label>
+                    }
+                </div>
+            }
+        </div>
+    }
+
+    @if(selectedShippingMethod === ShippingMethods.PICKUP){
+        <div class="card-div">
+            <h4>Our Location:</h4>
+            <h6>Shop No. 23, Ground floor, ACE Mathura Complex</h6>
+            <h6>Mangalore, Karnataka</h6>
+            <h6>575001</h6>
+        </div>
+        <div class="card-div">
+            <!-- <h4>Google Maps Link:</h4> -->
+            <a href="https://share.google/4gxc3RYFkFReRMNqZ" target="_blank">
+                https://share.google/4gxc3RYFkFReRMNqZ
+            </a>
+        </div>
+    }

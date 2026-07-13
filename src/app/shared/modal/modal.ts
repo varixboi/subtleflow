@@ -8,6 +8,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class Modal {
   @Input() modalTitle = "";
+  @Input() modalButton = "";
 
   @Output() close = new EventEmitter<void>();
+
+  //Emits service to be run
+  @Output() buttonAction = new EventEmitter<void>();
 }

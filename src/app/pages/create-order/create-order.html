@@ -24,9 +24,11 @@
         @if(showModal){
             <app-modal
             [modalTitle]="'Enter customer design'"
+            [modalButton]="'Save Design'"
             (close)="showModal = false"
+            (buttonAction)="designInput.savePrintImages()"
             >
-            <app-design-input (designSaved)="saveDesign($event)"></app-design-input>
+            <app-design-input #designInput (designSaved)="saveDesign($event)"></app-design-input>
             </app-modal>
         }
 

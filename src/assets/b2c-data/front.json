@@ -13,20 +13,20 @@
         "id":"LOGO",
         "type":"DTF",
         "name":"Logo Print (upto 6x3 inches)",
-        "price":20,
+        "price":0,
         "addonPrice":0,
-        "price_sample": 50,
-        "price_bulk": 15
+        "price_sample": 0,
+        "price_bulk": 0
     },
 
     {
         "id":"LARGE",
         "type":"DTF",
         "name":"Large Print (11x6 inches)",
-        "price":30,
+        "price":0,
         "addonPrice":10,
-        "price_sample": 60,
-        "price_bulk": 25
+        "price_sample": 0,
+        "price_bulk": 0
     }
 ]
 

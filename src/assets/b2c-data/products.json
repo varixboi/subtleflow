@@ -12,7 +12,16 @@
         "images":[
             "product-images/180/Black 180.png",
             "product-images/180/White 180.png"
-        ]
+        ],
+
+        "b2c_status": true,
+        "b2c_price":{
+            "20":270,
+            "50":250,
+            "100":240,
+            "200":230,
+            "500":225
+        }
 
     },
 
@@ -23,8 +32,8 @@
         "price":200,
         "product_description":"Oversized Dropshoulder | 240GSM | French Terry/Loopknit Fabric | 100% Cotton Biowash | All over Double Stitching | Pre-shrunk fabric",
         "display_name":"240GSM OVERSIZE",
-        "colors":["Black", "White", "Charcoal", "Navy", "Maroon", "Off-white", "Brown", "Army green", "Lavender", "Beige", "Sky blue", "Red", "Rose pink", "Royal blue"],
         "sample_price":230,
+        "colors":["Black", "White", "Charcoal", "Navy", "Maroon", "Off-white", "Brown", "Army green", "Lavender", "Beige", "Sky blue", "Red", "Rose pink", "Royal blue"],
         "sizes":["S","M","L","XL","2XL"],
         "images":[
             "product-images/240/Black.png",
@@ -42,19 +51,27 @@
             "product-images/240/Rose pink.png",
             "product-images/240/Royal blue.png"
 
-        ]
+        ],
 
+        "b2c_status": true,
+        "b2c_price":{
+            "20":320,
+            "50":300,
+            "100":290,
+            "200":280,
+            "500":275
+        }
     },
 
     {
         
-        "id":"240ACID",
-        "product_name":"240GSM French Terry Acid Wash Oversized",
-        "price":270,
-        "product_description":"240GSM French Terry Acid Wash | Oversized | 100% Cotton | Biowash",
-        "display_name":"240 ACIDWASH OS",
+        "id":"OSBIO",
+        "product_name":"Oversized Tshirt 100% Cotton Biowash",
+        "price":190,
+        "product_description":"200-220GSM | Oversized | 100% Cotton | Biowash",
+        "display_name":"OVERSIZED 100% COTTON",
         "colors":["Black", "Navy","Maroon", "Brown", "Army green", "Red"],
-        "sample_price":300,
+        "sample_price": 220,
         "sizes":["S","M","L","XL","2XL"],
         "images":[
             "product-images/240acid/Black acidwash.png",
@@ -63,7 +80,16 @@
             "product-images/240acid/Brown acidwash.png",
             "product-images/240acid/Army green acidwash.png",
             "product-images/240acid/Red acidwash.png"
-        ]
+        ],
+
+        "b2c_status": true,
+        "b2c_price":{
+            "20":290,
+            "50":270,
+            "100":260,
+            "200":250,
+            "500":245
+        }
 
     },
 
@@ -71,15 +97,24 @@
         
         "id":"220POLO",
         "product_name":"Pure Cotton Polo",
-        "price":210,
+        "price":220,
         "product_description":"220GSM Cotton Polo | 100% Cotton | Biowash",
         "display_name":"COTTON POLO",
         "colors":["Black", "White", "Navy"],
-        "sample_price":240,
+        "sample_price": 250,
         "sizes":["S","M","L","XL","2XL"],
         "images":[
             "product-images/Polo/Black.png"
-        ]
+        ],
+
+        "b2c_status": true,
+        "b2c_price":{
+            "20":300,
+            "50":280,
+            "100":270,
+            "200":260,
+            "500":255
+        }
 
     }
 ]

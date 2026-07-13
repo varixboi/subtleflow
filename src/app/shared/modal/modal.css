@@ -28,12 +28,12 @@
     border: 1px solid black;
 }
 
-.modal-banner{
+.modal-header{
     display: flex;
     justify-content: space-between;
     align-items: center;
     
-    background: #6e0000;
+    background: #0f2d48;
 
     padding-bottom: 0rem;
     border-bottom: 1px solid black;
@@ -41,7 +41,7 @@
     margin-bottom: 0;
 }
 
-.modal-banner h2{
+.modal-header h2{
     margin: 0;
     padding: 0.75rem 1rem;
     
@@ -51,27 +51,33 @@
     
 }
 
-.modal-banner-bottom{
+.modal-footer{
     display: flex;
     justify-content: end;
     align-items: end;
 
+    background: #f8fafc;
     padding: 0.5rem;
 }
 
-.save-button{
+.modal-button{
     background: none;
     border: none;
     color: white;
     
     font-size: 1rem;
-    width: 5rem;
+    max-width: 10rem;
     
     background: #006e6e;
     border: 1px solid black;
     border-radius: 8px;
-
+    
     padding: 0.5rem;
+    cursor: pointer;
+}
+
+.modal-button:hover{
+    background: #003030;
 }
 
 .close-button{
@@ -89,5 +95,7 @@
 }
 
 .modal-body{
-    padding: 1rem;
+    padding: 1rem 0.5rem;
+
+    background: #f8fafc;
 }

@@ -2,13 +2,20 @@
     <!-- <div class="modal-div" (click)="$event.stopPropagation()"> -->
 <div class="modal-overlay">
     <div class="modal-div">
-        <div class="modal-banner">
+        <div class="modal-header">
             <h2>{{modalTitle}}</h2>
-            <button class="close-button" (click)="close.emit()">x</button>
+            <button class="close-button" (click)="close.emit()">
+                x
+            </button>
         </div>
         <div class="modal-body">
             <!-- main content goes here - login page/signup/design selector etc. -->
             <ng-content></ng-content>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-button" (click)="buttonAction.emit()">
+                {{modalButton}}
+            </button>
         </div>
     </div>
 </div>

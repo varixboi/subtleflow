@@ -1,14 +1,10 @@
-export interface Product {
+export interface B2CProduct {
   id: string;
   product_name:string;
-  price: number;
+  price: Record<number, number>;
   product_description: string;
   display_name: string;
   colors: string[];
-  sample_price:number;
   sizes:string[];
   images:string[];
-
-  b2c_status: boolean;
-  b2c_price: Record <number,number>;
 }
