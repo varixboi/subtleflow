@@ -50,6 +50,7 @@ export class B2cEstimator {
   nextPpCost!: number;
 
   shippingCalculated:boolean = false;
+  shippingText:string = 'CALCULATE SHIPPING TO VIEW QUOTE'
 
   showModal:boolean = false;
 
@@ -73,6 +74,12 @@ export class B2cEstimator {
     this.selectedProduct = product;
     this.selectedColor = this.selectedProduct.colors[0];
     console.log("Product changed to: ", this.selectedProduct,"-",this.selectedColor);
+
+    //should be cleared on change to product OR quantity
+    if(this.shippingCalculated===true){
+      this.shippingCalculated=false;
+      this.shippingText = 'PRODUCT CHANGED! PLEASE RECALCULATE TO VIEW QUOTE'
+    }
   }
 
   changeSelectedColor(color: string){
@@ -110,6 +117,12 @@ export class B2cEstimator {
 
   updateQuantity(value: number){
     this.totalQty.set(value);
+
+    //should be cleared on change to product OR quantity
+    if(this.shippingCalculated===true){
+      this.shippingCalculated=false;
+      this.shippingText = 'QUANTITY UPDATED! PLEASE RECALCULATE TO VIEW QUOTE'
+    }
   }
 
   get unitPrice():number{ 
@@ -194,6 +207,10 @@ SUBTOTAL: ₹${this.subTotal[2]}/- + SHIPPING AS PER ACTUAL
         #f8fafc ${percent}%,
         #f8fafc 100%
     )`;
+  }
+
+  changeSelectedShipping(){
+
   }
 }
 

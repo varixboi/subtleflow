@@ -139,7 +139,28 @@ input{
 .navy{
     background-color: #0f2d48;
     color: #f8fafc;
+    font-weight: bold;
 }
+
+.warmwhite{
+    background-color: #f8fafc;
+    color: #0f2d48;
+    font-weight: bold;
+}
+
+.gold{
+    background-color: #c9a227;
+    color: #0f2d48;
+    
+    font-weight: bold;
+}
+
+.maroon{
+    background-color: #6e0000;
+    color: #f8fafc;
+    font-weight: bold;
+}
+
 
 /* CARD DIV */
 
@@ -180,4 +201,10 @@ input{
 
     padding: 0.1rem 0.5rem;
     color: #F8FAFC;
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
 }

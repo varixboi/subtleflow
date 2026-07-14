@@ -19,14 +19,15 @@
 
     @if(selectedShippingMethod === ShippingMethods.COURIER){
         <label class="input-label">Pincode: </label>
-        <input class="input-common input-pincode" placeholder="Enter Pincode" 
+        <input id="input-courier-pincode" class="input-common input-pincode" placeholder="Enter Pincode" 
         type="number" min="000000" max="999999"
-        oninput="if(this.value.length > 6) { this.value = this.value.slice(0, 6); }"
+        oninput="if(this.value.length > 6) { this.value = this.value.slice(0, 6);}"
         [(ngModel)]="deliveryPincode"
+        (blur)="checkShippingRates()"
         />
-        <button type="button" class="submit-pincode" (click)="checkShippingRates()" [disabled]="isLoading">
+        <!-- <button type="button" class="submit-pincode" (click)="checkShippingRates()" [disabled]="isLoading">
             {{isLoading ? 'Checking...' : 'Submit'}}
-        </button>
+        </button> -->
 
         @if(errorMessage){
             <p>{{errorMessage}}</p>
@@ -38,7 +39,7 @@
                     <h4>Available Options:</h4>
                     
                     @for(courier of availableCouriers; track courier.courier_name) {
-                        <label class="shipping-radio" style="display: block; margin-bottom: 10px; padding: 10px;">
+                        <label class="shipping-radio">
                             
                             <input type="radio" 
                                 name="courierChoice" 

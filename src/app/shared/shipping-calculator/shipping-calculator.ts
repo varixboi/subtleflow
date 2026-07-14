@@ -24,14 +24,17 @@ export class ShippingCalculator {
 
   constructor(private shippingService: ShippingService,
     private cdr: ChangeDetectorRef
-  ){}
+  ){
+    // const inputCourierPincode = document.getElementById('input-courier-pincode') as HTMLElement;
+    // inputCourierPincode.addEventListener('blur', this.checkShippingRates);
+    this.availableCouriers = []; 
+  }
 
   // Runs when they switch between "Courier" and "Pickup"
   onMethodChange() {
-    this.selectedCourier = null; 
+    // this.selectedCourier = null; 
     
     if (this.selectedShippingMethod === ShippingMethods.PICKUP) {
-      this.availableCouriers = []; 
       
       // Create a fake courier object for Pickup (Price is 0)
       this.selectedCourier = {
