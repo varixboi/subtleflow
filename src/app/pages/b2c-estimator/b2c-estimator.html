@@ -99,9 +99,14 @@
             (Inclusive of 5% GST & Shipping)
         </span></p>
         @if(shippingCalculated===true){
-            <p style="text-align: left;">{{totalQty()}} PCS of {{selectedProduct.product_name}} ({{selectedColor}})</p>
-            <p style="text-align: left;">TAXABLE: ₹{{this.subTotal[0]}}/- | GST: ₹{{this.subTotal[1]}}/-</p>
-            <p style="text-align: left;">SUBTOTAL: ₹{{this.subTotal[2]}}/- + SHIPPING AS PER ACTUAL</p>
+            <p style="font-size: 14px; margin: 0rem;">{{totalQty()}} PCS of {{selectedProduct.product_name}} ({{selectedColor}})</p>
+            <p style="font-size: 14px; margin: 0rem;">FRONT: {{selectedFront.name}} | BACK: {{selectedBack.name}}</p>
+            <p></p>
+            <p style="font-size: 14px; margin: 0rem;">TSHIRT TOTAL: ₹{{this.subTotal[0]}}/- | SHIPPING: ₹{{shippingCost}}/-</p>
+            <p style="font-size: 14px; margin: 0rem;">SHIPPING METHOD: {{selectedShipping.courier_name}} ({{selectedShipping.delivery_in_days-1}}-{{selectedShipping.delivery_in_days+1}} DAYS FROM DISPATCH)</p>
+            <p></p>
+            <p style="font-size: 14px; margin: 0rem;">TAXABLE: ₹{{this.subTotal[0] + shippingCost}}/- | GST: ₹{{this.subTotal[1].toFixed(2)}}/-</p>
+            <p style="font-size: 14px; margin: 0rem;">FINAL TOTAL: ₹{{this.subTotal[2].toFixed(2)}}/-</p>
             <!-- <h6 style="text-align: left;">Front: {{this.selectedFront.name}}</h6>
             <h6 style="text-align: left;">Back: {{this.selectedBack.name}}</h6> -->
             <!-- <h6 style="text-align: left;">Cost per piece: ₹{{this.ppCost}}</h6> -->
@@ -127,8 +132,8 @@
     [modalTitle]="'Select your shipping option'"
     [modalButton]="'Select'"
     (close)="showModal = false"
-    (buttonAction)="showModal=false; shippingCalculated=true; "
+    (buttonAction)="shippingCalculator.saveSelectedShipping(); closeSelectShippingModal();"
     >
-    <app-shipping-calculator></app-shipping-calculator>
+    <app-shipping-calculator #shippingCalculator (shippingSelected)="changeSelectedShipping($event)"></app-shipping-calculator>
     </app-modal>
 }

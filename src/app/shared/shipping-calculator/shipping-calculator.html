@@ -44,13 +44,12 @@
                             <input type="radio" 
                                 name="courierChoice" 
                                 [value]="courier" 
-                                [(ngModel)]="selectedCourier"
-                                (change)="emitSelection()">
+                                [(ngModel)]="selectedCourier">
                                 
                             <span>
                                 <strong>{{ courier.courier_name }}</strong> — ₹{{ courier.updatedRate }}
                                 <br>
-                                <small>Estd. Delivery Time: {{ courier.delivery_in_days }}-{{ courier.delivery_in_days + 1 }} DAYS (After Dispatch)</small>
+                                <small>Estd. Delivery Time: {{ courier.delivery_in_days - 1 }}-{{ courier.delivery_in_days + 1 }} DAYS (After Dispatch)</small>
                             </span>
                             
                         </label>

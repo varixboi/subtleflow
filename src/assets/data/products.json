@@ -13,6 +13,7 @@
             "product-images/180/Black 180.png",
             "product-images/180/White 180.png"
         ],
+        "weight":0.23,
 
         "b2c_status": false,
         "b2c_price":{}
@@ -46,6 +47,7 @@
             "product-images/240/Royal blue.png"
 
         ],
+        "weight":0.33,
 
         "b2c_status": false,
         "b2c_price":{}
@@ -70,6 +72,7 @@
             "product-images/240acid/Army green acidwash.png",
             "product-images/240acid/Red acidwash.png"
         ],
+        "weight":0.33,
 
         "b2c_status": false,
         "b2c_price":{}
@@ -89,6 +92,7 @@
         "images":[
             "product-images/Polo/Black.png"
         ],
+        "weight":0.28,
 
         "b2c_status": false,
         "b2c_price":{}

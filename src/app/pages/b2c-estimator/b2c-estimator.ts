@@ -51,6 +51,7 @@ export class B2cEstimator {
 
   shippingCalculated:boolean = false;
   shippingText:string = 'CALCULATE SHIPPING TO VIEW QUOTE'
+  selectedShipping: any = null;
 
   showModal:boolean = false;
 
@@ -147,6 +148,14 @@ export class B2cEstimator {
     return priceTiers[20];
   }
 
+  get unitWeight():number{
+    return this.selectedProduct.weight;
+  }
+
+  get weightTotal():number{
+    return this.unitWeight*this.totalQty();
+  }
+
   get tshirtTotal():number{
     return this.totalQty()*this.unitPrice
   }
@@ -159,10 +168,19 @@ export class B2cEstimator {
     return this.unitPrice+this.printCost
   }
 
+  get shippingCost(): number{
+    // if(this.selectedShipping.updatedRate==null){
+    //   return this.selectedShipping.rate;
+    // }
+    return this.selectedShipping.updatedRate;
+  }
+
+
+
   get subTotal():number[]{
     return [this.tshirtTotal+this.printTotal,
-            (this.tshirtTotal+this.printTotal)*0.05,
-            (this.tshirtTotal+this.printTotal) *1.05
+            (this.tshirtTotal+this.printTotal+this.shippingCost)*0.05,
+            (this.tshirtTotal+this.printTotal+this.shippingCost) *1.05
     ];
   }
 
@@ -209,8 +227,18 @@ SUBTOTAL: ₹${this.subTotal[2]}/- + SHIPPING AS PER ACTUAL
     )`;
   }
 
-  changeSelectedShipping(){
+  changeSelectedShipping(shippingOption: any){
+    this.selectedShipping = shippingOption;
+    console.log("Stored shipping: ", this.selectedShipping);
+  }
 
+  closeSelectShippingModal(){
+    if(this.selectedShipping===null){
+      return
+    }
+    
+    this.showModal=false; 
+    this.shippingCalculated=true;
   }
 }
 

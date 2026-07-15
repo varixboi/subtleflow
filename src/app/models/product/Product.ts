@@ -8,6 +8,7 @@ export interface Product {
   sample_price:number;
   sizes:string[];
   images:string[];
+  weight: number;
 
   b2c_status: boolean;
   b2c_price: Record <number,number>;

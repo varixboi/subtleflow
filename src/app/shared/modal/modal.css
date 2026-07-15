@@ -16,7 +16,8 @@
 }
 
 .modal-div{
-    width: 100%;
+    width: 95%;
+    max-height: 90%;
     max-width: 25rem;
 
     background: white;

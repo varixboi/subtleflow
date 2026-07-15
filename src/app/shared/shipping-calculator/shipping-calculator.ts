@@ -20,7 +20,7 @@ export class ShippingCalculator {
   availableCouriers: any[] = [];
   selectedCourier: any = null;
   isLoading: boolean = false;
-  errorMessage: string = "";
+  errorMessage: string = "Please enter your pincode";
 
   constructor(private shippingService: ShippingService,
     private cdr: ChangeDetectorRef
@@ -39,16 +39,13 @@ export class ShippingCalculator {
       // Create a fake courier object for Pickup (Price is 0)
       this.selectedCourier = {
         courier_name: 'Self Pickup',
-        rate: 0,
+        updatedRate: 0,
         estimated_delivery_date: 'Today'
       };
-      
-      // Instantly send this free option up to the Cart
-      this.emitSelection();
     }
   }
 
-  // Runs when they click "Submit"
+  // Runs when they go out of focus from the pincode input box OR click "Submit"
   checkShippingRates() {
     if (!this.deliveryPincode || this.deliveryPincode.toString().length !== 6) {
       this.errorMessage = 'Please enter a valid 6-digit pincode';
@@ -94,7 +91,6 @@ export class ShippingCalculator {
         // Auto-select the first courier in the list to save the user a click
         if (this.availableCouriers.length > 0) {
           this.selectedCourier = this.availableCouriers[0];
-          this.emitSelection(); // Send the price up to the Cart
         } else {
           this.errorMessage = 'No delivery options found for this pincode.';
         }
@@ -112,7 +108,12 @@ export class ShippingCalculator {
   }
 
   // Helper function to actually trigger the Megaphone
-  emitSelection() {
+  saveSelectedShipping() {
+    if(this.selectedCourier===null){
+      alert("Please select an option");
+      return;
+    }
+
     this.shippingSelected.emit(this.selectedCourier);
   }
 }

@@ -124,6 +124,10 @@ input:focus{
 
     margin-bottom: 0.5rem;
 }
+.quoteText{
+    font-size: 12px;
+    margin-bottom: 0.25rem;
+}
 
 .selector-div p{
     text-transform: uppercase;
