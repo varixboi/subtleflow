@@ -80,6 +80,8 @@ export class B2cEstimator {
     if(this.shippingCalculated===true){
       this.shippingCalculated=false;
       this.shippingText = 'PRODUCT CHANGED! PLEASE RECALCULATE TO VIEW QUOTE'
+
+      this.quoteButtonDisabled.set(true);
     }
   }
 
@@ -114,6 +116,8 @@ export class B2cEstimator {
   //   return Object.values(this.sizeQty).reduce((sum,val) => sum + (val || 0), 0)
   // }
 
+  quoteButtonDisabled = signal(true);
+
   totalQty = signal(20);
 
   updateQuantity(value: number){
@@ -123,6 +127,8 @@ export class B2cEstimator {
     if(this.shippingCalculated===true){
       this.shippingCalculated=false;
       this.shippingText = 'QUANTITY UPDATED! PLEASE RECALCULATE TO VIEW QUOTE'
+
+      this.quoteButtonDisabled.set(true);
     }
   }
 
@@ -185,12 +191,15 @@ export class B2cEstimator {
   }
 
   get Quote(){
-    return `
-${this.totalQty()} PCS of ${this.selectedProduct.product_name} (${this.selectedColor})
+    return `${this.totalQty()} PCS of ${this.selectedProduct.product_name} (${this.selectedColor})
 Front: ${this.selectedFront.name}
 Back: ${this.selectedBack.name}
-Cost per piece: ₹${this.ppCost}
-SUBTOTAL: ₹${this.subTotal[2]}/- + SHIPPING AS PER ACTUAL
+
+Tshirt total: ₹${this.subTotal[0]} | Shipping cost: ₹${this.shippingCost}
+Shipping Method: ${this.selectedShipping.courier_name} (${this.selectedShipping.delivery_in_days}-${this.selectedShipping.delivery_in_days+1} DAYS FROM DISPATCH)
+
+TAXABLE: ₹${this.subTotal[0] + this.shippingCost}/- | GST: ₹${this.subTotal[1].toFixed(2)}/-
+FINAL TOTAL: ₹${this.subTotal[2].toFixed(2)}/-
 `;
   }
 
@@ -239,6 +248,6 @@ SUBTOTAL: ₹${this.subTotal[2]}/- + SHIPPING AS PER ACTUAL
     
     this.showModal=false; 
     this.shippingCalculated=true;
+    this.quoteButtonDisabled.set(false);
   }
 }
-

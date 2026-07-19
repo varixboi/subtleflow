@@ -48,3 +48,21 @@
 .shipping-radio:has(input[type="radio"]:checked) small{
     color: #e5e5e5;
 }
+
+/* SCROLLABLE DIV */
+
+.courier-scroll-div {
+  max-height: 16rem; /* Adjust this height to fit your modal */
+  overflow-y: auto;
+  margin-top: 10px;
+  padding-right: 8px;
+}
+
+/* Optional: Makes the scrollbar look sleek and modern */
+.courier-scroll-div::-webkit-scrollbar {
+  width: 6px;
+}
+.courier-scroll-div::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 10px;
+}

@@ -1,22 +1,22 @@
-header{
+footer{
     background: #0f2d48;
     color: #f8fafc;
     text-align: center;
 
     margin: 0 auto;
     width: 100%;
-    max-width: 30rem;
+    /* max-width: 40rem; */
     padding: 0.25rem 0;
 
     position: relative;
 }
 
-header h2{
+footer h2{
     margin: 0;
     margin-bottom: 0.25rem;
 }
 
-header h4{
+footer h4{
     margin: 0;
 }
 

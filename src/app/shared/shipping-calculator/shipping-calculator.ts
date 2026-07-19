@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, ChangeDetectorRef } from '@angular/core';
+import { Component, EventEmitter, Output, ChangeDetectorRef, Input } from '@angular/core';
 import { ShippingMethods } from '../../models/order/ShippingMethods';
 import { ShippingService } from '../../services/shipping.service';
 import { FormsModule } from '@angular/forms';
@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 export class ShippingCalculator {
   readonly ShippingMethods = ShippingMethods;
 
+  @Input() weightTotal: number = 1;
   // NEW: This is the megaphone that sends the final selection back to your Cart
   @Output() shippingSelected = new EventEmitter();
 
@@ -27,12 +28,13 @@ export class ShippingCalculator {
   ){
     // const inputCourierPincode = document.getElementById('input-courier-pincode') as HTMLElement;
     // inputCourierPincode.addEventListener('blur', this.checkShippingRates);
+    this.selectedCourier = null;
     this.availableCouriers = []; 
   }
 
   // Runs when they switch between "Courier" and "Pickup"
   onMethodChange() {
-    // this.selectedCourier = null; 
+    this.selectedCourier = null; 
     
     if (this.selectedShippingMethod === ShippingMethods.PICKUP) {
       
@@ -40,13 +42,16 @@ export class ShippingCalculator {
       this.selectedCourier = {
         courier_name: 'Self Pickup',
         updatedRate: 0,
-        estimated_delivery_date: 'Today'
+        estimated_delivery_date: 'Today',
+        delivery_in_days: 0
       };
     }
   }
 
   // Runs when they go out of focus from the pincode input box OR click "Submit"
   checkShippingRates() {
+    this.selectedCourier = null; 
+
     if (!this.deliveryPincode || this.deliveryPincode.toString().length !== 6) {
       this.errorMessage = 'Please enter a valid 6-digit pincode';
       return;
@@ -57,7 +62,7 @@ export class ShippingCalculator {
     this.availableCouriers = [];
 
     // Ask the NestJS backend for the rates
-    this.shippingService.getRates(this.deliveryPincode.toString()).subscribe({
+    this.shippingService.getRates(this.deliveryPincode.toString(), this.weightTotal).subscribe({
       next: (rates) => {
         const today = new Date();
         today.setHours(0,0,0,0);
@@ -72,7 +77,10 @@ export class ShippingCalculator {
 
           let updatedRate;
           
-          if(courier.rate>=1000){
+          if(courier.rate>=2000){
+             updatedRate = courier.rate + 200
+          }
+          else if(courier.rate>=1000){
              updatedRate = courier.rate + 110
           }else if(courier.price>=300){
              updatedRate = courier.rate + 80

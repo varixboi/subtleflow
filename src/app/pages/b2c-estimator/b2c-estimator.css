@@ -1,6 +1,13 @@
 /* HIDE INCREMENT/DECREMENT BUTTON OF NUMBER INPUT */
 
 /* Chrome, Safari, Edge, Opera */
+
+:host{
+    display: block; /* Crucial: (DO NOT REMOVE) lets the component behave like a div */
+    width: 100%;
+    background-color: #0f2d48;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -17,7 +24,7 @@ input[type=number] {
 
 .section-form{
     width: 100%;
-    max-width: 30rem;
+    max-width: 40rem;
     
     margin: 0 auto;
     padding: 0.5rem 0rem;
@@ -212,6 +219,11 @@ input:focus{
     cursor: pointer;
 }
 
+.copyQuote:disabled{
+    background: #555;
+    cursor: not-allowed;
+}
+
 .whatsappQuote{
     width: 90%;
     font-weight: bold;
@@ -229,6 +241,10 @@ input:focus{
     background-color: #1a9b49;
 
     cursor: pointer;
+}
+
+.whatsappQuote:disabled{
+    cursor: not-allowed;
 }
 
 .bi-whatsapp{

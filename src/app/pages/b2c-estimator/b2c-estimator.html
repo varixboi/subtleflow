@@ -87,7 +87,10 @@
         />
     </div>
     @if(shippingCalculated===false){
-            <button class="button-common gold" (click)="showModal = true" style="margin: 0.25rem; width: 90%;">Calculate Shipping</button>
+        <button class="button-common gold" (click)="showModal = true" style="margin: 0.25rem; width: 90%;">Calculate Shipping</button>
+    }
+    @else{
+        <button class="button-common gold" (click)="showModal = true" style="margin: 0.25rem; width: 90%;">Recalculate Shipping</button>
     }
     
     <div class="selector-div flex-column">
@@ -103,13 +106,10 @@
             <p style="font-size: 14px; margin: 0rem;">FRONT: {{selectedFront.name}} | BACK: {{selectedBack.name}}</p>
             <p></p>
             <p style="font-size: 14px; margin: 0rem;">TSHIRT TOTAL: ₹{{this.subTotal[0]}}/- | SHIPPING: ₹{{shippingCost}}/-</p>
-            <p style="font-size: 14px; margin: 0rem;">SHIPPING METHOD: {{selectedShipping.courier_name}} ({{selectedShipping.delivery_in_days-1}}-{{selectedShipping.delivery_in_days+1}} DAYS FROM DISPATCH)</p>
+            <p style="font-size: 14px; margin: 0rem;">SHIPPING METHOD: {{selectedShipping.courier_name}} ({{selectedShipping.delivery_in_days}}-{{selectedShipping.delivery_in_days+1}} DAYS FROM DISPATCH)</p>
             <p></p>
             <p style="font-size: 14px; margin: 0rem;">TAXABLE: ₹{{this.subTotal[0] + shippingCost}}/- | GST: ₹{{this.subTotal[1].toFixed(2)}}/-</p>
             <p style="font-size: 14px; margin: 0rem;">FINAL TOTAL: ₹{{this.subTotal[2].toFixed(2)}}/-</p>
-            <!-- <h6 style="text-align: left;">Front: {{this.selectedFront.name}}</h6>
-            <h6 style="text-align: left;">Back: {{this.selectedBack.name}}</h6> -->
-            <!-- <h6 style="text-align: left;">Cost per piece: ₹{{this.ppCost}}</h6> -->
         }
         @else{
             <h5>{{shippingText}}</h5>
@@ -117,13 +117,13 @@
     </div>
 
     <div class="copyQuoteContainer">
-        <button type="button" class="whatsappQuote" (click)="whatsappQuote()">
+        <button type="button" class="whatsappQuote" (click)="whatsappQuote()" [hidden]="quoteButtonDisabled()">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
             <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
             </svg>
             SHARE QUOTE ON WHATSAPP
         </button>
-        <button type="button" class="copyQuote" (click)="copyQuote()">{{copyQuoteButtonText}}</button>
+        <button type="button" class="copyQuote" (click)="copyQuote()" [hidden]="quoteButtonDisabled()">{{copyQuoteButtonText}}</button>
     </div>
 </section>
 
@@ -134,6 +134,9 @@
     (close)="showModal = false"
     (buttonAction)="shippingCalculator.saveSelectedShipping(); closeSelectShippingModal();"
     >
-    <app-shipping-calculator #shippingCalculator (shippingSelected)="changeSelectedShipping($event)"></app-shipping-calculator>
+    <app-shipping-calculator #shippingCalculator 
+    (shippingSelected)="changeSelectedShipping($event)"
+    [weightTotal]="weightTotal"
+    ></app-shipping-calculator>
     </app-modal>
 }

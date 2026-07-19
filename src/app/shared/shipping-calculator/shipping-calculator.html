@@ -35,8 +35,9 @@
 
         <div>
             @if(availableCouriers.length > 0) {
-                <div>
-                    <h4>Available Options:</h4>
+                <h4 style="margin-bottom: 0rem;">Available Options:</h4>
+                <small style="color:#7d7d7d77;">Scroll to view all</small>
+                <div class="courier-scroll-div">
                     
                     @for(courier of availableCouriers; track courier.courier_name) {
                         <label class="shipping-radio">
@@ -49,7 +50,7 @@
                             <span>
                                 <strong>{{ courier.courier_name }}</strong> — ₹{{ courier.updatedRate }}
                                 <br>
-                                <small>Estd. Delivery Time: {{ courier.delivery_in_days - 1 }}-{{ courier.delivery_in_days + 1 }} DAYS (After Dispatch)</small>
+                                <small>Estd. Delivery Time: {{ courier.delivery_in_days }}-{{ courier.delivery_in_days + 1 }} DAYS (After Dispatch)</small>
                             </span>
                             
                         </label>

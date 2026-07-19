@@ -9,15 +9,15 @@ import { Observable } from 'rxjs';
 export class ShippingService {
     constructor(private http: HttpClient){}
 
-    getRates(deliveryPincode:string): Observable<any[]>{
+    getRates(deliveryPincode:string, totalWeight: number): Observable<any[]>{
         const payload = {
             pickup_pincode:'575003',
             delivery_pincode: deliveryPincode,
-            weight: 1.0, // will pass this later
+            weight: totalWeight, // will pass this later
             cod: 0 // prepaid-0,cod-1
         };
 
         // return this.http.post<any[]>('/api/shipping/rates', payload);
-        return this.http.post<any[]>('http://localhost:3000/shipping/rates', payload);
+        return this.http.post<any[]>('https://shiprocket-api.varix24.workers.dev/shipping/rates', payload);
     }
 }
