@@ -23,7 +23,7 @@
         type="number" min="000000" max="999999"
         oninput="if(this.value.length > 6) { this.value = this.value.slice(0, 6);}"
         [(ngModel)]="deliveryPincode"
-        (blur)="checkShippingRates()"
+        (input)="checkShippingRates()"
         />
         <!-- <button type="button" class="submit-pincode" (click)="checkShippingRates()" [disabled]="isLoading">
             {{isLoading ? 'Checking...' : 'Submit'}}

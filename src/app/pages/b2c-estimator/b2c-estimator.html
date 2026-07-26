@@ -87,10 +87,10 @@
         />
     </div>
     @if(shippingCalculated===false){
-        <button class="button-common gold" (click)="showModal = true" style="margin: 0.25rem; width: 90%;">Calculate Shipping</button>
+        <button class="button-common gold" (click)="showModal = true;" style="margin: 0.25rem; width: 90%;">Calculate Shipping</button>
     }
     @else{
-        <button class="button-common gold" (click)="showModal = true" style="margin: 0.25rem; width: 90%;">Recalculate Shipping</button>
+        <button class="button-common gold" (click)=" resetSelectedShipping(); showModal = true;" style="margin: 0.25rem; width: 90%;">Recalculate Shipping</button>
     }
     
     <div class="selector-div flex-column">

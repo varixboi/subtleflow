@@ -31,7 +31,7 @@ export class ShippingCalculator {
     this.selectedCourier = null;
     this.availableCouriers = []; 
   }
-
+  
   // Runs when they switch between "Courier" and "Pickup"
   onMethodChange() {
     this.selectedCourier = null; 
@@ -47,11 +47,12 @@ export class ShippingCalculator {
       };
     }
   }
-
+  
   // Runs when they go out of focus from the pincode input box OR click "Submit"
   checkShippingRates() {
     this.selectedCourier = null; 
-
+    this.availableCouriers = []; 
+    
     if (!this.deliveryPincode || this.deliveryPincode.toString().length !== 6) {
       this.errorMessage = 'Please enter a valid 6-digit pincode';
       return;

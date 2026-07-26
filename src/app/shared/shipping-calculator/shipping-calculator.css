@@ -66,3 +66,39 @@
   background-color: #cbd5e1;
   border-radius: 10px;
 }
+
+/* OPTIONS-RADIO CLASS: This is for styling of the radio buttons in product,color and prints */
+.options-radio{
+    border: 1px #000 solid;
+    border-radius: 4px;
+    padding: 2px;
+    
+    font-size: 12px;
+    
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    
+    margin-right: 4px;
+    margin-top: 2px;
+    color: #0f2d48;
+    border: 1px solid #0f2d48;
+    /* background-color: #fff; */
+}
+
+.options-radio input[type="radio"]{
+    display: none;
+}
+
+.options-radio span {
+    padding: 2px;
+}
+
+.options-radio:has(input[type="radio"]:checked){
+    /* background-color: #7d7d7d; */
+    background-color: #0f2d48;
+    color: white;
+    border: 1px solid #0f2d48;
+    border-radius: 4px;
+    font-weight: 700;
+}

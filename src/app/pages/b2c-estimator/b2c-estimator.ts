@@ -91,12 +91,19 @@ export class B2cEstimator {
   }
 
   changeSelectedFront(front: FrontPrint){
+    if(this.selectedBack.type === 'NONE' && front.type==='NONE'){
+      alert("Both front & back cannot be empty");
+    }
+
     this.selectedFront = front;
     this.calculatePrintCost();
-
   }
   
   changeSelectedBack(back: BackPrint){
+    if(this.selectedFront.type === 'NONE'  && back.type==='NONE'){
+      alert("Both front & back cannot be empty");
+    }
+
     this.selectedBack = back;
     this.calculatePrintCost();
   }
@@ -239,6 +246,15 @@ FINAL TOTAL: ₹${this.subTotal[2].toFixed(2)}/-
   changeSelectedShipping(shippingOption: any){
     this.selectedShipping = shippingOption;
     console.log("Stored shipping: ", this.selectedShipping);
+  }
+  
+  resetSelectedShipping(){
+    this.selectedShipping = null;
+    this.shippingCalculated=false;
+    this.quoteButtonDisabled.set(true);
+    this.shippingText= 'CALCULATE SHIPPING TO VIEW QUOTE'
+    console.log("RESET shipping: ", this.selectedShipping);
+
   }
 
   closeSelectShippingModal(){
