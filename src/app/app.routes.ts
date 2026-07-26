@@ -7,8 +7,8 @@ import { B2cEstimator } from './pages/b2c-estimator/b2c-estimator';
 
 export const routes: Routes = [
 {path: 'rate-estimator-xyz', component: RateEstimator},
-{path: 'b2c', component: B2cEstimator},
+{path: 'catalog-xyz', component: Catalog},
 {path: 'place-order-xyz', component: PlaceOrder},
-{path: 'create', component: CreateOrder},
-{path: '', component: Catalog}
+{path: 'create-xyz', component: CreateOrder},
+{path: '', component: B2cEstimator}
 ];
