@@ -15,13 +15,15 @@ import colorMap from "../../../assets/data/colors.json"
 
 import { Modal } from '../../shared/modal/modal';
 import { ShippingCalculator } from '../../shared/shipping-calculator/shipping-calculator';
+import { MockupGenerator } from '../../shared/mockup-generator/mockup-generator';
+import { Catalog } from '../catalog/catalog';
 
 import { Signal } from '@angular/core';
 
 
 @Component({
   selector: 'app-b2c-estimator',
-  imports: [ProductSelector, ColorSelector, Modal, ShippingCalculator],
+  imports: [ProductSelector, ColorSelector, Modal, ShippingCalculator, MockupGenerator, Catalog],
   templateUrl: './b2c-estimator.html',
   styleUrl: './b2c-estimator.css',
 })
@@ -53,7 +55,7 @@ export class B2cEstimator {
   shippingText:string = 'CALCULATE SHIPPING TO VIEW QUOTE'
   selectedShipping: any = null;
 
-  showModal:boolean = false;
+  activeModal: 'shipping' | 'catalog' | 'mockup' | null = null;
 
   constructor(){
     console.log(this.products[1].display_name);
@@ -262,7 +264,7 @@ FINAL TOTAL: ₹${this.subTotal[2].toFixed(2)}/-
       return
     }
     
-    this.showModal=false; 
+    this.activeModal=null; 
     this.shippingCalculated=true;
     this.quoteButtonDisabled.set(false);
   }

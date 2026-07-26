@@ -14,18 +14,31 @@
     </app-color-selector>
     </div>
 
-    <div class="selector-div">
-        <h4>{{selectedProduct.product_name}}</h4>
-        <h6>{{selectedProduct.product_description}}</h6>
-        <div class="price-div">
-            <h3>₹{{ppCost}} per piece</h3>
+    <div class="product-info-grid">
+        <div class="selector-div">
+            <h4>{{selectedProduct.product_name}}</h4>
+            <h6>{{selectedProduct.product_description}}</h6>
+            <div class="price-div">
+                <h3>₹{{ppCost}} per piece</h3>
+            </div>
+            @if(totalQty()<500){
+                <h5>Add {{nextThreshold - totalQty()}} pcs more for ₹{{nextPpCost}} per piece</h5>
+            }
+            @else{
+                <h5>Whatsapp us for custom pricing at 1000+ Pcs</h5>
+            }
         </div>
-        @if(totalQty()<500){
-            <h5>Add {{nextThreshold - totalQty()}} pcs more for ₹{{nextPpCost}} per piece</h5>
-        }
-        @else{
-            <h5>Whatsapp us for custom pricing at 1000+ Pcs</h5>
-        }
+        <div class="button-div-1">
+            <button class="button-common" (click)="activeModal='mockup'">Generate a Mockup</button>
+        </div>
+        <div class="button-div-2">
+            <button class="button-common" (click)="activeModal='catalog'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+                <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/></svg>
+                Catalog
+            </button>
+        </div>
     </div>
 
     <div class="selector-div">
@@ -87,10 +100,10 @@
         />
     </div>
     @if(shippingCalculated===false){
-        <button class="button-common gold" (click)="showModal = true;" style="margin: 0.25rem; width: 90%;">Calculate Shipping</button>
+        <button class="button-common gold" (click)="activeModal = 'shipping';" style="margin: 0.25rem; width: 90%;">Calculate Shipping</button>
     }
     @else{
-        <button class="button-common gold" (click)=" resetSelectedShipping(); showModal = true;" style="margin: 0.25rem; width: 90%;">Recalculate Shipping</button>
+        <button class="button-common gold" (click)=" resetSelectedShipping(); activeModal = 'shipping';" style="margin: 0.25rem; width: 90%;">Recalculate Shipping</button>
     }
     
     <div class="selector-div flex-column">
@@ -127,16 +140,37 @@
     </div>
 </section>
 
-@if(showModal){
+@if(activeModal === 'shipping'){
     <app-modal
     [modalTitle]="'Select your shipping option'"
     [modalButton]="'Select'"
-    (close)="showModal = false"
+    (close)="activeModal = null;"
     (buttonAction)="shippingCalculator.saveSelectedShipping(); closeSelectShippingModal();"
     >
     <app-shipping-calculator #shippingCalculator 
     (shippingSelected)="changeSelectedShipping($event)"
     [weightTotal]="weightTotal"
     ></app-shipping-calculator>
+    </app-modal>
+}
+
+@if(activeModal === 'mockup'){
+    <app-modal
+    [modalTitle]="'Generate your Tshirt Mockup'"
+    [modalButton]="'💾 Download IMG'"
+    (close)="activeModal = null;"
+    (buttonAction)="activeModal=null"
+    >
+    <app-mockup-generator></app-mockup-generator>
+    </app-modal>
+}
+@if(activeModal === 'catalog'){
+    <app-modal
+    [modalTitle]="'View Catalog'"
+    [modalButton]="'↩ Back'"
+    (close)="activeModal = null;"
+    (buttonAction)="activeModal=null"
+    >
+    <app-catalog></app-catalog>
     </app-modal>
 }

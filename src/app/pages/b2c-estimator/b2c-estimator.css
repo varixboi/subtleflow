@@ -314,3 +314,54 @@ input:focus{
 
     cursor: pointer;
 }
+
+
+/* PRODUCT INFO GRID */
+
+.product-info-grid{
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 60% 40%;
+
+    margin-right: 0.25rem;
+    /* grid-template-rows: auto auto; */
+}
+
+.product-info-grid .selector-div{
+    grid-row: span 2;
+}
+
+.button-div-1 button{
+    width: 100%;
+    height: 90%;
+    margin: 0rem;
+
+    background-color:#C9A227;
+    color: #0f2d48;
+    font-weight: bold;
+}
+
+.button-div-1 button:hover{
+    color: #F8FAFC;
+}
+
+.button-div-2{
+    color: #0f2d48;
+}
+
+.button-div-2 button{
+    width: 100%;
+    height: 85%;
+    
+    background: #F8FAFC;
+    color: #0f2d48;
+    font-weight: bold;
+}
+
+.button-div-2 button:hover{
+    background-color: #c2c2c2;
+}
+
+.bi-eye{
+    vertical-align: middle;
+}
