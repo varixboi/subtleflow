@@ -1,0 +1,28 @@
+.canvas-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    height: max-content;
+}
+
+::ng-deep .canvas-container {
+  margin: 0 auto;
+}
+
+.notice-div{
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 8px;
+    
+    background-color: #0f2d48;
+    color: #f8fafc;
+    padding: 0.1rem 0;
+}
+
+.notice-div p{
+  font-size: 0.75rem;
+  margin: 0.25rem;
+}

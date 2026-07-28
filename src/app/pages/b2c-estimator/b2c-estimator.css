@@ -131,6 +131,7 @@ input:focus{
 
     margin-bottom: 0.5rem;
 }
+
 .quoteText{
     font-size: 12px;
     margin-bottom: 0.25rem;
@@ -364,4 +365,10 @@ input:focus{
 
 .bi-eye{
     vertical-align: middle;
+}
+
+/* FRONT BACK GRID */
+.front-back-grid{
+    display: grid;
+    grid-template-columns: 50% 50%;
 }

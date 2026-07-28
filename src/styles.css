@@ -3,6 +3,24 @@
     font-family: 'Stack Sans Text', sans-serif;
 }
 
+/* IMPORTANT FOR FONT SIZES */
+/* Default desktop styles (100% = 16px) */
+html {
+  font-size: 100%; 
+}
+
+/* Mobile scaling (87.5% of 16px = 14px) */
+@media (max-width: 768px) {
+  html {
+    font-size: 85%;
+  }
+
+  .bi-eye{
+    width: 0.8rem;
+  }
+}
+
+
 .main-container{
     margin: 0;
     padding: 0;
@@ -41,7 +59,6 @@ input[type=number] {
 
     margin: 0 auto;
 }
-
 
 /* SIZE INPUT TABLE */
 
@@ -207,4 +224,22 @@ input{
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
+}
+
+/* SCROLLABLE DIV */
+
+.scroll-div {
+  max-height: 75vh; /* Adjust this height to fit your modal */
+  overflow-y: auto;
+  margin-top: 10px;
+  padding-right: 8px;
+}
+
+/* Optional: Makes the scrollbar look sleek and modern */
+.scroll-div::-webkit-scrollbar {
+  width: 6px;
+}
+.scroll-div::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 10px;
 }

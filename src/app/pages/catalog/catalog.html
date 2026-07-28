@@ -12,6 +12,8 @@
             </label>
         }
     </div>
+    
+    @if(!isModalView){
     <div class="selection-div">
         <p style="font-weight: 700;">Colors:</p>
         @for(color of selectedProduct.colors; track color){
@@ -21,6 +23,7 @@
             </label>
         }
     </div>
+    }
 
     <div class="product-details"> 
         <h2>{{selectedProduct.product_name}}</h2>
@@ -44,7 +47,7 @@
                 <p>{{currentImage+1}}/{{selectedProduct.images.length}} &sdot; {{currentColor}}</p>
             </div>
         </div>
-        
+    @if(!isModalView){
         <table class="price-table">
             <tr>
                 <th class="bulk-header">10+ PCS</th>
@@ -55,31 +58,32 @@
                 <td class="sample-price">&#8377;{{selectedProduct.sample_price}}</td>
             </tr>
         </table>
+    }
     </div>
 
-    <div class="imageSlider">
-        <h2>Client works</h2>
-        <div class="slider-container">
-            <div class="slider-zone left-zone">
-                <span class="slider-arrow">❮</span>
+    @if(!isModalView){
+        <div class="imageSlider">
+            <h2>Client works</h2>
+            <div class="slider-container">
+                <div class="slider-zone left-zone">
+                    <span class="slider-arrow">❮</span>
+                </div>
+                <img [src]="printedImages[currentPrintedImage]"
+                (click)="changePrintedImage($event)">           
+                <div class="slider-zone right-zone">
+                    <span class="slider-arrow">❯</span>
+                </div>
+                <div class="slider-caption">
+                    <p>{{currentPrintedImage+1}}/{{printedImages.length}}</p>
+                </div>
             </div>
-            <img [src]="printedImages[currentPrintedImage]"
-            (click)="changePrintedImage($event)">           
-            <div class="slider-zone right-zone">
-                <span class="slider-arrow">❯</span>
-            </div>
-            <div class="slider-caption">
-                <p>{{currentPrintedImage+1}}/{{printedImages.length}}</p>
-            </div>
+            <h4>Click on the whatapp icon to chat and order!</h4>
         </div>
-        <h4>Click on the whatapp icon to chat and order!</h4>
-    </div>
-
-    <div class="whatsapp-chat-button">
-        <a href="https://wa.me/918904467234?text=Hello,%20I%20want%20to%20place%20an%20order" class="floating-whatsapp" target="_blank">
-            <i class="fa-brands fa-whatsapp"></i>
-        </a>
-    </div>
+        
+        <div class="whatsapp-chat-button">
+            <a href="https://wa.me/918904467234?text=Hello,%20I%20want%20to%20place%20an%20order" class="floating-whatsapp" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+        </div>
+    }
 </section>
-    
-    

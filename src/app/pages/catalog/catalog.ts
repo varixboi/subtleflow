@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { Product } from '../../models/product/Product';
-import product_info from "../../../assets/data/products.json"
+import product_info from "../../../assets/b2c-data/products.json"
 
 import colorMap from "../../../assets/data/colors.json"
 import printedImages from "../../../assets/data/printedImages.json"
@@ -27,6 +27,8 @@ export class Catalog {
   printedImages = printedImages;
 
   colors: Record<string,string> = colorMap;
+
+  @Input() isModalView: boolean = false;
 
   constructor(){
     //initialize selected product
