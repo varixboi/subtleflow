@@ -276,6 +276,7 @@ input:focus{
     appearance: none;
 
     width: 90%;
+    max-width: 20rem;
     height: 8px;          /* thinner track */
 
     border-radius: 999px;
@@ -373,3 +374,28 @@ input:focus{
     grid-template-columns: 50% 50%;
 }
 
+.shipping-weight-div{
+    display: flex;
+    align-items: center;
+    /* flex-direction: row; */
+    justify-content: space-between;
+    margin: -0.5rem 0rem;
+}
+
+.weight-div{
+    background-color: #F8FAFC;
+
+    padding: 0.5rem 0.75rem;
+    text-align: center;
+
+    width: 50%;
+    max-width: 10rem;
+
+    border-radius: 0.5rem;
+}
+
+.weight-div p{
+    margin: 0;
+    font-weight: bold;
+    color: #0f2d48;
+}

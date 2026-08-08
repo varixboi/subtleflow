@@ -178,6 +178,14 @@ input{
     font-weight: bold;
 }
 
+.display-common{
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #0f2d48;
+    
+    max-width: 12rem;
+}
+
 
 /* CARD DIV */
 

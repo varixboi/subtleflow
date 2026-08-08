@@ -168,7 +168,14 @@ export class B2cEstimator {
   }
 
   get weightTotal():number{
-    return this.unitWeight*this.totalQty();
+    let num = this.unitWeight*this.totalQty();
+
+    //converts to only 2 decimals after decimal point
+    let res: string = num.toFixed(2);
+
+    //converts back to number
+    num = Number(res);
+    return num;
   }
 
   get tshirtTotal():number{
@@ -190,8 +197,6 @@ export class B2cEstimator {
     return this.selectedShipping.updatedRate;
   }
 
-
-
   get subTotal():number[]{
     return [this.tshirtTotal+this.printTotal,
             (this.tshirtTotal+this.printTotal+this.shippingCost)*0.05,
@@ -204,6 +209,7 @@ export class B2cEstimator {
 Front: ${this.selectedFront.name}
 Back: ${this.selectedBack.name}
 
+Net Weight: ${this.weightTotal} KG
 Tshirt total: ₹${this.subTotal[0]} | Shipping cost: ₹${this.shippingCost}
 Shipping Method: ${this.selectedShipping.courier_name} (${this.selectedShipping.delivery_in_days}-${this.selectedShipping.delivery_in_days+1} DAYS FROM DISPATCH)
 
@@ -267,5 +273,9 @@ FINAL TOTAL: ₹${this.subTotal[2].toFixed(2)}/-
     this.activeModal=null; 
     this.shippingCalculated=true;
     this.quoteButtonDisabled.set(false);
+  }
+
+  featureInProgressAlert(): void {
+    alert('Feature in progress!');
   }
 }
