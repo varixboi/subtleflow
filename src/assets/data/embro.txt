@@ -16,3 +16,5 @@ KEPT HERE SINCE COMMENTS ARE NOT SUPPORTED IN JSON FILES
         "price": 75,
         "addonPrice": 65
     },
+
+// "colors":["Black", "White", "Navy", "Charcoal", "Maroon", "Off-white", "Brown", "Army green", "Lavender", "Beige", "Sky blue", "Red", "Rose pink", "Royal blue"],
