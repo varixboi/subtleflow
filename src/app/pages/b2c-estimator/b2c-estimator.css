@@ -121,6 +121,14 @@ input:focus{
     font-weight: 700;
 }
 
+.disabled-option {
+  opacity: 0.4;
+  color: #888888; /* Grey out the text */
+  cursor: not-allowed;
+  pointer-events: none; /* Prevents any hover effects on the label */
+  filter: grayscale(100%); /* Greys out the radio button itself */
+}
+
 .selector-div{
     border: 1px solid black;
     border-radius: 0.5rem;

@@ -210,7 +210,7 @@ export class B2cEstimator {
 Front: ${this.selectedFront.name}
 Back: ${this.selectedBack.name}
 
-PRICE PER PIECE: ₹${this.unitPrice}
+PRICE PER PIECE: ₹${this.ppCost}
 
 Net Weight: ${this.weightTotal} KG | Shipping Method: ${this.selectedShipping.courier_name}
 Tshirt total: ₹${this.subTotal[0]}

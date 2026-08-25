@@ -52,6 +52,7 @@
                     class="options-radio"
                     [checked]="front.id === selectedFront.id"
                     (change)="changeSelectedFront(front)"
+                    [disabled]="front.id === 'NONE' && selectedBack.id === 'NONE'"
                     />
                     <span>{{front.name}}</span>
                 </label>
@@ -65,6 +66,7 @@
                     class="options-radio"
                     [checked]="back.id === selectedBack.id"
                     (change)="changeSelectedBack(back)"
+                    [disabled]="back.id === 'NONE' && selectedFront.id === 'NONE'"
                     />
                     <span>{{back.name}}</span>
                 </label>
