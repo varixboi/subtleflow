@@ -11,6 +11,7 @@ import { Product } from '../../models/product/Product';
 })
 export class ProductSelector {
 
+  @Input() productSelectorTitle = "";
   @Input() products!: Product[];
 
   @Input() selectedProduct!: Product;

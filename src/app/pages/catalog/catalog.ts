@@ -6,9 +6,15 @@ import product_info from "../../../assets/b2c-data/products.json"
 import colorMap from "../../../assets/data/colors.json"
 import printedImages from "../../../assets/data/printedImages.json"
 
+import sizeCharts from "../../../assets/b2c-data/size-charts.json"
+
+import { ProductSelector } from '../../shared/product-selector/product-selector';
+import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-catalog',
-  imports: [],
+  imports: [ProductSelector, RouterLink, CommonModule],
   templateUrl: './catalog.html',
   styleUrl: './catalog.css',
 })
@@ -27,6 +33,7 @@ export class Catalog {
   printedImages = printedImages;
 
   colors: Record<string,string> = colorMap;
+  sizeCharts: any = sizeCharts;
 
   @Input() isModalView: boolean = false;
 

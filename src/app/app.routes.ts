@@ -8,7 +8,7 @@ import { MockupGenerator } from './shared/mockup-generator/mockup-generator';
 
 export const routes: Routes = [
 // {path: 'rate-estimator-xyz', component: RateEstimator},
-// {path: 'catalog-xyz', component: Catalog},
+{path: 'catalog', component: Catalog},
 // {path: 'place-order-xyz', component: PlaceOrder},
 // {path: 'create-xyz', component: CreateOrder},
 // {path: 'mockup', component: MockupGenerator},

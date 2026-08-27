@@ -316,3 +316,430 @@ th, td{
 
     margin-bottom: 0.5rem;
 }
+
+/*  */
+/* NEW - IMPORTED FROM B2C ESTIMATOR CSS */
+/*  */
+
+
+
+/* HIDE INCREMENT/DECREMENT BUTTON OF NUMBER INPUT */
+
+/* Chrome, Safari, Edge, Opera */
+
+:host{
+    display: block; /* Crucial: (DO NOT REMOVE) lets the component behave like a div */
+    width: 100%;
+    background-color: #0f2d48;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* Section - Form */
+
+.section-form{
+    width: 100%;
+    max-width: 40rem;
+    
+    margin: 0 auto;
+    padding: 0.5rem 0rem;
+    background-color: #0f2d48;
+}
+
+.section-form p{
+    color: white;
+}
+/* SIZE INPUT TABLE */
+
+.size-input-table{
+    border-collapse: collapse;
+    width: 50%;
+
+    margin: 0 auto;
+
+    table-layout: fixed;
+    border: 1px solid #f8fafc;
+
+}
+
+.size-input-table thead th{
+    text-align: center;
+    
+    background: #C9A227;
+    color: #0f2d48;
+    border: 1px solid #f8fafc;
+    
+    border: 1px solid #0f2d48;
+}
+
+.size-input-table tbody th{
+    background: #f8fafc;
+    border: 1px solid #0f2d48;
+
+}
+
+.size-input-table tbody th input{
+    text-align: center;
+    color: #0f2d48;
+    font-weight: bold;
+}
+
+.size-input{
+    width: 100%;
+    max-width: 12rem;
+}
+
+input{
+    border: none;
+    outline: none;
+}
+
+input:focus{
+    border: none;
+    outline: none;
+}
+
+
+/* OPTIONS-RADIO CLASS: This is for styling of the radio buttons in product,color and prints */
+.options-radio{
+    border: 1px #000 solid;
+    border-radius: 4px;
+    padding: 2px;
+    
+    font-size: 12px;
+    
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    
+    margin-right: 4px;
+    margin-top: 2px;
+    color: #0f2d48;
+    border: 1px solid #0f2d48;
+    /* background-color: #fff; */
+}
+
+.options-radio input[type="radio"]{
+    display: none;
+}
+
+.options-radio span {
+    padding: 2px;
+}
+
+.options-radio:has(input[type="radio"]:checked){
+    /* background-color: #7d7d7d; */
+    background-color: #0f2d48;
+    color: white;
+    border: 1px solid #0f2d48;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+.disabled-option {
+  opacity: 0.4;
+  color: #888888; /* Grey out the text */
+  cursor: not-allowed;
+  pointer-events: none; /* Prevents any hover effects on the label */
+  filter: grayscale(100%); /* Greys out the radio button itself */
+}
+
+.selector-div{
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    
+    margin: 0rem 0.25rem;
+    padding: 0.5rem 0.5rem;
+    background: #F8FAFC;
+
+    margin-bottom: 0.5rem;
+}
+
+.selector-div h6{
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
+.quoteText{
+    font-size: 12px;
+    margin-bottom: 0.25rem;
+}
+
+.selector-div p{
+    text-transform: uppercase;
+    color: #0f2d48;
+    font-weight: 700;
+
+    margin-bottom: 2px;
+    margin-top: 4px;
+}
+
+.selector-div h4{
+    margin: 0 auto;
+    text-align: center;
+    color: #0f2d48;
+}
+
+.selector-div h5{
+    margin-top: 0.25rem;
+    margin-bottom: 0;
+    text-align: center;
+    color: #6e0000;
+}
+
+.selector-div h6{
+    margin: 0rem auto;
+    margin-bottom: 0.25rem;
+    
+    text-align: center;
+    color: #0f2d48;
+}
+
+
+.price-div{
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 8px;
+    
+    background-color: #0f2d48;
+    color: #f8fafc;
+    padding: 0.25rem 0;
+}
+
+.price-div h3{
+    margin: 0.25rem auto;
+    text-align: center;
+    color: #f8fafc;
+}
+
+/* QUOTE CSS - COPY & WHATSAPP */
+.copyQuoteContainer{
+    display: flex;
+    flex-direction: column;
+    gap:0.5rem;
+
+    margin: 0.5rem 0rem;
+}
+
+.copyQuoteContainer button{
+    padding: 0.5rem 0;
+
+    border-radius: 8px;
+}
+
+.copyQuote {
+    width: 90%;
+    border: 1px solid #f8fafc;
+    color: #f8fafc;
+    background: none;
+    
+    margin: 0 auto;
+
+}
+
+.copyQuote:hover {
+
+    border: 1px solid #f8fafc;
+    color: #0f2d48;
+    background: #f8fafc;
+    
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.copyQuote:disabled{
+    background: #555;
+    cursor: not-allowed;
+}
+
+.whatsappQuote{
+    width: 90%;
+    font-weight: bold;
+
+    border: 1px solid #f8fafc;
+    color: #0f2d48;
+    background-color: #25D366;
+    margin: 0 auto;
+}
+
+.whatsappQuote:hover{
+    width: 90%;
+    border: 1px solid #f8fafc;
+    color: #f8fafc;
+    background-color: #1a9b49;
+
+    cursor: pointer;
+}
+
+.whatsappQuote:disabled{
+    cursor: not-allowed;
+}
+
+.bi-whatsapp{
+    vertical-align: middle;
+}
+
+.size-input-slider{
+    -webkit-appearance: none;
+    border-radius: 1rem;
+    margin: 1rem auto;
+    width: 90%;
+    /* background: #f8fafc; */
+    border: 1px solid #C9A227;
+    /* accent-color: #C9A227; */
+
+    cursor: pointer;
+}
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+
+/* INPUT SLIDER CSS */
+
+.size-input-slider {
+    -webkit-appearance: none;
+    appearance: none;
+
+    width: 90%;
+    max-width: 20rem;
+    height: 8px;          /* thinner track */
+
+    border-radius: 999px;
+    outline: none;
+}
+
+.size-input-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: #C9A227;
+
+    cursor: pointer;
+
+    border: 2px solid #f8fafc;
+
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.size-input-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.08);
+}
+
+.size-input-slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #C9A227;
+
+    cursor: pointer;
+}
+
+
+/* PRODUCT INFO GRID */
+
+.product-info-grid{
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 60% 40%;
+
+    margin-right: 0.25rem;
+    /* grid-template-rows: auto auto; */
+}
+
+.product-info-grid .selector-div{
+    grid-row: span 2;
+}
+
+.button-div-1 button{
+    width: 100%;
+    height: 90%;
+    margin: 0rem;
+
+    background-color:#C9A227;
+    color: #0f2d48;
+    font-weight: bold;
+}
+
+.button-div-1 button:hover{
+    color: #F8FAFC;
+}
+
+.button-div-2{
+    color: #0f2d48;
+}
+
+.button-div-2 button{
+    width: 100%;
+    height: 85%;
+    
+    background: #F8FAFC;
+    color: #0f2d48;
+    font-weight: bold;
+}
+
+.button-div-2 button:hover{
+    background-color: #c2c2c2;
+}
+
+.bi-eye{
+    vertical-align: middle;
+}
+
+/* FRONT BACK GRID */
+.front-back-grid{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.shipping-weight-div{
+    display: flex;
+    align-items: center;
+    /* flex-direction: row; */
+    justify-content: space-between;
+    margin: -0.5rem 0rem;
+}
+
+.weight-div{
+    background-color: #F8FAFC;
+
+    padding: 0.5rem 0.75rem;
+    text-align: center;
+
+    width: 50%;
+    max-width: 10rem;
+
+    border-radius: 0.5rem;
+}
+
+.weight-div p{
+    margin: 0;
+    font-weight: bold;
+    color: #0f2d48;
+}
+
+/* size table display */
+
+.table-header{
+    background-color: #f8fafc;
+}

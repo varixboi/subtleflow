@@ -140,6 +140,11 @@ input:focus{
     margin-bottom: 0.5rem;
 }
 
+.selector-div h6{
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
 .quoteText{
     font-size: 12px;
     margin-bottom: 0.25rem;
