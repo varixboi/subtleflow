@@ -210,12 +210,12 @@ export class B2cEstimator {
     return `${this.totalQty()} PCS of ${this.selectedProduct.product_name} (${this.selectedColor})
 Front: ${this.selectedFront.name}
 Back: ${this.selectedBack.name}
-⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻
+⸻⸻⸻⸻⸻⸻⸻⸻
 PRICE PER PIECE: ₹${this.ppCost}
-⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻
+⸻⸻⸻⸻⸻⸻⸻⸻
 Net Weight: ${this.weightTotal} KG | Shipping Method: ${this.selectedShipping.courier_name}
 Tshirt total: ₹${this.subTotal[0]}
-⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻
+⸻⸻⸻⸻⸻⸻⸻⸻
 TAXABLE: ₹${this.subTotal[0] + this.shippingCost}/- | GST: ₹${this.subTotal[1].toFixed(2)}/-
 FINAL TOTAL: ₹${this.subTotal[2].toFixed(2)}/-
 
@@ -225,13 +225,13 @@ FINAL TOTAL: ₹${this.subTotal[2].toFixed(2)}/-
     return `${this.totalQty()} PCS of ${this.selectedProduct.product_name} (${this.selectedColor})
 Front: ${this.selectedFront.name}
 Back: ${this.selectedBack.name}
-⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻
+⸻⸻⸻⸻⸻⸻⸻⸻
 PRICE PER PIECE: ₹${this.unitPrice}
-⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻
+⸻⸻⸻⸻⸻⸻⸻⸻
 Net Weight: ${this.weightTotal} KG
 Tshirt total: ₹${this.subTotal[0]} | Shipping cost: ₹${this.shippingCost}
 Shipping Method: ${this.selectedShipping.courier_name} (${this.selectedShipping.delivery_in_days}-${this.selectedShipping.delivery_in_days+1} DAYS FROM DISPATCH)
-⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻
+⸻⸻⸻⸻⸻⸻⸻⸻
 TAXABLE: ₹${this.subTotal[0] + this.shippingCost}/- | GST: ₹${this.subTotal[1].toFixed(2)}/-
 FINAL TOTAL: ₹${this.subTotal[2].toFixed(2)}/-
 `;

@@ -251,3 +251,9 @@ input{
   background-color: #cbd5e1;
   border-radius: 10px;
 }
+
+/* CREATE A NEW LINE */
+
+.newline{
+    white-space: pre-line;
+}
