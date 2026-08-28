@@ -299,4 +299,39 @@ FINAL TOTAL: ₹${this.subTotal[2].toFixed(2)}/-
   featureInProgressAlert(): void {
     alert('Feature in progress!');
   }
+
+async shareProduct(): Promise<void> {
+    if (!this.selectedProduct) return;
+
+    const baseUrl = window.location.origin + window.location.pathname;
+    
+    // 1. Combine your Quote and the URL into one giant text string
+    const finalShareText = `${this.Quote}\nQuote from Subtlewear\n${baseUrl}`;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: `Quotation from Subtlewear`,
+          
+          // 2. Pass the combined string to 'text'
+          text: finalShareText, 
+          
+          // 3. REMOVE the 'url' property completely! (Apps will automatically make the link clickable when they see it in the text)
+        });
+      } catch (err: unknown) {
+        if (err instanceof Error && err.name !== 'AbortError') {
+          console.error('Sharing failed:', err.message);
+        }
+      }
+    } else {
+      // 4. Use the exact same combined string for the clipboard fallback
+      try {
+        await navigator.clipboard.writeText(finalShareText);
+        alert('Quote details and link copied to clipboard!');
+      } catch (clipboardErr) {
+        console.error('Could not copy text to clipboard', clipboardErr);
+        alert('Sharing is not supported on this browser.');
+      }
+    }
+  }
 }

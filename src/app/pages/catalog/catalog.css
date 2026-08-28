@@ -359,8 +359,12 @@ input[type=number] {
 .section-form p{
     color: white;
 }
-/* SIZE INPUT TABLE */
 
+.size-table{
+    margin: 0.5rem 0rem;
+}
+
+/* SIZE INPUT TABLE */
 .size-input-table{
     border-collapse: collapse;
     width: 50%;
@@ -660,50 +664,95 @@ input:focus{
 
 .product-info-grid{
     display: grid;
-    grid-template-columns: 75% 25%;
-    grid-template-rows: 60% 40%;
-
+    grid-template-columns: 65% 35%;
+    grid-template-rows: 1.5fr 2.5fr 1fr 1fr;
+    
     margin-right: 0.25rem;
-    /* grid-template-rows: auto auto; */
+    gap: 0.25rem 0rem;
 }
 
 .product-info-grid .selector-div{
-    grid-row: span 3;
+    grid-column: 1;
+    grid-row: span 4;
 }
 
-.button-div-1 button{
-    width: 100%;
-    height: 90%;
+.product-info-grid .grid-div-1{
+    grid-column: 2;
+    grid-row: 1/2;
+}
+
+.product-info-grid .grid-div-2{
+    grid-column: 2;
+    grid-row: 2/3;
+}
+
+.product-info-grid .grid-div-3{
+    grid-column: 2;
+    grid-row: 3/4;
+}
+
+.product-info-grid .grid-div-4{
+    grid-column: 2;
+    grid-row: 4/5;
+}
+
+.grid-div-1 p{
     margin: 0rem;
-
-    background-color:#C9A227;
-    color: #0f2d48;
-    font-weight: bold;
-}
-
-.button-div-1 button:hover{
-    color: #F8FAFC;
-}
-
-.button-div-2{
-    color: #0f2d48;
-}
-
-.button-div-2 button{
-    width: 100%;
-    height: 85%;
     
-    background: #F8FAFC;
+    color: #0f2d48;
+    font-weight: bold;
+    text-align: center;
+}
+
+.grid-div-1, .grid-div-2 {
+    height: 100%;
+    background: #f8fafc;
+    border-radius: 8px;
+    
+    /* Use Flexbox to perfectly center the text vertically and horizontally */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    gap: 0.25rem;
+}
+
+.grid-div-2 {
+}
+
+.grid-div-2 p{
+    margin: 0;
+    color: #0f2d48;
+
+    font-weight: bold;
+    text-align: center;
+}
+
+.grid-div-3 button{
+    width: 100%;
+    height: 100%;
+    
+    background: #25d366;
+    color: #0f2d48;
+    font-weight: bold;
+
+    border: none;
+    border-radius: 8px;
+}
+
+.grid-div-4 button{
+    width: 100%;
+    height: 87.5%;
+
+    background: #C9A227;
     color: #0f2d48;
     font-weight: bold;
 }
 
-.button-div-2 button:hover{
-    background-color: #c2c2c2;
-}
-
-.bi-eye{
+.bi-share-fill{
     vertical-align: middle;
+    margin-right: 4px;
 }
 
 /* FRONT BACK GRID */

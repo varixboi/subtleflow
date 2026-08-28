@@ -213,6 +213,36 @@ input:focus{
     border-radius: 8px;
 }
 
+.action-row {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    gap: 0.5rem; /* Spaces the two buttons evenly */
+}
+
+/* Force the buttons inside this row to take up equal space */
+.action-row .copyQuote {
+    width: 100%;
+    margin: 0; 
+}
+
+/* Target the FIRST button (Share Quote) */
+.action-row .shareQuote {
+    flex: 3; /* Takes up 3 parts (75%) */
+    margin: 0;
+}
+
+/* Target the SECOND button (Copy Quote) */
+.action-row .copyQuote {
+    flex: 1; /* Takes up 1 part (25%) */
+    margin: 0;
+}
+
+.shareQuote{
+    background: #f8fafc;
+    border: none;
+}
+
 .copyQuote {
     width: 90%;
     border: 1px solid #f8fafc;
@@ -263,6 +293,11 @@ input:focus{
 
 .bi-whatsapp{
     vertical-align: middle;
+}
+
+.bi-share-fill{
+    vertical-align: middle;
+    margin-right: 4px;
 }
 
 .size-input-slider{

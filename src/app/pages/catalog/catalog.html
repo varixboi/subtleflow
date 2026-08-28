@@ -43,18 +43,38 @@
                 </div>
             </div>            
         </div>
-        <div class="button-div-2">
-            <!-- <button class="button-common" (click)="activeModal='mockup'">Generate a Mockup</button> -->
-            <button class="button-common newline">
+        <div class="grid-div-1">
+            <p>
                 Price Range: 
                 <br>
                 ₹{{selectedProduct.b2c_price[20]-30}}-₹{{selectedProduct.b2c_price[20]+40}}
                 <br>
                 (Includes Printing)
+            </p>
+        </div>
+        <div class="grid-div-2">
+            <p>
+                Minimum: 20 Pieces
+            </p>
+            <p>
+                Time: 4-8 Days
+            </p>
+            <p>
+                DTF PRINTING
+            </p>
+            <p>
+                50-100+ WASHES GUARANTEE
+            </p>
+        </div>
+        <div class="grid-div-3">
+            <button class="button-common" class="share-btn" (click)="shareProduct()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
+                <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5"/>
+                </svg>
+                Share
             </button>
         </div>
-        <div class="button-div-2">
-            <!-- <button class="button-common" (click)="activeModal='catalog'"> -->
+        <div class="grid-div-4">
             <button class="button-common" routerLink="/">
                 Get your Quote
             </button>
@@ -66,7 +86,6 @@
     </div> -->
     <div class="selector-div">
         <h4>Size Chart</h4>
-        <br>
         <table class="size-table">
             <tr>
                 <th class="table-header">Sizes</th>
@@ -91,6 +110,8 @@
                     </td>
                 </tr>
             </table>
+            <h4>All measurements in inches</h4>
+            <h4>±1 inch tolerance</h4>
     </div>
     
     <div class="selector-div">

@@ -179,11 +179,18 @@ input{
 }
 
 .display-common{
+    background: #f8fafc;
+    color: #0f2d48;
+    
     padding: 0.5rem 0.75rem;
     border-radius: 8px;
     border: 1px solid #0f2d48;
     
     max-width: 14rem;
+}
+
+.display-common p{
+    color: #0f2d48;
 }
 
 

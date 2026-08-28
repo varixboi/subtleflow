@@ -106,4 +106,34 @@ export class Catalog {
     }
   }
 
+   async shareProduct(): Promise<void> {
+    if (!this.selectedProduct) return;
+
+    // Constructs a URL pointing directly to this product
+    const baseUrl = window.location.origin + window.location.pathname;
+    const shareUrl = `${baseUrl}`;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: `Check out Subtlewear's Catalog!`,
+          text: `Take a look at this product: ${this.selectedProduct.product_name}`,
+          url: shareUrl
+        });
+      } catch (err: unknown) {
+        if (err instanceof Error && err.name !== 'AbortError') {
+          console.error('Sharing failed:', err.message);
+        }
+      }
+    } else {
+      // Fallback behavior: copies link directly to clipboard
+      try {
+        await navigator.clipboard.writeText(shareUrl);
+        alert('Link copied to clipboard!');
+      } catch (clipboardErr) {
+        console.error('Could not copy text to clipboard', clipboardErr);
+        alert('Sharing is not supported on this browser.');
+      }
+    }
+  }
 }
