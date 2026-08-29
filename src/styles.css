@@ -264,3 +264,90 @@ input{
 .newline{
     white-space: pre-line;
 }
+
+/* ACCORDION STYLING */
+
+/* .accordion{
+    width: 90%;
+    margin: 0 auto;
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 0.5rem;
+}
+
+.accordion-btn{
+    width: 100%;
+    background: none;
+    border: #f8fafc;
+    color: #0f2d48;
+    text-align: left;
+}
+
+.accordion-panel{
+    color: #0f2d48;
+    display: none;
+} */
+
+/* 1. Keep your base accordion styling */
+.accordion {
+    width: 90%;
+    margin: 0 auto;
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem; /* Adds space between multiple accordions */
+}
+
+.accordion-btn {
+
+    width: 100%;
+    background: none;
+    border: none; /* Fixed typo: border: #f8fafc to border: none */
+    color: #0f2d48;
+    text-align: left;
+    font-weight: bold;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: space-between; /* Pushes text left, arrow right */
+    align-items: center;
+}
+
+.accordion-btn span{
+     font-size: 1rem;
+}
+
+.chevron-icon{
+    transition: transform 0.3s ease-out;
+}
+
+.accordion.open .chevron-icon{
+    transform: rotate(180deg);
+}
+
+/* 2. The Animation Magic */
+.accordion-panel {
+    display: grid;
+    grid-template-rows: 0fr; /* Crushes the height to 0 */
+    transition: grid-template-rows 0.3s ease-out; /* Smoothly animates the change */
+
+    margin-left: 0.25rem;
+}
+
+/* 3. Hide the text when crushed */
+.panel-content {
+    overflow: hidden; 
+}
+
+.panel-content p {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    color: #0f2d48 !important;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* 4. When the accordion has the 'open' class, expand it! */
+.accordion.open .accordion-panel {
+    grid-template-rows: 1fr; /* Expands to naturally fit the text */
+}

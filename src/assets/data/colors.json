@@ -7,10 +7,15 @@
   "Off-white": "#F4F1E8",
   "Brown": "#6B4423",
   "Army green": "#556B2F",
+  "Army Green": "#556B2F",
   "Lavender": "#B9A0D9",
   "Beige": "#DCC7A1",
   "Sky blue": "#87CEEB",
+  "Sky": "#87CEEB",
   "Red": "#C62828",
   "Rose pink": "#E8A0BF",
-  "Royal blue": "#4169E1"
+  "Royal blue": "#4169E1",
+  "Bottle green": "#006A4E",
+  "Grey": "#CCCAC9",
+  "Grey melange": "#CCCAC9"
 }

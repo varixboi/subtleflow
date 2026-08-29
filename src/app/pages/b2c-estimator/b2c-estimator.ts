@@ -21,10 +21,13 @@ import { Catalog } from '../catalog/catalog';
 import { Signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
+import faqData from "../../../assets/b2c-data/faq.json"
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-b2c-estimator',
-  imports: [ProductSelector, ColorSelector, Modal, ShippingCalculator, MockupGenerator, Catalog, RouterLink],
+  imports: [ProductSelector, ColorSelector, Modal, ShippingCalculator, MockupGenerator, Catalog, RouterLink, CommonModule],
   templateUrl: './b2c-estimator.html',
   styleUrl: './b2c-estimator.css',
 })
@@ -57,6 +60,9 @@ export class B2cEstimator {
   selectedShipping: any = null;
 
   activeModal: 'shipping' | 'catalog' | 'mockup' | null = null;
+
+  faq: any[] = faqData;
+  activeIndex: number | null = null;
 
   constructor(){
     console.log(this.products[1].display_name);
@@ -332,6 +338,15 @@ async shareProduct(): Promise<void> {
         console.error('Could not copy text to clipboard', clipboardErr);
         alert('Sharing is not supported on this browser.');
       }
+    }
+  }
+
+  toggleAccordion(index: number): void{
+    if(this.activeIndex === index){
+      this.activeIndex = null;
+    }
+    else{
+      this.activeIndex = index;
     }
   }
 }

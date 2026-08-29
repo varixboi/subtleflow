@@ -106,7 +106,7 @@ export class Catalog {
     }
   }
 
-   async shareProduct(): Promise<void> {
+  async shareProduct(): Promise<void> {
     if (!this.selectedProduct) return;
 
     // Constructs a URL pointing directly to this product

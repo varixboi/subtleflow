@@ -41,7 +41,7 @@
                 <div>
                     <p>{{currentImage+1}}/{{selectedProduct.images.length}} &sdot; {{currentColor}}</p>
                 </div>
-            </div>            
+            </div>
         </div>
         <div class="grid-div-1">
             <p>
@@ -85,7 +85,9 @@
         <h3>{{selectedProduct.product_description}}</h3>
     </div> -->
     <div class="selector-div">
-        <h4>Size Chart</h4>
+        <h4 style="margin: 1rem auto; color: #0f2d48; text-align: center; border-bottom: 2px #0f2d48 solid; width: fit-content;">
+            Size Chart
+        </h4>
         <table class="size-table">
             <tr>
                 <th class="table-header">Sizes</th>
@@ -126,12 +128,11 @@
                 <div class="slider-zone right-zone">
                     <span class="slider-arrow">❯</span>
                 </div>
-                <div class="slider-caption">
-                    <p>{{currentPrintedImage+1}}/{{printedImages.length}}</p>
-                </div>
             </div>
-            <br>
-            <h4 style="color: #0f2d48;">Click on the whatapp icon to chat and order!</h4>
+            <div>
+                <p>{{currentPrintedImage+1}}/{{printedImages.length}}</p>
+            </div>
+            <h4 style="color: #0f2d48;">Click on the whatsapp icon to chat and order!</h4>
         </div>
         
         <div class="whatsapp-chat-button">
