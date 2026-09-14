@@ -4,9 +4,9 @@
         "id":"REGBIO",
         "product_name":"Regular fit 100% Cotton Biowash",
         "price":135,
-        "product_description":"180-200GSM | Double Biowash | Red Label Fabric \n 100% Cotton | Regular fit",
+        "product_description":"180-200GSM | Biowash | Red Label Fabric \n 100% Cotton | Regular fit",
         "display_name":"REGULAR FIT TSHIRT",
-        "colors":["Black", "White", "Navy", "Sky", "Grey", "Bottle green", "Maroon", "Red"],
+        "colors":["Black", "White"],
         "sample_price":160,
         "sizes":["S","M","L","XL","2XL"],
         "images":[
@@ -38,7 +38,7 @@
         "product_description":"Oversized Dropshoulder | 240GSM \n French Terry Fabric | 100% Cotton | Double Stitching",
         "display_name":"240GSM OVERSIZE",
         "sample_price":230,
-        "colors":["Black", "White", "Navy", "Sky", "Charcoal", "Brown", "Army Green", "Beige", "Red", "Rose pink"],
+        "colors":["Black", "White", "Brown", "Navy", "Beige"],
         "sizes":["S","M","L","XL","2XL"],
         "images":[
             "product-images/240/Black.png",
@@ -48,7 +48,6 @@
             "product-images/240/Closeup 3.png",
             "product-images/240/Closeup 4.png",
             "product-images/240/White.png",
-            "product-images/240/Charcoal.png",
             "product-images/240/Brown.png"
         ],
         "weight":0.32,
@@ -61,91 +60,5 @@
             "200":280,
             "500":275
         }
-    },
-
-    {
-        
-        "id":"180BASIC",
-        "product_name":"Regular fit BASIC Cotton Tshirt",
-        "price":135,
-        "product_description":"180GSM | Regular fit | 100% Cotton Biowash",
-        "display_name":"BASIC TSHIRT",
-        "colors":["Black", "White"],
-        "sample_price":160,
-        "sizes":["S","M","L","XL","2XL"],
-        "images":[
-            "product-images/180/Black 180.png",
-            "product-images/180/Full.png",
-            "product-images/180/White 180.png",
-            "product-images/180/Closeup 2.png",
-            "product-images/180/Closeup 3.png",
-            "product-images/180/Closeup 4.png"
-        ],
-        "weight":0.23,
-
-        "b2c_status": true,
-        "b2c_price":{
-            "20":240,
-            "50":220,
-            "100":210,
-            "200":200,
-            "500":195
-        }
-
-    },
-
-    {
-        
-        "id":"220POLO",
-        "product_name":"Pure Cotton Polo",
-        "price":220,
-        "product_description":"220GSM Cotton Polo | 100% Cotton | Biowash",
-        "display_name":"COTTON POLO",
-        "colors":["Black", "White", "Navy"],
-        "sample_price": 250,
-        "sizes":["S","M","L","XL","2XL"],
-        "images":[
-            "product-images/Polo/Black.png",
-            "product-images/Polo/White.png",
-            "product-images/Polo/Navy.png"
-        ],
-        "weight":0.28,
-
-        "b2c_status": true,
-        "b2c_price":{
-            "20":300,
-            "50":280,
-            "100":270,
-            "200":260,
-            "500":255
-        }
-
-    },
-
-    {
-        
-        "id":"TIPPINGPOLO",
-        "product_name":"240GSM Tipping Polo",
-        "price":220,
-        "product_description":"240GSM Polo | 100% Cotton | Biowash \n Contrast Color tipping on Collar & Sleeves",
-        "display_name":"TIPPING POLO",
-        "colors":["Black", "White", "Navy", "Charcoal", "Grey melange"],
-        "sample_price": 250,
-        "sizes":["S","M","L","XL","2XL"],
-        "images":[
-            "product-images/Polo/Tipping polo.png"
-        ],
-        "weight":0.28,
-
-        "b2c_status": true,
-        "b2c_price":{
-            "20":400,
-            "50":380,
-            "100":360,
-            "200":350,
-            "500":340
-        }
-
     }
-
 ]
