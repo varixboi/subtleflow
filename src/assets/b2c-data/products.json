@@ -35,7 +35,7 @@
         "id":"OS240",
         "product_name":"240GSM French Terry Oversized",
         "price":200,
-        "product_description":"Oversized Dropshoulder | 240GSM \n French Terry Fabric | 100% Cotton | Double Stitching",
+        "product_description":"Oversized Dropshoulder | 240GSM \n French Terry Fabric | 100% Cotton Biowash | Double Stitching",
         "display_name":"240GSM OVERSIZE",
         "sample_price":230,
         "colors":["Black", "White", "Brown", "Navy", "Beige"],
@@ -60,5 +60,35 @@
             "200":280,
             "500":275
         }
+    },
+
+    {
+        
+        "id":"220POLO",
+        "product_name":"Pure Cotton Polo",
+        "price":220,
+        "product_description":"220GSM Cotton Polo | 100% Cotton | Biowash",
+        "display_name":"COTTON POLO",
+        "colors":["Black", "White", "Navy"],
+        "sample_price": 250,
+        "sizes":["S","M","L","XL","2XL"],
+        "images":[
+            "product-images/Polo/Black.png",
+            "product-images/Polo/White.png",
+            "product-images/Polo/Navy.png"
+        ],
+        "weight":0.28,
+
+        "b2c_status": true,
+        "b2c_price":{
+            "20":300,
+            "50":280,
+            "100":270,
+            "200":260,
+            "500":255
+        }
+
     }
+
+
 ]
