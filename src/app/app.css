@@ -1,0 +1,13 @@
+/* Make the entire app layout at least as tall as the screen */
+.app-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+/* Force the main content area to grow and push the footer down */
+.main-content {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+}

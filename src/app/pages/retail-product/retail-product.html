@@ -1,0 +1,174 @@
+<div class="product-page-wrapper" *ngIf="product">
+  <a routerLink="/retailers" class="back-link">← Back to Catalog</a>
+
+<div class="product-grid">
+    
+    <!-- BLOCK 1: IMAGE GALLERY -->
+    <div class="gallery-wrapper">
+      <div class="image-gallery">
+        <img [src]="product.thumbnail" [alt]="product.name" class="main-image">
+        <div class="thumbnail-row" *ngIf="product.images?.length > 0">
+           <img *ngFor="let img of product.images" [src]="img" class="gallery-thumb">
+        </div>
+      </div>
+    </div>
+
+<!-- BLOCK 2: PRODUCT INFO & ACTIONS -->
+    <div class="info-wrapper">
+      
+      <!-- Category sits on top again -->
+      <p class="category">{{ product.categories.join(', ') | uppercase }}</p>
+      
+      <!-- Title -->
+      <h1 class="title">{{ product.name }}</h1>
+      
+      <!-- Meta Stack: Product Code & Status Badges -->
+      <div class="meta-tags-stack">
+        <div class="product-code-box">Product Code: {{ product.id }}</div>
+        
+        <!-- NEW: Ready Stock Badge -->
+        <div class="status-badge status-ready" *ngIf="product.status === 'ready'">
+          📦 Ready Stock
+        </div>
+
+        <!-- Only shows if Made to Order -->
+        <div class="status-badge status-made-to-order" *ngIf="product.status === 'on_order'">
+          ⏳ Made to Order
+        </div>
+        
+        <!-- Only shows if Out of Stock -->
+        <div class="status-badge status-out-of-stock" *ngIf="product.status === 'out_of_stock'">
+          🚫 Out of Stock
+        </div>
+      </div>
+      
+      <div class="price-section">
+        <h2 class="price">₹{{ product.set_price }} <span class="per-set">/ set</span></h2>
+        
+        <!-- NEW: Per Piece Calculator -->
+        <span class="per-piece-tag" *ngIf="product.set_qty > 1">
+          (₹{{ product.set_price / product.set_qty }} / pc)
+        </span>
+        
+        <!-- ... your existing profit margin calculator or other price elements ... -->
+      </div>
+
+      <p class="description" *ngIf="product.description">{{ product.description }}</p>
+
+      <!-- B2B SPECS SECTION -->
+      <!-- Inside your B2B Specs Layout (2 Columns) -->
+<div class="b2b-specs-layout">
+  
+  <!-- LEFT COLUMN -->
+  <div class="specs-column">
+    <!-- 1. Fabric & GSM -->
+    <div class="spec-item" *ngIf="product.gsm || product.fabric_composition">
+      <span class="spec-label">Fabric & GSM</span>
+      <span class="spec-value">{{ product.gsm }} • {{ product.fabric_composition }}</span>
+      <span class="fabric-desc" *ngIf="product.fabric_details">{{ product.fabric_details }}</span>
+    </div>
+
+    <!-- 2. Fit Type (Separated from Labeling) -->
+    <div class="spec-item" *ngIf="product.fit_type">
+      <span class="spec-label">Fit</span>
+      <span class="spec-value">{{ product.fit_type }}</span>
+    </div>
+
+    <!-- 3. Wash Care -->
+    <div class="spec-item" *ngIf="product.wash_care">
+      <span class="spec-label">Wash Care</span>
+      <span class="spec-value">{{ product.wash_care }}</span>
+    </div>
+  </div>
+
+  <!-- RIGHT COLUMN -->
+  <div class="specs-column">
+    <!-- 4. Labeling / Branding (Now in its own box) -->
+    <div class="spec-item" *ngIf="product.branding">
+      <span class="spec-label">Labeling</span>
+      <span class="spec-value">{{ product.branding }}</span>
+    </div>
+
+    <!-- 5. Set Info & Qty -->
+    <div class="spec-item" *ngIf="product.set_info || product.set_qty">
+      <span class="spec-label">Set Details <span *ngIf="product.set_qty">({{ product.set_qty }} Pcs)</span></span>
+      <span class="spec-value">{{ product.set_info }}</span>
+    </div>
+
+    <!-- 6. Logistics (Lead Time on top, HSN below) -->
+    <div class="spec-item" *ngIf="product.hsn_code || product.lead_time">
+      <span class="spec-label">Logistics</span>
+      <!-- Lead time on top using the main value style -->
+      <span class="spec-value" *ngIf="product.lead_time">{{ product.lead_time }}</span>
+      <!-- HSN below it using the secondary description style -->
+    </div>
+  </div>
+
+</div>
+      <hr class="divider">
+
+      <!-- COLOR SELECTION -->
+      <div class="options-section">
+        <h3 class="section-title">Colors {{ product.is_master_set ? '(Master Set - All Included)' : '' }}</h3>
+        <div class="color-grid">
+          <button *ngFor="let color of product.colors" 
+                  class="color-btn"
+                  [class.selected]="selectedColor === color || product.is_master_set"
+                  [disabled]="product.is_master_set"
+                  (click)="selectColor(color)">
+            {{ color }}
+          </button>
+        </div>
+      </div>
+
+      <!-- ACTION BUTTON -->
+<!-- ACTION BUTTON -->
+      <div class="cart-action-wrapper">
+        <!-- Removed the [disabled] property and dynamic text -->
+        <button class="wa-btn" (click)="sendWhatsAppEnquiry()">
+          💬 Send Enquiry
+        </button>
+      </div>
+    </div>
+
+    <!-- BLOCK 3: EXTRAS (Moves under images on Desktop, stays at bottom on Mobile) -->
+    <div class="extras-wrapper">
+      <!-- MARGIN CALCULATOR -->
+      <div class="margin-calculator" *ngIf="product.suggested_mrp">
+        <p class="margin-title">Retailer Profit Estimate</p>
+        <div class="margin-row">
+          <span>Your Cost (Per Piece)</span>
+          <span>₹{{ getCostPerPiece() | number:'1.0-0' }}</span>
+        </div>
+        <div class="margin-row">
+          <span>Suggested MRP</span>
+          <span>₹{{ product.suggested_mrp }}</span>
+        </div>
+        <div class="margin-row profit-highlight">
+          <span>Profit Per Set ({{ product.set_qty }} pcs)</span>
+          <span>+ ₹{{ getProfitMargin() | number:'1.0-0' }}</span>
+        </div>
+      </div>
+
+      <!-- DYNAMIC SIZE CHART -->
+      <div class="size-chart-section" *ngIf="product.size_chart_id && sizeCharts[product.size_chart_id]">
+        <p class="section-label" style="font-weight: 700; margin-bottom: 8px;">Measurements</p>
+        <div class="table-scroll-wrapper">
+          <table class="size-table">
+              <tr>
+                  <th class="table-header">Sizes</th>
+                  <td class="sample-price" *ngFor="let size of getSizes(product.size_chart_id)">{{ size }}</td>
+              </tr>
+              <tr *ngFor="let measurement of getMeasurements(product.size_chart_id)">
+                  <th class="table-header" style="text-transform: capitalize;">{{ measurement }}</th>
+                  <td class="sample-price" *ngFor="let size of getSizes(product.size_chart_id)">
+                      {{ sizeCharts[product.size_chart_id][size][measurement] || '–' }}
+                  </td>
+              </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
