@@ -462,3 +462,21 @@
     color: #b91c1c;
     border: 1px solid #fecaca;
 }
+
+.gallery-thumb {
+    /* Existing styles like width/height... */
+    cursor: pointer;
+    border: 2px solid transparent; /* Invisible border stops layout jumping */
+    opacity: 0.6; /* Dims unselected images */
+    transition: all 0.2s ease;
+}
+
+.gallery-thumb:hover {
+    opacity: 1;
+}
+
+/* This triggers dynamically when a thumbnail is clicked */
+.gallery-thumb.selected-thumb {
+    border-color: #0f2d48; /* Your Navy brand color */
+    opacity: 1;
+}

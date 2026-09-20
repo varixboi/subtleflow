@@ -6,8 +6,8 @@
     "categories": ["T-Shirts", "Premium Blanks", "Summer"],
     "thumbnail": "retail/placeholder.jpg",
     "images": [
-      "retail/placeholder.jpg",
-      "retail/placeholder.jpg"
+      "retail/ph2.jpg",
+      "retail/ph3.jpg"
     ],
     "size_chart_id": "SC-OVER-TEE",
     "is_master_set": false,
@@ -32,9 +32,9 @@
     "name": "Premium Winter Hoodie",
     "description": "Double-layered hood with kangaroo pockets. Thick ribbed cuffs to keep the cold out.",
     "categories": ["Hoodies", "Winter Wear"],
-    "thumbnail": "retail/placeholder.jpg",
+    "thumbnail": "retail/ph-hoodie.jpg",
     "images": [
-      "retail/placeholder.jpg"
+      "retail/ph-hoodie.jpg"
     ],
     "size_chart_id": "SC-OVER-TEE",
     "is_master_set": true,
@@ -56,8 +56,8 @@
     "id": "WS-003",
     "name": "Classic Cargo Joggers",
     "categories": ["Bottoms", "Trending"],
-    "thumbnail": "retail/placeholder.jpg",
-    "images": [],
+    "thumbnail": "retail/ph-sweatshirt.jpg",
+    "images": ["retail/ph-sweatshirt.jpg"],
     "size_chart_id": "SC-CARGO",
     "is_master_set": false,
     "colors": ["Desert Sand", "Black"],

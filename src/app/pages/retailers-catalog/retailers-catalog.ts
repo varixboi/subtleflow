@@ -20,7 +20,6 @@ export class RetailersCatalog implements OnInit {
 // If you declare it directly as a class property:
   products = retailData.filter((item: any) => item.status !== 'hide');
 
-  // OR if you load it inside ngOnInit():
   ngOnInit() {
     this.products = retailData.filter((item: any) => item.status !== 'hide');
   }

@@ -19,6 +19,9 @@ export class RetailProductComponent implements OnInit {
   
   public businessWhatsAppNumber = '918904467234'; // Replace with your number
 
+  public activeImage: string = '';
+  public allImages: string[] = [];
+  
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -29,8 +32,23 @@ export class RetailProductComponent implements OnInit {
         this.product = rawData.find((p: RetailProduct) => p.id === productId);
       }
     }
+
+    if(this.product) {
+      // 2. Combine the thumbnail (at the front) with the rest of the images
+      const combined = [this.product.thumbnail, ...(this.product.images || [])];
+      
+      // 3. Remove any duplicates (in case thumbnail is already in the images list)
+      this.allImages = [...new Set(combined)];
+      
+      // 4. Set the first image (which is now the thumbnail) as active
+      this.activeImage = this.allImages[0];
+    }
   }
 
+  changeImage(imageUrl: string) {
+    this.activeImage = imageUrl;
+  }
+  
   selectColor(color: string) {
     this.selectedColor = color;
   }

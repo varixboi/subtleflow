@@ -6,9 +6,15 @@
     <!-- BLOCK 1: IMAGE GALLERY -->
     <div class="gallery-wrapper">
       <div class="image-gallery">
-        <img [src]="product.thumbnail" [alt]="product.name" class="main-image">
-        <div class="thumbnail-row" *ngIf="product.images?.length > 0">
-           <img *ngFor="let img of product.images" [src]="img" class="gallery-thumb">
+        <!-- 1. Main image now uses [src]="activeImage" -->
+        <img [src]="activeImage" [alt]="product.name" class="main-image">
+        
+        <div class="thumbnail-row" *ngIf="allImages.length > 1">
+           <img *ngFor="let img of allImages" 
+                [src]="img" 
+                class="gallery-thumb"
+                (click)="changeImage(img)"
+                [class.selected-thumb]="activeImage === img">
         </div>
       </div>
     </div>
