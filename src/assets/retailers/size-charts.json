@@ -1,0 +1,13 @@
+{
+  "SC-OVER-TEE": {
+    "S": { "chest": "44", "length": "28", "shoulder": "22", "sleeve": "9" },
+    "M": { "chest": "46", "length": "29", "shoulder": "23", "sleeve": "9.5" },
+    "L": { "chest": "48", "length": "30", "shoulder": "24", "sleeve": "10" },
+    "XL": { "chest": "50", "length": "31", "shoulder": "25", "sleeve": "10.5" }
+  },
+  "SC-CARGO": {
+    "30": { "waist": "30", "inseam": "29", "hip": "40" },
+    "32": { "waist": "32", "inseam": "30", "hip": "42" },
+    "34": { "waist": "34", "inseam": "31", "hip": "44" }
+  }
+}

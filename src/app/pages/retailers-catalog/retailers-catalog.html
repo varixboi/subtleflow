@@ -1,0 +1,59 @@
+<div style="text-align: center; color: #0f2d48; margin-bottom: -1rem;">
+    <h1>Retailer's Wholesale Catalog</h1>
+</div>
+<div class="wholesale-catalog">
+    <div class="product-card" *ngFor="let item of products" [routerLink]="['/retailers', item.id]">
+        
+        <div class="image-wrapper">
+            <img [src]="item.thumbnail" [alt]="item.name">
+            
+            <!-- BADGES CONTAINER: Stacks them neatly in the corner -->
+            <div class="badges-container">
+                <!-- Status Badges -->
+                <span class="catalog-badge status-ready" *ngIf="item.status === 'ready'">
+                    📦 Ready Stock
+                </span>
+                <span class="catalog-badge status-on-order" *ngIf="item.status === 'on_order'">
+                    ⏳ Made to Order
+                </span>
+                <span class="catalog-badge status-out-of-stock" *ngIf="item.status === 'out_of_stock'">
+                    🚫 Out of Stock
+                </span>
+                
+                <!-- Master Set Badge -->
+                <span class="stock-badge" *ngIf="item.is_master_set">
+                    Master Set
+                </span>
+            </div>
+        </div>
+
+        <div class="card-info">
+            <h4 class="product-title">{{ item.name }}</h4>
+            
+            <div class="card-price-section">
+                <span class="card-price">₹{{ item.set_price }} <span class="per-set-text">/ set ({{ item.set_qty }} pc set)</span></span>
+                
+                <!-- NEW: Catalog Per-Piece Calculator -->
+                <span class="catalog-per-piece" *ngIf="item.set_qty > 1">
+                    (₹{{ item.set_price / item.set_qty }} / pc)
+                </span>
+            </div>
+
+            <!-- Set Info Breakdown -->
+            <div class="set-info-text">
+                {{ item.set_info }}
+            </div>
+
+            <!-- Color Swatches Loop -->
+            <div class="color-swatches">
+                <span class="color-dot" *ngFor="let color of item.colors" 
+                      [title]="color" 
+                      [ngClass]="color.toLowerCase().replace(' ', '-')">
+                </span>
+                <!-- Optional label so they know how the set works -->
+                <span class="color-note" *ngIf="!item.is_master_set">(Pick 1 Color)</span>
+                <span class="color-note" *ngIf="item.is_master_set">(All Included)</span>
+            </div>
+        </div>
+    </div>
+</div>

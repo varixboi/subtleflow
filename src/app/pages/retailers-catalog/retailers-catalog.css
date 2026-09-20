@@ -1,0 +1,244 @@
+/* =========================================
+   1. THE MAIN GRID CONTAINER
+   ========================================= */
+
+/* Default for Mobile: Exactly 2 columns */
+.wholesale-catalog {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 1rem; 
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto; 
+}
+
+/* Tablet (iPads, etc.): Exactly 3 columns */
+@media (min-width: 768px) {
+    .wholesale-catalog {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+    }
+}
+
+/* Desktop: Exactly 4 columns max */
+@media (min-width: 1024px) {
+    .wholesale-catalog {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem; /* Slightly bigger gaps so the larger cards breathe */
+    }
+}
+
+/* =========================================
+   2. INDIVIDUAL PRODUCT CARDS
+   ========================================= */
+.product-card {
+    background: #f8fafc;
+    border-radius: 8px;
+    overflow: hidden; 
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+/* =========================================
+   3. IMAGES & BADGES
+   ========================================= */
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/5; /* Perfect ratio for apparel photography */
+    background: #e2e8f0; 
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.stock-badge {
+    display: inline-block;
+    color: #0f2d48;
+    background-color: #eff8ff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin: 0;
+    border: 1px solid #0f2d48; /* Adds the crisp white border */
+}
+
+/* =========================================
+   4. TEXT & PRICING
+   ========================================= */
+.card-info {
+    padding: 0.75rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Pushes the color swatches to the very bottom */
+}
+
+.product-title {
+    font-size: 0.9rem;
+    color: #0f2d48;
+    margin: 0 0 0.5rem 0;
+    font-weight: 700;
+    
+    /* Truncates extra-long titles with '...' */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: #0f2d48;
+    margin: 0;
+}
+
+.per-set {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin: 0;
+}
+
+/* =========================================
+   5. WHOLESALE SET INFO & COLORS
+   ========================================= */
+.set-info-text {
+    font-size: 0.75rem;
+    color: #0f2d48; /* Your Navy text */
+    background: #c9a227; /* Your Ochre background! */
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+    font-weight: 700; /* Made slightly bolder to read well on the gold */
+}
+
+.color-swatches {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin-top: auto; /* Anchors it to the bottom of the card */
+}
+
+.color-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px solid #cbd5e1;
+    display: inline-block;
+}
+
+/* Map your JSON color names to actual CSS colors here */
+.black { background-color: #000000; }
+.white { background-color: #ffffff; }
+.navy { background-color: #000080; }
+.maroon { background-color: #800000; }
+.grey { background-color: #808080; }
+.red { background-color: #ff0000; }
+
+.color-note {
+    font-size: 0.65rem;
+    color: #64748b;
+    margin-left: 4px;
+}
+
+/* =========================================
+   CATALOG CARD STATUS BADGES
+   ========================================= */
+.catalog-badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.75rem;     /* Slightly smaller for catalog view */
+    font-weight: 700;
+    padding: 4px 8px;       /* Tighter padding */
+    border-radius: 4px;
+    margin-bottom: 6px;     /* Space between this and the Master Set badge */
+    width: fit-content;
+}
+
+/* Green style for Ready Stock */
+.status-ready {
+    background: #f0fdf4;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+/* Amber style for Made to Order */
+.status-on-order {
+    background: #fffbeb;
+    color: #b45309;
+    border: 1px solid #fde68a;
+}
+
+/* Red style for Out of Stock */
+.status-out-of-stock {
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+}
+
+.badges-container {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+/* =========================================
+   CATALOG CARD PRICE SECTION
+   ========================================= */
+.card-price-section {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; /* Allows it to wrap to the next line on very tiny mobile screens */
+    gap: 6px;        /* Small gap between the set price and the per-piece tag */ /* Adjust this based on your current spacing */
+    margin-bottom: 8px; /* Adjust this based on your current spacing */
+}
+
+/* Optional: if you need to style the main price text */
+.card-price {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.per-set-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #64748b;
+}
+
+/* The new Per Piece Tag */
+.catalog-per-piece {
+    font-size: 0.75rem;     /* Smaller text for the grid card */
+    color: #64748b;         /* Muted grey */
+    font-weight: 700;
+    background: #f8fafc;
+    padding: 2px 6px;       /* Tighter padding */
+    border-radius: 4px;
+    border: 1px solid #e2e8f0;
+}

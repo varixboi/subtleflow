@@ -5,10 +5,14 @@ import { PlaceOrder } from './pages/place-order/place-order';
 import { CreateOrder } from './pages/create-order/create-order';
 import { B2cEstimator } from './pages/b2c-estimator/b2c-estimator';
 import { MockupGenerator } from './shared/mockup-generator/mockup-generator';
+import { RetailersCatalog } from './pages/retailers-catalog/retailers-catalog';
+import { RetailProductComponent } from './pages/retail-product/retail-product';
 
 export const routes: Routes = [
 // {path: 'rate-estimator-xyz', component: RateEstimator},
 {path: 'catalog', component: Catalog},
+{path: 'retailers', component: RetailersCatalog},
+{path: 'retailers/:id', component: RetailProductComponent},
 // {path: 'place-order-xyz', component: PlaceOrder},
 // {path: 'create-xyz', component: CreateOrder},
 // {path: 'mockup', component: MockupGenerator},
