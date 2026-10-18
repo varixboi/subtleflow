@@ -31,11 +31,11 @@
             <h4 class="product-title">{{ item.name }}</h4>
             
             <div class="card-price-section">
-                <span class="card-price">₹{{ item.set_price }} <span class="per-set-text">/ set ({{ item.set_qty }} pc set)</span></span>
+                <span class="card-price">₹{{ item.set_price / item.set_qty }} <span class="per-set-text">/ piece ({{ item.set_qty }} pc set)</span></span>
                 
                 <!-- NEW: Catalog Per-Piece Calculator -->
                 <span class="catalog-per-piece" *ngIf="item.set_qty > 1">
-                    (₹{{ item.set_price / item.set_qty }} / pc)
+                    (₹{{ item.set_price  }} / set)
                 </span>
             </div>
 
