@@ -4,11 +4,23 @@
     "name": "Heavyweight Drop Shoulder Tee",
     "description": "Our best-selling streetwear blank. Features a thick, ribbed neckband and a perfect boxy drape.",
     "categories": ["T-Shirts", "Premium Blanks", "Summer"],
-    "thumbnail": "https://pub-23a4de66660e499090829c55fd890882.r2.dev/test-resize/DO%20NOT%20DISTURB%20TEST_0001_Black%20OS260.webp",
+    "thumbnail": "https://media.subtlewear.in/October/California%20State/California%20State_0007_Black%20OS260.webp",
     "images": [
       {
-        "label": "White",
-        "url": "https://pub-23a4de66660e499090829c55fd890882.r2.dev/test-resize/DO%20NOT%20DISTURB%20TEST_0000_White%20OS260.webp"
+        "label": "Steel Grey",
+        "url": "https://media.subtlewear.in/October/California%20State/California%20State_0009_Steel%20Grey%20OS240.webp"
+      },
+      {
+        "label": "Royal Blue",
+        "url": "https://media.subtlewear.in/October/California%20State/California%20State_0010_Royal%20Blue%20OS240.webp"
+      },
+      {
+        "label": "Coffee Brown",
+        "url": "https://media.subtlewear.in/October/California%20State/California%20State_0013_Coffee%20Brown%20OS240.webp"
+      },
+      {
+        "label": "Red",
+        "url": "https://media.subtlewear.in/October/California%20State/California%20State_0011_Red%20OS240.webp"
       }
     ],
     "size_chart_id": "SC-OVER-TEE",
@@ -34,23 +46,15 @@
     "name": "Premium Winter Hoodie",
     "description": "Double-layered hood with kangaroo pockets. Thick ribbed cuffs to keep the cold out.",
     "categories": ["Hoodies", "Winter Wear"],
-    "thumbnail": "https://pub-23a4de66660e499090829c55fd890882.r2.dev/test-resize/DO%20NOT%20DISTURB%20TEST_0003_Navy%20400%20Hoodie.webp",
+    "thumbnail": "https://media.subtlewear.in/October/Do%20not%20disturb/Do%20Not%20Disturb_0000_Black%20400%20Hoodie.webp",
     "images": [
       {
-        "label": "Black",
-        "url": "https://pub-23a4de66660e499090829c55fd890882.r2.dev/test-resize/DO%20NOT%20DISTURB%20TEST_0002_Black%20400%20Hoodie.webp"
+        "label": "Navy",
+        "url": "https://media.subtlewear.in/October/Do%20not%20disturb/Do%20Not%20Disturb_0001_Navy%20400%20Hoodie.webp"
       },
       {
         "label": "White",
-        "url": "https://pub-23a4de66660e499090829c55fd890882.r2.dev/test-resize/DO%20NOT%20DISTURB%20TEST_0004_White%20400%20Hoodie.webp"
-      },
-      {
-        "label": "Black Detail",
-        "url": "https://pub-23a4de66660e499090829c55fd890882.r2.dev/test-resize/DO%20NOT%20DISTURB%20TEST_0001_Black%20OS260.webp"
-      },
-      {
-        "label": "White Detail",
-        "url": "https://pub-23a4de66660e499090829c55fd890882.r2.dev/test-resize/DO%20NOT%20DISTURB%20TEST_0000_White%20OS260.webp"
+        "url": "https://media.subtlewear.in/October/Do%20not%20disturb/Do%20Not%20Disturb_0002_White%20400%20Hoodie.webp"
       }
     ],
     "size_chart_id": "SC-OVER-TEE",
