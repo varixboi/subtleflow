@@ -5,10 +5,10 @@ export interface RetailProduct {
     description?: string;        
     categories: string[];       
     
-    // 2. Media
+// 2. Media
     thumbnail: string;          
-    images: string[];           
-    size_chart_id?: string;     // <-- Fixes the size_chart_id errors
+    images: { label: string; url: string }[]; // <-- Label is now first
+    size_chart_id?: string;
     
     // 3. Wholesale Packaging & Pricing
     is_master_set: boolean;     

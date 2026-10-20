@@ -19,34 +19,39 @@ export class RetailProductComponent implements OnInit {
   
   public businessWhatsAppNumber = '918904467234'; // Replace with your number
 
-  public activeImage: string = '';
-  public allImages: string[] = [];
+  public activeImage: { label: string, url: string } = { label: '', url: '' };
+  public allImages: { label: string, url: string }[] = [];
+
+  // Add these variables for the swipe logic
+  public touchStartX = 0;
+  public touchEndX = 0;
   
   constructor(private route: ActivatedRoute) {}
 
-  ngOnInit(): void {
-    const productId = this.route.snapshot.paramMap.get('id');
-    if (productId) {
-      const rawData = (retailData as any).default || retailData;
-      if (Array.isArray(rawData)) {
-        this.product = rawData.find((p: RetailProduct) => p.id === productId);
+  ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      const productId = params.get('id');
+      const foundProduct = retailData.find((p: any) => p.id === productId);
+      
+      if (foundProduct) {
+        this.product = foundProduct as RetailProduct;
+        
+        // 2. Put label first in the thumbnail object
+        const thumbObj = { label: 'Cover', url: this.product.thumbnail };
+        const combined = [thumbObj, ...(this.product.images || [])];
+        
+        // 3. Remove duplicates
+        this.allImages = combined.filter((value, index, self) =>
+          index === self.findIndex((t) => t.url === value.url)
+        );
+        
+        this.activeImage = this.allImages[0];
       }
-    }
-
-    if(this.product) {
-      // 2. Combine the thumbnail (at the front) with the rest of the images
-      const combined = [this.product.thumbnail, ...(this.product.images || [])];
-      
-      // 3. Remove any duplicates (in case thumbnail is already in the images list)
-      this.allImages = [...new Set(combined)];
-      
-      // 4. Set the first image (which is now the thumbnail) as active
-      this.activeImage = this.allImages[0];
-    }
+    });
   }
 
   changeImage(imageUrl: string) {
-    this.activeImage = imageUrl;
+    this.activeImage.url = imageUrl;
   }
   
   selectColor(color: string) {
@@ -96,6 +101,44 @@ export class RetailProductComponent implements OnInit {
       
       const encodedMessage = encodeURIComponent(message);
       window.open(`https://wa.me/${this.businessWhatsAppNumber}?text=${encodedMessage}`, '_blank');
+    }
+  }
+
+  // 1. Get the current image number
+  get currentIndex(): number {
+    return this.allImages.indexOf(this.activeImage);
+  }
+
+  // 2. Next & Previous functions
+  nextImage() {
+    if (this.allImages.length <= 1) return;
+    const nextIdx = (this.currentIndex + 1) % this.allImages.length;
+    this.activeImage = this.allImages[nextIdx];
+  }
+
+  prevImage() {
+    if (this.allImages.length <= 1) return;
+    const prevIdx = (this.currentIndex - 1 + this.allImages.length) % this.allImages.length;
+    this.activeImage = this.allImages[prevIdx];
+  }
+
+  // 3. Touch event handlers for swiping
+  onTouchStart(event: TouchEvent) {
+    this.touchStartX = event.changedTouches[0].screenX;
+  }
+
+  onTouchEnd(event: TouchEvent) {
+    this.touchEndX = event.changedTouches[0].screenX;
+    this.handleSwipe();
+  }
+
+  handleSwipe() {
+    const swipeThreshold = 50; // Requires a 50px swipe to trigger
+    if (this.touchEndX < this.touchStartX - swipeThreshold) {
+      this.nextImage(); // Swiped left
+    }
+    if (this.touchEndX > this.touchStartX + swipeThreshold) {
+      this.prevImage(); // Swiped right
     }
   }
 }

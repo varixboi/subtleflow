@@ -3,10 +3,10 @@
 
 <div class="product-grid">
     
-    <!-- BLOCK 1: IMAGE GALLERY -->
-    <div class="gallery-wrapper">
+    BLOCK 1: IMAGE GALLERY
+    <!-- 1. Main image now uses [src]="activeImage" -->
+    <!-- <div class="gallery-wrapper">
       <div class="image-gallery">
-        <!-- 1. Main image now uses [src]="activeImage" -->
         <img [src]="activeImage" [alt]="product.name" class="main-image">
         
         <div class="thumbnail-row" *ngIf="allImages.length > 1">
@@ -16,6 +16,42 @@
                 (click)="changeImage(img)"
                 [class.selected-thumb]="activeImage === img">
         </div>
+      </div>
+    </div> -->
+
+    <!-- BLOCK 1: IMAGE GALLERY -->
+    <div class="gallery-wrapper">
+      <div class="image-gallery">
+        
+        <!-- MAIN IMAGE CONTAINER -->
+        <div class="main-image-container"
+             (touchstart)="onTouchStart($event)"
+             (touchend)="onTouchEnd($event)">
+          
+          <button class="nav-arrow left-arrow" (click)="prevImage()" *ngIf="allImages.length > 1">❮</button>
+
+          <!-- Update src to activeImage.url -->
+          <img [src]="activeImage.url" [alt]="product.name" class="main-image">
+
+          <button class="nav-arrow right-arrow" (click)="nextImage()" *ngIf="allImages.length > 1">❯</button>
+        </div>
+
+        <!-- NEW: Dynamic Image Counter using activeImage.label -->
+        <div class="image-counter" *ngIf="allImages.length > 0">
+          {{ currentIndex + 1 }}/{{ allImages.length }} 
+          <span *ngIf="activeImage.label">| {{ activeImage.label }}</span>
+        </div>
+        
+        <!-- THUMBNAILS -->
+        <div class="thumbnail-row" *ngIf="allImages.length > 1">
+           <!-- Update src and dynamic class to use img.url -->
+           <img *ngFor="let img of allImages" 
+                [src]="img.url" 
+                class="gallery-thumb"
+                (click)="changeImage(img.url)"
+                [class.selected-thumb]="activeImage.url === img.url">
+        </div>
+
       </div>
     </div>
 

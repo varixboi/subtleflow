@@ -480,3 +480,88 @@
     border-color: #0f2d48; /* Your Navy brand color */
     opacity: 1;
 }
+
+/* LATEST */
+/* Gallery Container Fix */
+.gallery-wrapper {
+    min-width: 0; /* CRITICAL: Prevents CSS Grid blowout on desktop */
+}
+
+/* Main Image Setup */
+.main-image-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Overlaid Next/Prev Arrows */
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.85);
+    border: none;
+    color: #0f172a;
+    font-size: 1.2rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    z-index: 2;
+}
+
+.nav-arrow:hover { background: #ffffff; }
+.left-arrow { left: 12px; }
+.right-arrow { right: 12px; }
+
+/* Image Counter Text */
+.image-counter {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 700;
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+}
+
+/* Desktop Slider for Thumbnails */
+.thumbnail-row {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px; /* Room for scrollbar */
+    scroll-behavior: smooth;
+    
+    /* Sleek scrollbar styling for desktop */
+    scrollbar-width: thin; 
+    scrollbar-color: #cbd5e1 transparent;
+}
+
+/* Webkit Scrollbar Styling (Chrome/Safari) */
+.thumbnail-row::-webkit-scrollbar { height: 6px; }
+.thumbnail-row::-webkit-scrollbar-track { background: transparent; }
+.thumbnail-row::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 10px;
+}
+
+/* Ensure thumbs never squish */
+.gallery-thumb {
+    flex-shrink: 0; /* CRITICAL: Forces horizontal scrolling instead of shrinking */
+    width: 80px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    opacity: 0.6;
+    transition: all 0.2s ease;
+}

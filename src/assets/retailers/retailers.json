@@ -6,7 +6,10 @@
     "categories": ["T-Shirts", "Premium Blanks", "Summer"],
     "thumbnail": "https://pub-23a4de66660e499090829c55fd890882.r2.dev/test-resize/DO%20NOT%20DISTURB%20TEST_0001_Black%20OS260.webp",
     "images": [
-      "https://pub-23a4de66660e499090829c55fd890882.r2.dev/test-resize/DO%20NOT%20DISTURB%20TEST_0001_Black%20OS260.webp"
+      {
+        "label": "White",
+        "url": "https://pub-23a4de66660e499090829c55fd890882.r2.dev/test-resize/DO%20NOT%20DISTURB%20TEST_0000_White%20OS260.webp"
+      }
     ],
     "size_chart_id": "SC-OVER-TEE",
     "is_master_set": true,
@@ -33,8 +36,22 @@
     "categories": ["Hoodies", "Winter Wear"],
     "thumbnail": "https://pub-23a4de66660e499090829c55fd890882.r2.dev/test-resize/DO%20NOT%20DISTURB%20TEST_0003_Navy%20400%20Hoodie.webp",
     "images": [
-      "https://pub-23a4de66660e499090829c55fd890882.r2.dev/test-resize/DO%20NOT%20DISTURB%20TEST_0002_Black%20400%20Hoodie.webp",
-      "https://pub-23a4de66660e499090829c55fd890882.r2.dev/test-resize/DO%20NOT%20DISTURB%20TEST_0004_White%20400%20Hoodie.webp"
+      {
+        "label": "Black",
+        "url": "https://pub-23a4de66660e499090829c55fd890882.r2.dev/test-resize/DO%20NOT%20DISTURB%20TEST_0002_Black%20400%20Hoodie.webp"
+      },
+      {
+        "label": "White",
+        "url": "https://pub-23a4de66660e499090829c55fd890882.r2.dev/test-resize/DO%20NOT%20DISTURB%20TEST_0004_White%20400%20Hoodie.webp"
+      },
+      {
+        "label": "Black Detail",
+        "url": "https://pub-23a4de66660e499090829c55fd890882.r2.dev/test-resize/DO%20NOT%20DISTURB%20TEST_0001_Black%20OS260.webp"
+      },
+      {
+        "label": "White Detail",
+        "url": "https://pub-23a4de66660e499090829c55fd890882.r2.dev/test-resize/DO%20NOT%20DISTURB%20TEST_0000_White%20OS260.webp"
+      }
     ],
     "size_chart_id": "SC-OVER-TEE",
     "is_master_set": true,
@@ -57,7 +74,12 @@
     "name": "Classic Cargo Joggers",
     "categories": ["Bottoms", "Trending"],
     "thumbnail": "retail/ph-sweatshirt.jpg",
-    "images": ["retail/ph-sweatshirt.jpg"],
+    "images": [
+      {
+        "label": "Front View",
+        "url": "retail/ph-sweatshirt.jpg"
+      }
+    ],
     "size_chart_id": "SC-CARGO",
     "is_master_set": false,
     "colors": ["Desert Sand", "Black"],
