@@ -1,11 +1,38 @@
-<div style="text-align: center; color: #0f2d48; margin-bottom: -1rem;">
-    <h1>Retailer's Wholesale Catalog</h1>
+<div style="text-align: center; color: #0f2d48; margin-bottom: 0rem;">
+    <h2>Retailer's Wholesale Catalog</h2>
 </div>
+
+<div class="search-filter-section">
+    
+    <!-- The Search Bar -->
+    <div class="search-input-container">
+        <span class="search-icon">🔍</span>
+        <input 
+            type="text" 
+            class="search-input" 
+            placeholder="Search designs, oversized, hoodies..." 
+            [value]="searchTerm"
+            (input)="onSearch($event)">
+    </div>
+
+    <!-- The 3 Filter Buttons -->
+    <div class="filter-buttons-container">
+        <button 
+            *ngFor="let cat of filterButtons" 
+            class="filter-btn" 
+            [class.active]="selectedCategory === cat"
+            (click)="toggleCategory(cat)">
+            {{ cat }}
+        </button>
+    </div>
+
+</div>
+
 <div class="wholesale-catalog">
-    <div class="product-card" *ngFor="let item of products" [routerLink]="['/retailers', item.id]">
+    <div class="product-card" *ngFor="let item of filteredProducts" [routerLink]="['/retailers', item.id]">
         
         <div class="image-wrapper">
-            <img [src]="item.thumbnail" [alt]="item.name">
+            <img [src]="getCoverImage(item)" [alt]="item.name">
             
             <!-- BADGES CONTAINER: Stacks them neatly in the corner -->
             <div class="badges-container">
@@ -21,9 +48,9 @@
                 </span>
                 
                 <!-- Master Set Badge -->
-                <span class="stock-badge" *ngIf="item.is_master_set">
+                <!-- <span class="stock-badge" *ngIf="item.is_master_set">
                     Master Set
-                </span>
+                </span> -->
             </div>
         </div>
 
@@ -55,5 +82,19 @@
                 <span class="color-note" *ngIf="item.is_master_set">(All Included)</span>
             </div>
         </div>
+    </div>
+</div>
+
+<!-- PREMIUM EMPTY STATE -->
+<div class="no-results-wrapper" *ngIf="filteredProducts.length === 0">
+    <div class="no-results-card">
+        <div class="no-results-icon">📦</div>
+        <h3>No products found</h3>
+        <p>We couldn't find any designs matching your current filter. Try adjusting your search.</p>
+        
+        <!-- Quick clear button so they don't get stuck -->
+        <button class="clear-search-btn" (click)="searchTerm = ''; selectedCategory = ''">
+            Clear Filters
+        </button>
     </div>
 </div>

@@ -4,13 +4,13 @@
 .product-page-wrapper {
     max-width: 800px;         
     margin: 0 auto;           
-    padding: 2rem 1rem 4rem 1rem; 
+    padding: 1rem 1rem 4rem 1rem; 
     color: #0f2d48;
 }
 
 .back-link {
     display: inline-block;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     text-decoration: none;
     color: #64748b;
     font-weight: 700;
@@ -28,7 +28,7 @@
 .product-grid {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 /* Mobile Order: Images -> Info -> Extras */
@@ -114,6 +114,7 @@
     font-weight: 800;
     letter-spacing: 0.5px;
     margin-bottom: 0.5rem; /* Brought back the bottom margin */
+    margin-top: 0rem;
 }
 
 .title {
@@ -415,10 +416,10 @@
    ========================================= */
 .meta-tags-stack {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
-    gap: 4px; /* Reduced from 8px to make the badges sit closer together! */
-    margin-bottom: 1.25rem;
+    gap: 1rem; /* Reduced from 8px to make the badges sit closer together! */
+    margin-bottom: -0.5rem;
 }
 
 .product-code-box {
@@ -564,4 +565,69 @@
     border: 2px solid transparent;
     opacity: 0.6;
     transition: all 0.2s ease;
+}
+
+/* MOBILE */
+/* =========================================
+   1. IMAGE COUNTER OVERLAY (Global)
+   ========================================= */
+.image-counter-overlay {
+    position: absolute;
+    top: 12px;
+    right: 12px; 
+    background: rgba(255, 255, 255, 0.9);
+    color: #0f172a;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    z-index: 5;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    pointer-events: none; /* Ensures swipes pass right through the text */
+}
+
+/* =========================================
+   MOBILE-SPECIFIC LAYOUT FIXES
+   ========================================= */
+/* =========================================
+   MOBILE-SPECIFIC LAYOUT FIXES
+   ========================================= */
+@media (max-width: 768px) {
+    
+    /* 2. Reduce spacing between main image and slider */
+    .image-gallery {
+        gap: 8px; 
+    }
+
+    /* 5a. Scale down ONLY the main image to 80% and center it */
+    .main-image-container {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    /* 5b. Keep slider full width, but shrink thumbnail images to 80% */
+    .thumbnail-row {
+        width: 100%;
+    }
+    
+    .gallery-thumb {
+        width: 64px;  /* 80% of original 80px */
+        height: 80px; /* 80% of original 100px */
+    }
+
+    /* 3. Force Product Code and Status Badge onto the same row */
+    .meta-tags-stack {
+        flex-wrap: nowrap; 
+        margin-bottom: 8px; /* 4. Reduce gap between tags and price */
+        overflow-x: auto; 
+        padding-bottom: 4px; 
+        margin-bottom: -0.5rem;
+    }
+
+    /* Shrink the badges slightly so they comfortably fit next to each other */
+    .product-code-box, .status-badge {
+        white-space: nowrap;
+        padding: 4px 8px;
+        font-size: 0.75rem;
+    }
 }

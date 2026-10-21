@@ -138,7 +138,7 @@
     align-items: center;
     gap: 4px;
     flex-wrap: wrap;
-    margin-top: auto; /* Anchors it to the bottom of the card */
+    /* margin-top: auto; */
 }
 
 .color-dot {
@@ -150,12 +150,20 @@
 }
 
 /* Map your JSON color names to actual CSS colors here */
-.black { background-color: #000000; }
+/* .black { background-color: #000000; } */
+.black { background-color: #0f172a; }
 .white { background-color: #ffffff; }
 .navy { background-color: #000080; }
 .maroon { background-color: #800000; }
 .grey { background-color: #808080; }
 .red { background-color: #ff0000; }
+.royal-blue { background-color: #1d4ed8; }
+.steel-grey { background-color: #64748b; }
+.beige { background-color: #e8dcc4; }
+.coffee-brown { background-color: #4b2e1e; }
+.off-white, .offwhite { 
+    background-color: #faf9f6;
+}
 
 .color-note {
     font-size: 0.65rem;
@@ -200,12 +208,14 @@
 
 .badges-container {
     position: absolute;
-    top: 8px;
+    bottom: 2px;
     left: 8px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
+
+    opacity: 80%;
 }
 
 /* =========================================
@@ -241,4 +251,211 @@
     padding: 2px 6px;       /* Tighter padding */
     border-radius: 4px;
     border: 1px solid #e2e8f0;
+}
+/* =========================================
+   SEARCH & FILTER SECTION
+   ========================================= */
+.search-filter-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 0 1rem 0;
+    padding: 0 1rem;
+}
+
+.search-input-container {
+    flex: 1; 
+    max-width: 400px; 
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    height: 44px; /* Force an exact height */
+    transition: all 0.2s ease;
+}
+
+.search-input-container:focus-within {
+    border-color: #0f2d48; 
+}
+
+/* Add your existing .search-icon and .search-input CSS here... */
+
+.search-icon {
+    padding-left: 14px;
+    font-size: 1rem;
+    color: #94a3b8;
+    pointer-events: none; /* Stops the icon from blocking clicks if they click on it */
+}
+
+.search-input {
+    width: 100%;
+    border: none;
+    padding: 10px 16px 10px 12px; /* Slimmer top/bottom padding to match buttons */
+    font-size: 0.95rem;
+    color: #0f2d48;
+    border-radius: 12px;
+    background: transparent;
+    outline: none;
+}
+
+/* Keeps the placeholder text looking clean and subtle */
+.search-input::placeholder {
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+/* =========================================
+   FILTER BUTTONS
+   ========================================= */
+.filter-buttons-container {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.filter-btn {
+    height: 44px; /* Match the search bar exactly */
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    color: #64748b;
+    border-radius: 20px; 
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap; 
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    background: #f8fafc;
+}
+
+/* The Active (Selected) State */
+.filter-btn.active {
+    background: #0f2d48;
+    color: #ffffff;
+    border-color: #0f2d48;
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+   ========================================= */
+@media (max-width: 768px) {
+    .search-filter-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .search-input-container {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .filter-buttons-container {
+        width: 100%;
+        overflow-x: auto; /* Allows swiping left/right if buttons don't fit */
+        padding-bottom: 0px;
+
+        margin-bottom: -1rem;
+    }
+    
+    /* Hides the ugly scrollbar on mobile while keeping swipe functionality */
+    .filter-buttons-container::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* =========================================
+   PREMIUM EMPTY STATE
+   ========================================= */
+.no-results-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 3rem 1rem; /* Reduced from 4rem */
+    box-sizing: border-box; /* Prevents layout breaking */
+}
+
+.no-results-card {
+    background: #f8fafc;
+    border: 2px dashed #cbd5e1;
+    border-radius: 16px;
+    padding: 2.5rem 1.5rem; /* Slightly tighter default padding */
+    text-align: center;
+    max-width: 420px;
+    width: 100%;
+    box-sizing: border-box; /* Crucial for mobile sizing */
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.02);
+}
+
+.no-results-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5; /* Makes the emoji look like a faded watermark */
+    filter: grayscale(100%); 
+}
+
+.no-results-card h3 {
+    color: #0f2d48;
+    font-size: 1.25rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.no-results-card p {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0 0 1.5rem 0;
+}
+
+.clear-search-btn {
+    background: #0f2d48;
+    color: #ffffff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.clear-search-btn:hover {
+    background: #1e4063;
+}
+
+@media (max-width: 768px) {
+    /* ... your existing mobile search bar rules stay here ... */
+
+    /* Shrink the No Results Card for Mobile */
+    .no-results-wrapper {
+        padding: 2rem 0; 
+    }
+
+    .no-results-card {
+        width: 80%;
+        padding: 2rem 1rem; 
+        border-width: 1px; /* Thinner border looks better on small screens */
+    }
+
+    .no-results-icon {
+        font-size: 2rem; /* Smaller icon */
+        margin-bottom: 0.5rem;
+    }
+
+    .no-results-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .no-results-card p {
+        font-size: 0.85rem;
+        margin: 0 0 1rem 0;
+    }
 }

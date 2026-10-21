@@ -34,24 +34,19 @@ export class RetailProductComponent implements OnInit {
       const foundProduct = retailData.find((p: any) => p.id === productId);
       
       if (foundProduct) {
-        this.product = foundProduct as RetailProduct;
+        this.product = foundProduct as any; // (Or as RetailProduct)
+        this.allImages = this.product?.images || [];
         
-        // 2. Put label first in the thumbnail object
-        const thumbObj = { label: 'Cover', url: this.product.thumbnail };
-        const combined = [thumbObj, ...(this.product.images || [])];
-        
-        // 3. Remove duplicates
-        this.allImages = combined.filter((value, index, self) =>
-          index === self.findIndex((t) => t.url === value.url)
-        );
-        
-        this.activeImage = this.allImages[0];
+        // Always show the first image in the array when opening the page
+        if (this.allImages.length > 0) {
+          this.activeImage = this.allImages[0];
+        }
       }
     });
   }
 
-  changeImage(imageUrl: string) {
-    this.activeImage.url = imageUrl;
+  changeImage(image: { label: string, url: string }) {
+    this.activeImage = image;
   }
   
   selectColor(color: string) {
@@ -106,7 +101,7 @@ export class RetailProductComponent implements OnInit {
 
   // 1. Get the current image number
   get currentIndex(): number {
-    return this.allImages.indexOf(this.activeImage);
+    return this.allImages.findIndex(img => img.url === this.activeImage.url);
   }
 
   // 2. Next & Previous functions

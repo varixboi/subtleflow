@@ -1,9 +1,7 @@
 <div class="product-page-wrapper" *ngIf="product">
-  <a routerLink="/retailers" class="back-link">← Back to Catalog</a>
+  <a routerLink="/retailers" class="back-link">← Return to Catalog</a>
 
 <div class="product-grid">
-    
-    BLOCK 1: IMAGE GALLERY
     <!-- 1. Main image now uses [src]="activeImage" -->
     <!-- <div class="gallery-wrapper">
       <div class="image-gallery">
@@ -28,27 +26,26 @@
              (touchstart)="onTouchStart($event)"
              (touchend)="onTouchEnd($event)">
           
+          <div class="image-counter-overlay" *ngIf="allImages.length > 0">
+            {{ currentIndex + 1 }}/{{ allImages.length }} 
+            <span *ngIf="activeImage.label">| {{ activeImage.label }}</span>
+          </div>
+
           <button class="nav-arrow left-arrow" (click)="prevImage()" *ngIf="allImages.length > 1">❮</button>
 
-          <!-- Update src to activeImage.url -->
+          <!-- Just a standard image tag now -->
           <img [src]="activeImage.url" [alt]="product.name" class="main-image">
 
           <button class="nav-arrow right-arrow" (click)="nextImage()" *ngIf="allImages.length > 1">❯</button>
         </div>
-
-        <!-- NEW: Dynamic Image Counter using activeImage.label -->
-        <div class="image-counter" *ngIf="allImages.length > 0">
-          {{ currentIndex + 1 }}/{{ allImages.length }} 
-          <span *ngIf="activeImage.label">| {{ activeImage.label }}</span>
-        </div>
         
-        <!-- THUMBNAILS -->
+        <!-- THUMBNAILS ROW -->
         <div class="thumbnail-row" *ngIf="allImages.length > 1">
-           <!-- Update src and dynamic class to use img.url -->
+           <!-- Back to a simple *ngFor loop -->
            <img *ngFor="let img of allImages" 
                 [src]="img.url" 
                 class="gallery-thumb"
-                (click)="changeImage(img.url)"
+                (click)="changeImage(img)"
                 [class.selected-thumb]="activeImage.url === img.url">
         </div>
 
@@ -89,7 +86,7 @@
         
         <!-- NEW: Per Piece Calculator -->
         <span class="per-piece-tag" *ngIf="product.set_qty > 1">
-          (₹{{ product.set_price  }} / set)
+          {{product.set_qty}} PCS Set = ₹{{ product.set_price  }}
         </span>
         
         <!-- ... your existing profit margin calculator or other price elements ... -->
@@ -117,19 +114,19 @@
     </div>
 
     <!-- 3. Wash Care -->
-    <div class="spec-item" *ngIf="product.wash_care">
+    <!-- <div class="spec-item" *ngIf="product.wash_care">
       <span class="spec-label">Wash Care</span>
       <span class="spec-value">{{ product.wash_care }}</span>
-    </div>
+    </div> -->
   </div>
 
   <!-- RIGHT COLUMN -->
   <div class="specs-column">
     <!-- 4. Labeling / Branding (Now in its own box) -->
-    <div class="spec-item" *ngIf="product.branding">
+    <!-- <div class="spec-item" *ngIf="product.branding">
       <span class="spec-label">Labeling</span>
       <span class="spec-value">{{ product.branding }}</span>
-    </div>
+    </div> -->
 
     <!-- 5. Set Info & Qty -->
     <div class="spec-item" *ngIf="product.set_info || product.set_qty">
@@ -138,12 +135,10 @@
     </div>
 
     <!-- 6. Logistics (Lead Time on top, HSN below) -->
-    <div class="spec-item" *ngIf="product.hsn_code || product.lead_time">
+    <!-- <div class="spec-item" *ngIf="product.hsn_code || product.lead_time">
       <span class="spec-label">Logistics</span>
-      <!-- Lead time on top using the main value style -->
       <span class="spec-value" *ngIf="product.lead_time">{{ product.lead_time }}</span>
-      <!-- HSN below it using the secondary description style -->
-    </div>
+    </div> -->
   </div>
 
 </div>

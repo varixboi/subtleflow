@@ -1,0 +1,124 @@
+[
+  {
+    "id": "WS-001",
+    "name": "California State Oversized Drop Shoulder Tshirt",
+    "description": "Our best-selling streetwear Tshirt. Features a thick, ribbed neckband and a perfect boxy drape.",
+    "categories": ["TShirts", "Oversized"],
+    "thumbnail": "Steel Grey",
+    "images": [
+      {
+        "label": "Black",
+        "url": "https://media.subtlewear.in/October/California%20State/California%20State_0007_Black%20OS260.webp"
+      },
+      {
+        "label": "Steel Grey",
+        "url": "https://media.subtlewear.in/October/California%20State/California%20State_0009_Steel%20Grey%20OS240.webp"
+      },
+      {
+        "label": "Royal Blue",
+        "url": "https://media.subtlewear.in/October/California%20State/California%20State_0010_Royal%20Blue%20OS240.webp"
+      },
+      {
+        "label": "Coffee Brown",
+        "url": "https://media.subtlewear.in/October/California%20State/California%20State_0013_Coffee%20Brown%20OS240.webp"
+      },
+      {
+        "label": "Red",
+        "url": "https://media.subtlewear.in/October/California%20State/California%20State_0011_Red%20OS240.webp"
+      }
+    ],
+    "size_chart_id": "SC-OVER-TEE",
+    "is_master_set": true,
+    "colors": ["Black", "Steel Grey", "Coffee Brown", "Royal Blue", "Beige"],
+    "set_qty": 20,
+    "set_info": "1S | 1M | 1L | 1XL x 5 colors",
+    "set_price": 5580,
+    "suggested_mrp": 799,
+    "gsm": "240-250",
+    "fabric_composition": "100% Cotton",
+    "fabric_details": "Super Combed French Terry loopback",
+    "fit_type": "Oversized Boxy Fit",
+    "wash_care": "Bio-washed, Pre-shrunk, Machine wash cold",
+    "branding": "Tear-away Label",
+    "weight_per_set": "6.5 kg",
+    "lead_time": "Dispatches in 24 Hours",
+    "hsn_code": "61091000",
+    "status": "ready"
+  },
+  {
+    "id": "WS-002",
+    "name": "Premium Winter Hoodie",
+    "description": "Double-layered hood with kangaroo pockets. Thick ribbed cuffs to keep the cold out.",
+    "categories": ["Hoodies", "Winter Wear"],
+    "thumbnail": "https://media.subtlewear.in/October/Do%20not%20disturb/Do%20Not%20Disturb_0000_Black%20400%20Hoodie.webp",
+    "images": [
+      {
+        "label": "Navy",
+        "url": "https://media.subtlewear.in/October/Do%20not%20disturb/Do%20Not%20Disturb_0001_Navy%20400%20Hoodie.webp"
+      },
+      {
+        "label": "White",
+        "url": "https://media.subtlewear.in/October/Do%20not%20disturb/Do%20Not%20Disturb_0002_White%20400%20Hoodie.webp"
+      }
+    ],
+    "size_chart_id": "SC-OVER-TEE",
+    "is_master_set": true,
+    "colors": ["Black", "White", "Navy"],
+    "set_qty": 9,
+    "set_info": "3 Colors x 4 Sizes (S-XL)",
+    "set_price": 5301,
+    "suggested_mrp": 1499,
+    "gsm": "430+",
+    "fabric_composition": "Cotton Blend",
+    "fabric_details": "80% Cotton / 20% Polyester Heavy Fleece",
+    "fit_type": "Relaxed Fit",
+    "branding": "No Branding",
+    "lead_time": "7-10 Days Production",
+    "hsn_code": "61012000",
+    "status": "on_order"
+  },
+  {
+    "id": "WS-003",
+    "name": "Classic Cargo Joggers",
+    "categories": ["Bottoms", "Trending"],
+    "thumbnail": "retail/ph-sweatshirt.jpg",
+    "images": [
+      {
+        "label": "Front View",
+        "url": "retail/ph-sweatshirt.jpg"
+      }
+    ],
+    "size_chart_id": "SC-CARGO",
+    "is_master_set": false,
+    "colors": ["Desert Sand", "Black"],
+    "set_qty": 3,
+    "set_info": "1(30) | 1(32) | 1(34)",
+    "set_price": 1800,
+    "suggested_mrp": 1299,
+    "gsm": "280",
+    "fabric_composition": "Custom Blend",
+    "fabric_details": "98% Cotton / 2% Elastane Stretch Twill",
+    "fit_type": "Slim Tapered",
+    "wash_care": "Do not bleach, Tumble dry low",
+    "branding": "Non-tearable Branding",
+    "status": "out_of_stock"
+  },
+  {
+    "id": "WS-004",
+    "name": "Activewear Mesh Vest",
+    "categories": ["Activewear", "Summer"],
+    "thumbnail": "retail/placeholder.jpg",
+    "images": [],
+    "is_master_set": false,
+    "colors": ["Neon Green", "Black"],
+    "set_qty": 5,
+    "set_info": "S - 2XL",
+    "set_price": 1000,
+    "suggested_mrp": 499,
+    "gsm": "160",
+    "fabric_composition": "Polyester",
+    "fabric_details": "100% Dry-Fit Micro-Mesh",
+    "fit_type": "Athletic Fit",
+    "status": "hide"
+  }
+]

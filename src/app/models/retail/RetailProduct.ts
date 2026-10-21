@@ -20,7 +20,8 @@ export interface RetailProduct {
     
     // 4. Product Specifications
     gsm: string;                // <-- Fixes the gsm errors (Set to string as requested!)
-    fabric_composition: '100% Cotton' | 'Cotton Blend' | 'Polyester' | 'Custom Blend'; //
+    // fabric_composition: '100% Cotton' | 'Cotton Blend' | 'Polyester' | 'Custom Blend'; //
+    fabric_composition: string;
     fabric_details: string; // <-- Fixes the fabric_composition errors
     fit_type: string;           // <-- Fixes the fit_type errors
     wash_care?: string;         
