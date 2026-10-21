@@ -10,11 +10,16 @@ import { RetailProductComponent } from './pages/retail-product/retail-product';
 
 export const routes: Routes = [
 // {path: 'rate-estimator-xyz', component: RateEstimator},
+{ 
+    path: '', 
+    redirectTo: 'retailers', 
+    pathMatch: 'full' 
+},
 {path: 'catalog', component: Catalog},
 {path: 'retailers', component: RetailersCatalog},
 {path: 'retailers/:id', component: RetailProductComponent},
 // {path: 'place-order-xyz', component: PlaceOrder},
 // {path: 'create-xyz', component: CreateOrder},
 // {path: 'mockup', component: MockupGenerator},
-{path: '', component: B2cEstimator}
+{path: 'b2c', component: B2cEstimator}
 ];
