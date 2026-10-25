@@ -4,23 +4,5 @@
       "source": "/(.*)",
       "destination": "/index.html"
     }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "header",
-          "key": "Accept",
-          "value": "text/html(.*)"
-        }
-      ],
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-cache, no-store, must-revalidate, max-age=0"
-        }
-      ]
-    }
   ]
 }
