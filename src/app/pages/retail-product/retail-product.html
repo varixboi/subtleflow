@@ -107,31 +107,33 @@
       <span class="fabric-desc" *ngIf="product.fabric_details">{{ product.fabric_details }}</span>
     </div>
 
-    <!-- 2. Fit Type (Separated from Labeling) -->
-    <div class="spec-item" *ngIf="product.fit_type">
-      <span class="spec-label">Fit</span>
-      <span class="spec-value">{{ product.fit_type }}</span>
-    </div>
-
+    
     <!-- 3. Wash Care -->
     <!-- <div class="spec-item" *ngIf="product.wash_care">
       <span class="spec-label">Wash Care</span>
       <span class="spec-value">{{ product.wash_care }}</span>
     </div> -->
   </div>
-
+  
+  <!-- 4. Labeling / Branding (Now in its own box) -->
+  <!-- <div class="spec-item" *ngIf="product.branding">
+    <span class="spec-label">Labeling</span>
+    <span class="spec-value">{{ product.branding }}</span>
+  </div> -->
+  
   <!-- RIGHT COLUMN -->
   <div class="specs-column">
-    <!-- 4. Labeling / Branding (Now in its own box) -->
-    <!-- <div class="spec-item" *ngIf="product.branding">
-      <span class="spec-label">Labeling</span>
-      <span class="spec-value">{{ product.branding }}</span>
-    </div> -->
-
+    
     <!-- 5. Set Info & Qty -->
     <div class="spec-item" *ngIf="product.set_info || product.set_qty">
       <span class="spec-label">Set Details <span *ngIf="product.set_qty">({{ product.set_qty }} Pcs)</span></span>
       <span class="spec-value">{{ product.set_info }}</span>
+    </div>
+    
+    <!-- 2. Fit Type (Separated from Labeling) -->
+    <div class="spec-item" *ngIf="product.fit_type">
+      <span class="spec-label">Fit</span>
+      <span class="spec-value">{{ product.fit_type }}</span>
     </div>
 
     <!-- 6. Logistics (Lead Time on top, HSN below) -->

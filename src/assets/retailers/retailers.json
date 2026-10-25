@@ -1,8 +1,237 @@
 [
   {
-    "id": "OSTEE-003",
-    "name": "Budwiser Oversized Drop Shoulder Tshirt",
-    "description": "Features a thick, ribbed neckband and a perfect boxy drape.",
+    "id": "OSHOOD-000",
+    "name": "PLAIN Heavyweight Dropshoulder Hoodie",
+    "description": "Heavyweight 430GSM Hoodie, heaviest in the market. Double-layered hood with kangaroo pockets. Thick ribbed cuffs to keep the cold out.",
+    "categories": ["Hoodies", "Oversized", "Winter Articles"],
+    "thumbnail": "Navy",
+    "images": [
+      {
+        "label": "Black",
+        "url": "https://media.subtlewear.in/Plain/400hoodie%20Black.webp"
+      },
+      {
+        "label": "Navy",
+        "url": "https://media.subtlewear.in/Plain/400hoodie%20Navy.webp"
+      },
+      {
+        "label": "White",
+        "url": "https://media.subtlewear.in/Plain/400hoodie%20White.webp"
+      }
+    ],
+    "size_chart_id": "SC-OS-HOODIE",
+    "is_master_set": true,
+    "colors": ["Black", "White", "Navy"],
+    "set_qty": 9,
+    "set_info": "1 M | 1L | 1XL x 3 colors",
+    "set_price": 4671,
+    "suggested_mrp": 1199,
+    "gsm": "430+",
+    "fabric_composition": "Cotton Blend",
+    "fabric_details": "90% Cotton / 10% Polyester Loopknit Raising Fabric",
+    "fit_type": "Oversized Fit",
+    "branding": "",
+    "lead_time": "",
+    "hsn_code": "61091000",
+    "status": "ready"
+  },
+  {
+    "id": "OSHOOD-001",
+    "name": "'Awaken The Dragon' Heavyweight Dropshoulder Hoodie",
+    "description": "Heavyweight 430GSM Hoodie, heaviest in the market. Double-layered hood with kangaroo pockets. Thick ribbed cuffs to keep the cold out.",
+    "categories": ["Hoodies", "Oversized", "Winter Articles"],
+    "thumbnail": "White",
+    "images": [
+      {
+        "label": "Black",
+        "url": "https://media.subtlewear.in/October/Awaken%20dragon/Awaken%20dragon_0000_Black%20400%20Hoodie.webp"
+      },
+      {
+        "label": "Navy",
+        "url": "https://media.subtlewear.in/October/Awaken%20dragon/Awaken%20dragon_0001_Navy%20400%20Hoodie.webp"
+      },
+      {
+        "label": "White",
+        "url": "https://media.subtlewear.in/October/Awaken%20dragon/Awaken%20dragon_0002_White%20400%20Hoodie.webp"
+      }
+    ],
+    "size_chart_id": "SC-OS-HOODIE",
+    "is_master_set": true,
+    "colors": ["Black", "White", "Navy"],
+    "set_qty": 9,
+    "set_info": "1 M | 1L | 1XL x 3 colors",
+    "set_price": 5301,
+    "suggested_mrp": 1499,
+    "gsm": "430+",
+    "fabric_composition": "Cotton Blend",
+    "fabric_details": "90% Cotton / 10% Polyester Loopknit Raising Fabric",
+    "fit_type": "Oversized Fit",
+    "branding": "",
+    "lead_time": "",
+    "hsn_code": "61091000",
+    "status": "ready"
+  },
+  {
+    "id": "OSHOOD-003",
+    "name": "'Budwiser' Heavyweight Dropshoulder Hoodie",
+    "description": "Heavyweight 430GSM Hoodie, heaviest in the market. Double-layered hood with kangaroo pockets. Thick ribbed cuffs to keep the cold out.",
+    "categories": ["Hoodies", "Oversized", "Winter Articles"],
+    "thumbnail": "Black",
+    "images": [
+      {
+        "label": "Black",
+        "url": "https://media.subtlewear.in/October/Budwiser/Budwiser_0000_Black%20400%20Hoodie.webp"
+      },
+      {
+        "label": "Navy",
+        "url": "https://media.subtlewear.in/October/Budwiser/Budwiser_0001_Navy%20400%20Hoodie.webp"
+      },
+      {
+        "label": "White",
+        "url": "https://media.subtlewear.in/October/Budwiser/Budwiser_0002_White%20400%20Hoodie.webp"
+      }
+    ],
+    "size_chart_id": "SC-OS-HOODIE",
+    "is_master_set": true,
+    "colors": ["Black", "White", "Navy"],
+    "set_qty": 9,
+    "set_info": "1 M | 1L | 1XL x 3 colors",
+    "set_price": 5301,
+    "suggested_mrp": 1499,
+    "gsm": "430+",
+    "fabric_composition": "Cotton Blend",
+    "fabric_details": "90% Cotton / 10% Polyester Loopknit Raising Fabric",
+    "fit_type": "Oversized Fit",
+    "branding": "",
+    "lead_time": "",
+    "hsn_code": "61091000",
+    "status": "ready"
+  },
+  {
+    "id": "OSHOOD-004",
+    "name": "'California State' Heavyweight Dropshoulder Hoodie",
+    "description": "Heavyweight 430GSM Hoodie, heaviest in the market. Double-layered hood with kangaroo pockets. Thick ribbed cuffs to keep the cold out.",
+    "categories": ["Hoodies", "Oversized", "Winter Articles"],
+    "thumbnail": "Navy",
+    "images": [
+      {
+        "label": "Black",
+        "url": "https://media.subtlewear.in/October/California%20State/California%20State_0000_Black%20400%20Hoodie.webp"
+      },
+      {
+        "label": "Navy",
+        "url": "https://media.subtlewear.in/October/California%20State/California%20State_0001_Navy%20400%20Hoodie.webp"
+      },
+      {
+        "label": "White",
+        "url": "https://media.subtlewear.in/October/California%20State/California%20State_0002_White%20400%20Hoodie.webp"
+      }
+    ],
+    "size_chart_id": "SC-OS-HOODIE",
+    "is_master_set": true,
+    "colors": ["Black", "White", "Navy"],
+    "set_qty": 9,
+    "set_info": "1 M | 1L | 1XL x 3 colors",
+    "set_price": 5301,
+    "suggested_mrp": 1499,
+    "gsm": "430+",
+    "fabric_composition": "Cotton Blend",
+    "fabric_details": "90% Cotton / 10% Polyester Loopknit Raising Fabric",
+    "fit_type": "Oversized Fit",
+    "branding": "",
+    "lead_time": "",
+    "hsn_code": "61091000",
+    "status": "ready"
+  },
+  {
+    "id": "OSHOOD-008",
+    "name": "'Virat's KING 18' Heavyweight Dropshoulder Hoodie",
+    "description": "Heavyweight 430GSM Hoodie, heaviest in the market. Double-layered hood with kangaroo pockets. Thick ribbed cuffs to keep the cold out.",
+    "categories": ["Hoodies", "Oversized", "Winter Articles"],
+    "thumbnail": "Navy",
+    "images": [
+      {
+        "label": "Black",
+        "url": "https://media.subtlewear.in/October/KING%2018/KING%2018_0000_Black%20400%20Hoodie.webp"
+      },
+      {
+        "label": "Navy",
+        "url": "https://media.subtlewear.in/October/KING%2018/KING%2018_0001_Navy%20400%20Hoodie.webp"
+      },
+      {
+        "label": "White",
+        "url": "https://media.subtlewear.in/October/KING%2018/KING%2018_0002_White%20400%20Hoodie.webp"
+      }
+    ],
+    "size_chart_id": "SC-OS-HOODIE",
+    "is_master_set": true,
+    "colors": ["Black", "White", "Navy"],
+    "set_qty": 9,
+    "set_info": "1 M | 1L | 1XL x 3 colors",
+    "set_price": 5301,
+    "suggested_mrp": 1499,
+    "gsm": "430+",
+    "fabric_composition": "Cotton Blend",
+    "fabric_details": "90% Cotton / 10% Polyester Loopknit Raising Fabric",
+    "fit_type": "Oversized Fit",
+    "branding": "",
+    "lead_time": "",
+    "hsn_code": "61091000",
+    "status": "ready"
+  },
+  {
+    "id": "OSHOOD-012",
+    "name": "'SPIDERR' Heavyweight Dropshoulder Hoodie",
+    "description": "Heavyweight 430GSM Hoodie, heaviest in the market. Double-layered hood with kangaroo pockets. Thick ribbed cuffs to keep the cold out.",
+    "categories": ["Hoodies", "Oversized", "Winter Articles"],
+    "thumbnail": "White",
+    "images": [
+      {
+        "label": "Black",
+        "url": "https://media.subtlewear.in/October/Spider%20Design/Spider%20Design_0000_Black%20400%20Hoodie.webp"
+      },
+      {
+        "label": "Navy",
+        "url": "https://media.subtlewear.in/October/Spider%20Design/Spider%20Design_0001_Navy%20400%20Hoodie.webp"
+      },
+      {
+        "label": "White",
+        "url": "https://media.subtlewear.in/October/Spider%20Design/Spider%20Design_0002_White%20400%20Hoodie.webp"
+      }
+    ],
+    "size_chart_id": "SC-OS-HOODIE",
+    "is_master_set": true,
+    "colors": ["Black", "White", "Navy"],
+    "set_qty": 9,
+    "set_info": "1 M | 1L | 1XL x 3 colors",
+    "set_price": 5301,
+    "suggested_mrp": 1499,
+    "gsm": "430+",
+    "fabric_composition": "Cotton Blend",
+    "fabric_details": "90% Cotton / 10% Polyester Loopknit Raising Fabric",
+    "fit_type": "Oversized Fit",
+    "branding": "",
+    "lead_time": "",
+    "hsn_code": "61091000",
+    "status": "ready"
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "id": "OSTEE-001",
+    "name": "Awaken The Dragon Oversized Drop Shoulder Tshirt",
+    "description": "Features a thick, ribbed neckband and a perfect drape.",
     "categories": ["Tshirt", "Oversized"],
     "thumbnail": "White",
     "images": [
@@ -36,8 +265,8 @@
     "suggested_mrp": 799,
     "gsm": "240-250",
     "fabric_composition": "100% Cotton",
-    "fabric_details": "Super Combed French Terry loopback",
-    "fit_type": "Oversized Boxy Fit",
+    "fabric_details": "Super Combed French Terry Loopknit",
+    "fit_type": "Oversized Fit",
     "wash_care": "Bio-washed, Pre-shrunk, Machine wash cold",
     "branding": "Tear-away Label",
     "weight_per_set": "6.5 kg",
@@ -48,7 +277,7 @@
   {
     "id": "OSTEE-003",
     "name": "Budwiser Oversized Drop Shoulder Tshirt",
-    "description": "Features a thick, ribbed neckband and a perfect boxy drape.",
+    "description": "Features a thick, ribbed neckband and a perfect drape.",
     "categories": ["Tshirt", "Oversized"],
     "thumbnail": "Steel Grey",
     "images": [
@@ -82,8 +311,8 @@
     "suggested_mrp": 799,
     "gsm": "240-250",
     "fabric_composition": "100% Cotton",
-    "fabric_details": "Super Combed French Terry loopback",
-    "fit_type": "Oversized Boxy Fit",
+    "fabric_details": "Super Combed French Terry Loopknit",
+    "fit_type": "Oversized Fit",
     "wash_care": "Bio-washed, Pre-shrunk, Machine wash cold",
     "branding": "Tear-away Label",
     "weight_per_set": "6.5 kg",
@@ -94,7 +323,7 @@
   {
     "id": "OSTEE-004",
     "name": "California State Oversized Drop Shoulder Tshirt",
-    "description": "Features a thick, ribbed neckband and a perfect boxy drape.",
+    "description": "Features a thick, ribbed neckband and a perfect drape.",
     "categories": ["Tshirt", "Oversized"],
     "thumbnail": "Black",
     "images": [
@@ -128,8 +357,8 @@
     "suggested_mrp": 799,
     "gsm": "240-250",
     "fabric_composition": "100% Cotton",
-    "fabric_details": "Super Combed French Terry loopback",
-    "fit_type": "Oversized Boxy Fit",
+    "fabric_details": "Super Combed French Terry Loopknit",
+    "fit_type": "Oversized Fit",
     "wash_care": "Bio-washed, Pre-shrunk, Machine wash cold",
     "branding": "Tear-away Label",
     "weight_per_set": "6.5 kg",
@@ -140,7 +369,7 @@
   {
     "id": "OSTEE-008",
     "name": "Virat's KING 18 Oversized Drop Shoulder Tshirt",
-    "description": "Features a thick, ribbed neckband and a perfect boxy drape.",
+    "description": "Features a thick, ribbed neckband and a perfect drape.",
     "categories": ["Tshirt", "Oversized"],
     "thumbnail": "Coffee Brown",
     "images": [
@@ -174,8 +403,8 @@
     "suggested_mrp": 799,
     "gsm": "240-250",
     "fabric_composition": "100% Cotton",
-    "fabric_details": "Super Combed French Terry loopback",
-    "fit_type": "Oversized Boxy Fit",
+    "fabric_details": "Super Combed French Terry Loopknit",
+    "fit_type": "Oversized Fit",
     "wash_care": "Bio-washed, Pre-shrunk, Machine wash cold",
     "branding": "Tear-away Label",
     "weight_per_set": "6.5 kg",
@@ -186,7 +415,7 @@
   {
     "id": "OSTEE-012",
     "name": "SPIDERR Oversized Drop Shoulder Tshirt",
-    "description": "Features a thick, ribbed neckband and a perfect boxy drape.",
+    "description": "Features a thick, ribbed neckband and a perfect drape.",
     "categories": ["Tshirt", "Oversized", "Hoodies"],
     "thumbnail": "Royal Blue",
     "images": [
@@ -220,8 +449,8 @@
     "suggested_mrp": 799,
     "gsm": "240-250",
     "fabric_composition": "100% Cotton",
-    "fabric_details": "Super Combed French Terry loopback",
-    "fit_type": "Oversized Boxy Fit",
+    "fabric_details": "Super Combed French Terry Loopknit",
+    "fit_type": "Oversized Fit",
     "wash_care": "Bio-washed, Pre-shrunk, Machine wash cold",
     "branding": "Tear-away Label",
     "weight_per_set": "6.5 kg",

@@ -5,6 +5,11 @@
     "L": { "chest": "48", "length": "30", "shoulder": "24", "sleeve": "10" },
     "XL": { "chest": "50", "length": "31", "shoulder": "25", "sleeve": "10.5" }
   },
+  "SC-OS-HOODIE": {
+    "M": { "chest": "44", "length": "27"},
+    "L": { "chest": "46", "length": "28"},
+    "XL": { "chest": "48", "length": "29"}
+  },
   "SC-CARGO": {
     "30": { "waist": "30", "inseam": "29", "hip": "40" },
     "32": { "waist": "32", "inseam": "30", "hip": "42" },
