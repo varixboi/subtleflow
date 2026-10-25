@@ -30,6 +30,8 @@ export class RetailProductComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
+      window.scrollTo(0, 0);
+
       const productId = params.get('id');
       const foundProduct = retailData.find((p: any) => p.id === productId);
       
@@ -79,11 +81,30 @@ export class RetailProductComponent implements OnInit {
     return this.getRetailValue() - this.product.set_price;
   }
 
+// --- WHATSAPP ENQUIRY ---
+  // sendWhatsAppEnquiry() {
+  //   if (this.product) {
+  //     // Intelligently handle the color text based on what they clicked (or didn't click)
+  //     const colorText = this.selectedColor 
+  //       ? `(Color: ${this.selectedColor})` 
+  //       : this.product.is_master_set 
+  //         ? `(Master Set)` 
+  //         : `(Color: To be discussed)`;
+
+  //     // Added the Product ID right next to the Product Name
+  //     const message = `Hi, I am interested in ordering:\n\n*${this.product.name}* (${this.product.id})\n${colorText}\nPrice: ₹${this.product.set_price} per set.\n\nCould you share the next steps?`;
+      
+  //     const encodedMessage = encodeURIComponent(message);
+  //     window.open(`https://wa.me/${this.businessWhatsAppNumber}?text=${encodedMessage}`, '_blank');
+  //   }
+  // }
+
   // --- WHATSAPP ENQUIRY ---
-// --- WHATSAPP ENQUIRY ---
-// --- WHATSAPP ENQUIRY ---
   sendWhatsAppEnquiry() {
     if (this.product) {
+      // 1. Grab the exact URL the user is currently on
+      const productLink = window.location.href;
+
       // Intelligently handle the color text based on what they clicked (or didn't click)
       const colorText = this.selectedColor 
         ? `(Color: ${this.selectedColor})` 
@@ -91,8 +112,8 @@ export class RetailProductComponent implements OnInit {
           ? `(Master Set)` 
           : `(Color: To be discussed)`;
 
-      // Added the Product ID right next to the Product Name
-      const message = `Hi, I am interested in ordering:\n\n*${this.product.name}* (${this.product.id})\n${colorText}\nPrice: ₹${this.product.set_price} per set.\n\nCould you share the next steps?`;
+      // 2. Added the link at the bottom and fixed the bold markdown for the product name
+      const message = `Hi, I am interested in ordering:\n\n*${this.product.name}* (${this.product.id})\n${colorText}\nPrice: ₹${this.product.set_price} per set.\n\nView Product: ${productLink}\n\nCould you share the next steps?`;
       
       const encodedMessage = encodeURIComponent(message);
       window.open(`https://wa.me/${this.businessWhatsAppNumber}?text=${encodedMessage}`, '_blank');
