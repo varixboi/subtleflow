@@ -3,6 +3,11 @@
     font-family: 'Stack Sans Text', sans-serif;
 }
 
+/* ADDED TO REMOVE ACCIDENTAL ZOOMING IN WHEN DOUBLE TAPPING SCREEN*/
+html, body {
+  touch-action: manipulation;
+}
+
 /* IMPORTANT FOR FONT SIZES */
 /* Default desktop styles (100% = 16px) */
 html {
